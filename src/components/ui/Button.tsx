@@ -11,7 +11,8 @@ interface ButtonProps {
   size?: "sm" | "md" | "lg";
   className?: string;
   external?: boolean;
-  type?: "button" | "submit";
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 export function Button({
@@ -23,9 +24,10 @@ export function Button({
   className,
   external,
   type = "button",
+  disabled = false,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-semibold tracking-wide transition-all duration-200 rounded-sm uppercase";
+    "inline-flex items-center justify-center font-semibold tracking-wide transition-all duration-200 rounded-sm uppercase disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variants = {
     primary:
@@ -73,7 +75,7 @@ export function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={combinedClassName}>
+    <button type={type} onClick={onClick} disabled={disabled} className={combinedClassName}>
       {children}
     </button>
   );

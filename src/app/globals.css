@@ -11,17 +11,21 @@
   }
 
   body {
-    @apply bg-brand-offwhite text-brand-black;
+    background-color: #faf7f2;
+    color: #1c1917;
     overflow-x: hidden;
+    font-family: var(--font-sans), system-ui, sans-serif;
   }
 
   ::selection {
-    @apply bg-brand-yellow text-brand-black;
+    background-color: #FACC15;
+    color: #1c1917;
   }
 
   /* Improve focus visibility for accessibility */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand-yellow;
+    outline: 2px solid #FACC15;
+    outline-offset: 2px;
   }
 
   /* Better touch targets on mobile */
@@ -38,7 +42,7 @@
   }
 
   .section-spacing {
-    @apply py-section;
+    @apply py-16 md:py-24;
   }
 
   .container-wide {
@@ -46,11 +50,19 @@
   }
 
   .container-narrow {
-    @apply max-w-[1000px] mx-auto;
+    @apply max-w-[860px] mx-auto;
   }
 
-  .text-balance {
-    text-wrap: balance;
+  .font-serif {
+    font-family: var(--font-serif), Georgia, serif;
+  }
+
+  .font-sans {
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono), monospace;
   }
 }
 
@@ -108,16 +120,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #F7F6F0;
+  background: #faf7f2;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #231F20;
+  background: #1c1917;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F3DE1B;
+  background: #FACC15;
 }
 
 /* Reduced motion for users who prefer it */
@@ -142,29 +154,16 @@
 /* Mobile-specific improvements */
 @media (max-width: 768px) {
   .section-spacing {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
   }
 }
 
-/* Ensure images don't break layout */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* Better line wrapping for display text */
 h1, h2, h3, h4 {
   text-wrap: balance;
-}
-
-/* Smooth image loading */
-img[loading="lazy"] {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-img[loading="lazy"].loaded,
-img[loading="lazy"][src] {
-  opacity: 1;
 }

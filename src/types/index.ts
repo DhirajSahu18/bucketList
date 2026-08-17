@@ -1,3 +1,13 @@
+export type AssetType = "brand" | "internet" | "ai" | "placeholder";
+
+export interface AssetMeta {
+  src: string;
+  type: AssetType;
+  source?: string;
+  credit?: string;
+  alt: string;
+}
+
 export interface Founder {
   id: string;
   name: string;
@@ -6,6 +16,9 @@ export interface Founder {
   bio: string;
   shortBio: string;
   experience: string;
+  groupsLedCount: number;
+  region: string;
+  statement: string;
   socialLinks: {
     instagram?: string;
     linkedin?: string;
@@ -28,6 +41,7 @@ export interface Destination {
   guideContent: string;
   faqs: FAQ[];
   images: string[];
+  galleryMeta?: AssetMeta[];
 }
 
 export interface Trip {
@@ -37,7 +51,9 @@ export interface Trip {
   destination: Destination;
   destinationId: string;
   heroImage: string;
+  heroAssetMeta?: AssetMeta;
   gallery: string[];
+  galleryMeta?: AssetMeta[];
   dates: {
     start: string;
     end: string;
@@ -51,6 +67,14 @@ export interface Trip {
   seatsRemaining: number;
   founder: Founder;
   founderId: string;
+  founderNote?: {
+    author: string;
+    text: string;
+  };
+  hardTruth?: {
+    headline: string;
+    bullets: string[];
+  };
   summary: string;
   difficulty: "Easy" | "Moderate" | "Challenging" | "Difficult";
   accommodationType: string;
@@ -79,6 +103,7 @@ export interface ItineraryDay {
 export interface Testimonial {
   id: string;
   name: string;
+  handle?: string;
   tripName: string;
   tripSlug?: string;
   destinationName: string;
@@ -88,7 +113,11 @@ export interface Testimonial {
   profilePhoto?: string;
   travellerImage?: string;
   source: "google" | "whatsapp" | "instagram" | "direct";
+  sourceLabel?: string;
   featured: boolean;
+  type?: "whatsapp_chat" | "google_review" | "instagram_story" | "photo_post" | "short_quote";
+  image?: string;
+  time?: string;
 }
 
 export interface FAQ {
@@ -105,6 +134,7 @@ export interface PrivateTripExample {
   indicativePrice: string;
   description: string;
   image: string;
+  assetMeta?: AssetMeta;
 }
 
 export interface Enquiry {

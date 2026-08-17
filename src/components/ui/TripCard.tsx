@@ -1,112 +1,86 @@
-import Link from "next/link";
+import Link from "next/image";
+import NextLink from "next/link";
 import { Trip } from "@/types";
-import { formatDateRange, formatPrice, cn } from "@/lib/utils";
+import { formatPrice, formatDateRange } from "@/lib/utils";
 
 interface TripCardProps {
   trip: Trip;
-  featured?: boolean;
 }
 
-export function TripCard({ trip, featured }: TripCardProps) {
-  const statusColors = {
-    upcoming: "bg-brand-yellow text-brand-black",
-    filling: "bg-orange-100 text-orange-800",
-    "almost-full": "bg-red-100 text-red-800",
-    full: "bg-gray-200 text-gray-600",
-    completed: "bg-gray-200 text-gray-500",
-  };
-
-  const statusLabels = {
-    upcoming: "Open",
-    filling: "Filling Fast",
-    "almost-full": "Almost Full",
-    full: "Sold Out",
-    completed: "Completed",
-  };
+export function TripCard({ trip }: TripCardProps) {
+  const isFilling = trip.seatsRemaining <= 4 && trip.seatsRemaining > 0;
 
   return (
-    <Link
+    <NextLink
       href={`/trips/${trip.slug}`}
-      className={cn(
-        "group block bg-white rounded-sm overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1",
-        featured && "ring-2 ring-brand-yellow"
-      )}
+      className="group block bg-white border border-[#e6ded1] rounded-sm overflow-hidden transition-all duration-300 hover:border-[#1c1917] hover:shadow-md"
     >
-      {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-brand-gray">
+      {/* Card Image */}
+      <div className="relative aspect-[16/10] overflow-hidden bg-[#faf7f2]">
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
           style={{ backgroundImage: `url('${trip.heroImage}')` }}
         />
-        {/* Fallback */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-black/40 to-transparent" />
-
-        {/* Status Badge */}
-        <div className="absolute top-3 left-3">
-          <span
-            className={cn(
-              "px-2.5 py-1 text-xs font-semibold rounded-sm",
-              statusColors[trip.status]
-            )}
-          >
-            {statusLabels[trip.status]}
-          </span>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917]/80 via-transparent to-transparent" />
+        
+        {/* Destination Tag */}
+        <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#1c1917]/80 backdrop-blur-sm text-[#FAF7F2] font-mono text-[11px] uppercase tracking-wider rounded-xs border border-white/10">
+          {trip.destination.name}
         </div>
 
-        {/* Destination Tag */}
-        <div className="absolute bottom-3 left-3">
-          <span className="text-white font-display text-2xl tracking-tight drop-shadow-lg">
-            {trip.destination.name}
-          </span>
+        {/* Seat Availability Badge */}
+        <div className="absolute top-3 right-3">
+          {isFilling ? (
+            <span className="px-2.5 py-1 bg-[#FACC15] text-[#1c1917] font-mono text-[11px] font-bold tracking-tight rounded-xs shadow-xs">
+              {trip.seatsRemaining} of {trip.maxGroupSize} left
+            </span>
+          ) : (
+            <span className="px-2.5 py-1 bg-[#faf7f2]/90 backdrop-blur-sm text-[#1c1917] font-mono text-[11px] rounded-xs border border-[#e6ded1]">
+              Max {trip.maxGroupSize} group
+            </span>
+          )}
+        </div>
+
+        {/* Founder Badge Overlay */}
+        <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/60 backdrop-blur-md rounded-xs border border-white/10 text-white text-xs">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]" />
+          <span className="font-mono text-[11px]">Led by {trip.founder.name.split(" ")[0]}</span>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="p-5">
-        <h3 className="font-semibold text-brand-black text-lg mb-2 group-hover:text-gray-700 transition-colors">
+      {/* Card Content */}
+      <div className="p-5 sm:p-6 space-y-3">
+        {/* Title */}
+        <h3 className="font-serif text-xl sm:text-2xl text-[#1c1917] font-semibold group-hover:text-[#8c4a2f] transition-colors leading-snug">
           {trip.name}
         </h3>
 
-        <div className="space-y-1.5 text-sm text-gray-600 mb-4">
-          <p className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            {formatDateRange(trip.dates.start, trip.dates.end)}
-          </p>
-          <p className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            {trip.duration}
-          </p>
-          <p className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            Max {trip.maxGroupSize} people &middot;{" "}
-            <span className="font-medium text-brand-black">
-              {trip.seatsRemaining} seats left
-            </span>
-          </p>
+        {/* Dates & Duration */}
+        <div className="flex items-center gap-2 text-xs font-mono text-[#6b6257]">
+          <span>{formatDateRange(trip.dates.start, trip.dates.end)}</span>
+          <span>&middot;</span>
+          <span className="font-semibold text-[#1c1917]">{trip.duration}</span>
         </div>
 
-        {/* Price & Leader */}
-        <div className="flex items-end justify-between pt-3 border-t border-brand-gray">
+        <p className="text-xs text-[#6b6257] line-clamp-2 leading-relaxed font-sans">
+          {trip.summary}
+        </p>
+
+        {/* Price & CTA Row */}
+        <div className="pt-3 border-t border-[#e6ded1] flex items-center justify-between">
           <div>
-            <p className="text-xs text-gray-500 uppercase tracking-wide">From</p>
-            <p className="font-display text-2xl text-brand-black">
+            <span className="text-[10px] font-mono uppercase text-[#6b6257] block">Fixed Price</span>
+            <span className="font-mono text-lg font-bold text-[#1c1917]">
               {formatPrice(trip.price)}
-            </p>
+            </span>
+            <span className="text-xs text-[#6b6257] font-sans"> / head</span>
           </div>
-          <div className="text-right">
-            <p className="text-xs text-gray-500">Led by</p>
-            <p className="text-sm font-medium text-brand-black">
-              {trip.founder.name}
-            </p>
-          </div>
+
+          <span className="text-xs font-medium text-[#1c1917] group-hover:text-[#8c4a2f] inline-flex items-center gap-1">
+            View trip <span className="text-[#FACC15] group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </span>
         </div>
       </div>
-    </Link>
+    </NextLink>
   );
 }

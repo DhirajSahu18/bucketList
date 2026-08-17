@@ -1,171 +1,144 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { privateTripExamples } from "@/data/private-trips";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppLink, getWhatsAppPrivateMessage } from "@/lib/utils";
 import { PrivateTripForm } from "./PrivateTripForm";
 
 export const metadata: Metadata = {
-  title: "Private Trips",
+  title: "Private Trips Consultation | TheBucketList.co",
   description:
-    "Plan a private trip with your friends, family, or team. We'll design the itinerary around your dates, group, and priorities.",
+    "Consultative private trips designed around your dates, group, and budget. Pre-qualifying sample itineraries with indicative pricing.",
 };
 
 export default function PrivateTripsPage() {
   return (
-    <div className="pt-20 md:pt-24">
-      {/* Hero */}
-      <section className="relative bg-brand-black section-padding py-20 md:py-28 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('/images/private-hero.jpg')" }}
-        />
+    <div className="pt-20 md:pt-24 bg-[#faf7f2] min-h-screen text-[#1c1917]">
+      {/* Consultative Hero Panel (Inverted Dark Aesthetic) */}
+      <section className="relative bg-[#1c1917] text-[#faf7f2] section-padding py-20 md:py-28 overflow-hidden">
         <div className="relative container-wide">
-          <div className="max-w-2xl">
-            <h1 className="font-display text-display-xl text-white mb-4">
-              You bring the people.
+          <div className="max-w-3xl space-y-6">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#FACC15] block font-bold">
+              Consultative &middot; Not Transactional
+            </span>
+            <h1 className="font-serif text-4xl sm:text-6xl text-[#faf7f2] font-bold leading-tight">
+              Tell us what you&apos;re thinking.
               <br />
-              <span className="text-brand-yellow">
-                We&apos;ll build the trip.
-              </span>
+              <span className="text-[#FACC15]">We&apos;ll build the trip.</span>
             </h1>
-            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              Private trips designed around your dates, group, pace and
-              priorities. No fitting into someone else&apos;s schedule.
+            <p className="text-[#e6ded1]/90 text-lg sm:text-xl font-sans leading-relaxed">
+              No off-the-shelf reseller packages. We talk through your dates, group size, and pacing, then design a customized itinerary with pre-qualifying indicative pricing.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Button href="#enquiry" variant="primary" size="lg">
-                Tell Us What You&apos;re Thinking
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <Button href="#consultation-form" variant="primary" size="lg" className="bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] border-none font-bold">
+                Tell us what you&apos;re thinking &rarr;
               </Button>
-              <Button
+              <a
                 href={getWhatsAppLink(getWhatsAppPrivateMessage())}
-                variant="whatsapp"
-                size="lg"
-                external
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#128c7e] text-white px-6 py-3.5 rounded text-sm font-medium hover:bg-[#0e6c61] transition-colors"
               >
-                WhatsApp Us
-              </Button>
+                <span>WhatsApp Aryan & Kashshish</span>
+              </a>
             </div>
+            <p className="text-xs font-mono text-[#FACC15] pt-1">
+              ⚡ We reply on WhatsApp within 2 hours
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Example Trips */}
-      <section className="section-padding section-spacing bg-brand-offwhite">
-        <div className="container-wide">
-          <h2 className="font-display text-display-md text-brand-black mb-4">
-            Examples of what we can build
-          </h2>
-          <p className="text-gray-600 text-lg mb-10 max-w-xl">
-            These are just starting points. Every private trip is designed from
-            scratch around your group.
-          </p>
+      {/* Pre-Qualifying Sample Itineraries with Indicative Pricing */}
+      <section className="section-padding py-16 md:py-24 border-b border-[#e6ded1]">
+        <div className="container-wide space-y-10 font-sans">
+          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#e6ded1] pb-6 gap-4">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-widest text-[#8c4a2f] block mb-1">
+                Indicative Benchmarks
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl text-[#1c1917] font-bold">
+                Sample Private Itineraries
+              </h2>
+            </div>
+            <p className="text-xs font-mono text-[#6b6257]">
+              Indicative pricing to pre-qualify your group budget
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {privateTripExamples.map((example) => (
+            {privateTripExamples.map((item) => (
               <div
-                key={example.id}
-                className="bg-white rounded-sm overflow-hidden border border-brand-gray/50 hover:shadow-md transition-shadow"
+                key={item.id}
+                className="bg-white border border-[#e6ded1] rounded overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
               >
-                <div className="aspect-[16/9] bg-brand-gray overflow-hidden">
-                  <div
-                    className="w-full h-full bg-cover bg-center"
-                    style={{ backgroundImage: `url('${example.image}')` }}
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-semibold text-brand-black text-lg mb-1">
-                    {example.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-3">
-                    {example.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 text-xs">
-                    <span className="bg-brand-offwhite text-gray-700 px-2.5 py-1 rounded-sm">
-                      {example.duration}
-                    </span>
-                    <span className="bg-brand-offwhite text-gray-700 px-2.5 py-1 rounded-sm">
-                      {example.idealGroup}
-                    </span>
-                    <span className="bg-brand-yellow/30 text-brand-black px-2.5 py-1 rounded-sm font-medium">
-                      {example.indicativePrice}
-                    </span>
+                <div className="space-y-4">
+                  <div className="relative aspect-[16/10] bg-[#e6ded1]">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute bottom-2 left-2 bg-[#1c1917]/80 text-[#faf7f2] font-mono text-xs px-2 py-0.5 rounded">
+                      {item.duration} &middot; {item.idealGroup}
+                    </div>
                   </div>
+                  <div className="p-5 space-y-2">
+                    <h3 className="font-serif text-xl text-[#1c1917] font-semibold">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-[#6b6257] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-5 pt-0 border-t border-[#e6ded1]/60 flex items-center justify-between font-mono text-xs mt-4">
+                  <span className="text-gray-500">Indicative:</span>
+                  <span className="font-semibold text-[#8c4a2f] bg-[#faf7f2] px-2.5 py-1 rounded border border-[#e6ded1]">
+                    {item.indicativePrice}
+                  </span>
                 </div>
               </div>
             ))}
           </div>
-
-          <p className="text-gray-500 text-sm mt-6 text-center">
-            Pricing shown is indicative and varies based on group size, dates,
-            and customization.
-          </p>
         </div>
       </section>
 
-      {/* Enquiry Form */}
-      <section
-        id="enquiry"
-        className="section-padding section-spacing bg-white"
-      >
+      {/* 4-Field Enquiry Form Section */}
+      <section id="consultation-form" className="section-padding py-16 md:py-24">
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left — Copy */}
-            <div>
-              <h2 className="font-display text-display-md text-brand-black mb-4">
-                Tell us what you&apos;re thinking.
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5 space-y-6">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#8c4a2f] block">
+                Consultative Route
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl text-[#1c1917] font-bold leading-tight">
+                How our private trip consultation works
               </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Fill in what you know. We&apos;ll get back to you with ideas,
-                options, and a rough plan — usually within a few hours.
-              </p>
-              <div className="bg-brand-offwhite p-5 rounded-sm">
-                <h4 className="font-semibold text-brand-black mb-3">
-                  How it works
-                </h4>
-                <ol className="space-y-3 text-sm text-gray-700">
-                  <li className="flex gap-3">
-                    <span className="font-display text-xl text-brand-yellow bg-brand-black w-7 h-7 rounded-full flex items-center justify-center shrink-0">
-                      1
-                    </span>
-                    <span>
-                      Tell us your destination idea, dates, and group size
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="font-display text-xl text-brand-yellow bg-brand-black w-7 h-7 rounded-full flex items-center justify-center shrink-0">
-                      2
-                    </span>
-                    <span>
-                      We&apos;ll send you a custom itinerary and quote
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="font-display text-xl text-brand-yellow bg-brand-black w-7 h-7 rounded-full flex items-center justify-center shrink-0">
-                      3
-                    </span>
-                    <span>
-                      Tweak until it&apos;s exactly right, then confirm
-                    </span>
-                  </li>
-                </ol>
+              <div className="space-y-4 text-sm text-[#6b6257] font-sans leading-relaxed">
+                <p>
+                  We don&apos;t ask for instant payments. You fill out the 4 quick fields on the form (dates, group size, destinations in mind, budget band).
+                </p>
+                <p>
+                  Within 2 hours on WhatsApp, Aryan or Kashshish will share a customized route outline, recommended homestays, and a transparent pricing breakdown.
+                </p>
               </div>
-              <div className="mt-6">
-                <p className="text-sm text-gray-500">
-                  Prefer to just chat?{" "}
-                  <a
-                    href={getWhatsAppLink(getWhatsAppPrivateMessage())}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#25D366] font-medium hover:underline"
-                  >
-                    WhatsApp us directly
-                  </a>
+
+              <div className="p-5 bg-white border border-[#e6ded1] rounded space-y-3 font-mono text-xs">
+                <span className="text-[#8c4a2f] font-semibold block">
+                  ⚡ Trust Signal
+                </span>
+                <p className="text-[#1c1917]">
+                  &ldquo;We reply on WhatsApp within 2 hours&rdquo; — personally handled by Aryan & Kashshish.
                 </p>
               </div>
             </div>
 
-            {/* Right — Form */}
-            <PrivateTripForm />
+            <div className="lg:col-span-7">
+              <PrivateTripForm />
+            </div>
           </div>
         </div>
       </section>

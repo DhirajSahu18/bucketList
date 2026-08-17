@@ -1,65 +1,58 @@
+"use client";
+
 import { Button } from "@/components/ui/Button";
-import { privateTripExamples } from "@/data/private-trips";
-import { getWhatsAppLink, getWhatsAppPrivateMessage } from "@/lib/utils";
+import { EditorialMarker } from "@/components/ui/EditorialMarker";
+import { trackEvent } from "@/lib/analytics";
 
 export function PrivateTripsCTA() {
+  const steps = [
+    { num: "01", title: "Tell us your group", desc: "Dates, duration, group size (family or friends), and style." },
+    { num: "02", title: "We ask the right questions", desc: "Acclimatization preferences, pace, and accommodation comfort." },
+    { num: "03", title: "We design the route", desc: "Custom day-by-day itinerary built around your people." },
+    { num: "04", title: "We lead the journey", desc: "Same founder vehicles, driver safety, and homestay locks." },
+  ];
+
   return (
-    <section className="section-padding section-spacing bg-white">
-      <div className="container-wide">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left — Copy */}
-          <div>
-            <h2 className="font-display text-display-lg text-brand-black mb-6">
-              Your trip. Your people.{" "}
-              <span className="text-brand-yellow">Your pace.</span>
+    <section className="py-16 md:py-24 bg-[#1c1917] text-[#faf7f2]">
+      <div className="section-padding">
+        <div className="container-wide">
+          <div className="max-w-2xl mb-12">
+            <EditorialMarker number="06" label="YOUR TRIP, YOUR WAY" className="text-[#FACC15]" />
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#faf7f2] font-semibold leading-tight mb-4">
+              Private trips with the exact same founder accountability.
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-lg">
-              Want to travel with your friends, family or team without fitting
-              into someone else&apos;s schedule? We&apos;ll help you build the
-              trip around you.
+            <p className="text-[#e6ded1] text-base md:text-lg">
+              Want to travel with just your family or alumni group? We design custom road trips and treks around your dates and pace.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Button href="/private-trips" variant="primary" size="md">
-                Tell Us What You&apos;re Thinking
-              </Button>
-              <Button
-                href={getWhatsAppLink(getWhatsAppPrivateMessage())}
-                variant="whatsapp"
-                size="md"
-                external
-              >
-                WhatsApp Us
-              </Button>
-            </div>
           </div>
 
-          {/* Right — Example trips */}
-          <div className="space-y-4">
-            {privateTripExamples.slice(0, 4).map((example) => (
-              <div
-                key={example.id}
-                className="flex items-center gap-4 p-4 bg-brand-offwhite rounded-sm border border-brand-gray/50 hover:border-brand-yellow/50 transition-colors"
-              >
-                <div className="w-16 h-16 shrink-0 bg-brand-gray rounded-sm overflow-hidden">
-                  <div
-                    className="w-full h-full bg-cover bg-center"
-                    style={{ backgroundImage: `url('${example.image}')` }}
-                  />
-                </div>
-                <div className="min-w-0">
-                  <p className="font-semibold text-brand-black text-sm">
-                    {example.title}
-                  </p>
-                  <p className="text-gray-500 text-xs mt-0.5">
-                    {example.duration} &middot; {example.idealGroup}
-                  </p>
-                </div>
+          {/* Process Steps Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {steps.map((s) => (
+              <div key={s.num} className="bg-white/5 border border-white/10 p-6 rounded-sm space-y-3">
+                <span className="font-mono text-xs text-[#FACC15] font-bold block">{s.num} &mdash; PROCESS</span>
+                <h3 className="font-serif text-lg text-white font-semibold">{s.title}</h3>
+                <p className="text-xs text-[#e6ded1]/80 leading-relaxed font-sans">{s.desc}</p>
               </div>
             ))}
-            <p className="text-gray-500 text-sm mt-2">
-              These are just examples. Tell us what you&apos;re thinking and
-              we&apos;ll design around it.
-            </p>
+          </div>
+
+          {/* Action Row */}
+          <div className="flex flex-wrap items-center justify-between gap-6 pt-8 border-t border-white/15">
+            <div>
+              <span className="font-mono text-xs text-[#FACC15] uppercase tracking-wider block mb-1">Indicative Pricing</span>
+              <span className="text-lg font-mono font-bold text-white">From ₹14,500 to ₹32,000 / person</span>
+            </div>
+
+            <Button
+              href="/private-trips"
+              variant="primary"
+              size="lg"
+              className="bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] border-none font-medium px-7 py-3.5"
+              onClick={() => trackEvent("click_private_trip", { source: "homepage_panel" })}
+            >
+              Plan a private trip consultation &rarr;
+            </Button>
           </div>
         </div>
       </div>

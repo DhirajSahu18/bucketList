@@ -3,188 +3,189 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Trip } from "@/types";
+import { formatPrice, formatDateRange, getWhatsAppLink } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
-import {
-  formatDateRange,
-  formatPrice,
-  getWhatsAppLink,
-  getWhatsAppTripMessage,
-  cn,
-} from "@/lib/utils";
+import { GallerySystem } from "@/components/ui/GallerySystem";
+import { trackEvent } from "@/lib/analytics";
 
 interface TripDetailProps {
   trip: Trip;
 }
 
 export function TripDetail({ trip }: TripDetailProps) {
-  const [openDay, setOpenDay] = useState<number | null>(0);
-  const whatsappMessage = getWhatsAppTripMessage(
-    trip.name,
-    formatDateRange(trip.dates.start, trip.dates.end)
-  );
+  const [openDay, setOpenDay] = useState<number | null>(1);
+  const [showRefundModal, setShowRefundModal] = useState(false);
+
+  const toggleDay = (dayNum: number) => {
+    const nextState = openDay === dayNum ? null : dayNum;
+    setOpenDay(nextState);
+    if (nextState !== null) {
+      trackEvent("open_itinerary", { tripSlug: trip.slug, day: dayNum });
+    }
+  };
+
+  const whatsappMessage = `Hi Aryan & Kashshish, I want to book/enquire about ${trip.name} (${formatDateRange(trip.dates.start, trip.dates.end)}). We are interested in securing our seat deposit!`;
+  const whatsappUrl = getWhatsAppLink(whatsappMessage);
 
   return (
-    <div className="pt-20 md:pt-24">
-      {/* Hero */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('${trip.heroImage}')` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-black/70 via-brand-black/20 to-transparent" />
-        <div className="absolute inset-0 bg-brand-black/40" />
-        <div className="relative h-full flex items-end section-padding pb-10 md:pb-14">
-          <div className="container-wide">
-            <nav className="mb-4 text-sm text-white/70">
-              <Link href="/trips" className="hover:text-white">
-                Trips
-              </Link>
-              <span className="mx-2">/</span>
-              <Link
-                href={`/destinations/${trip.destination.slug}`}
-                className="hover:text-white"
-              >
-                {trip.destination.name}
-              </Link>
-              <span className="mx-2">/</span>
-              <span className="text-white">{trip.name}</span>
-            </nav>
-            <h1 className="font-display text-display-lg text-white mb-2">
-              {trip.name}
-            </h1>
-            <p className="text-white/80 text-lg">{trip.destination.name}</p>
+    <div className="pt-24 md:pt-32 pb-24 bg-[#faf7f2] min-h-screen text-[#1c1917]">
+      {/* Top Breadcrumb Nav */}
+      <div className="section-padding mb-6">
+        <div className="container-wide">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#6b6257]">
+            <Link href="/" className="hover:text-[#1c1917]">Home</Link>
+            <span>/</span>
+            <Link href="/trips" className="hover:text-[#1c1917]">Trips</Link>
+            <span>/</span>
+            <span className="text-[#1c1917] font-semibold">{trip.name}</span>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Content */}
-      <div className="section-padding py-10 md:py-16">
+      <div className="section-padding">
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
-            {/* Main Content */}
-            <div className="lg:col-span-2 space-y-12">
-              {/* Summary */}
-              <div>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  {trip.summary}
-                </p>
-              </div>
+          {/* Header Title Section */}
+          <div className="max-w-4xl mb-8 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1c1917] text-[#FACC15] text-xs font-mono font-bold uppercase tracking-wider rounded-xs">
+              {trip.destination.name} Expedition &middot; Max {trip.maxGroupSize} Group
+            </div>
 
-              {/* At a Glance */}
-              <div>
-                <h2 className="font-display text-display-sm text-brand-black mb-6">
-                  At a Glance
-                </h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {[
-                    { label: "Duration", value: trip.duration },
-                    { label: "Starting Point", value: trip.startingPoint },
-                    { label: "Ending Point", value: trip.endingPoint },
-                    {
-                      label: "Group Size",
-                      value: `Max ${trip.maxGroupSize} people`,
-                    },
-                    { label: "Difficulty", value: trip.difficulty },
-                    {
-                      label: "Accommodation",
-                      value: trip.accommodationType,
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.label}
-                      className="bg-brand-offwhite p-4 rounded-sm"
-                    >
-                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">
-                        {item.label}
-                      </p>
-                      <p className="font-medium text-brand-black text-sm">
-                        {item.value}
-                      </p>
-                    </div>
-                  ))}
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-[#1c1917] leading-tight">
+              {trip.name}
+            </h1>
+
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-sans max-w-3xl">
+              {trip.summary}
+            </p>
+          </div>
+
+          {/* 5 Quick Questions Spec Bar */}
+          <div className="mb-10 p-5 bg-white border border-[#e6ded1] rounded-sm grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 font-mono text-xs text-[#1c1917]">
+            <div>
+              <span className="text-[#8c4a2f] block uppercase text-[10px]">01 — WHERE</span>
+              <span className="font-bold">{trip.destination.name}</span>
+            </div>
+            <div>
+              <span className="text-[#8c4a2f] block uppercase text-[10px]">02 — WHEN</span>
+              <span className="font-bold">{formatDateRange(trip.dates.start, trip.dates.end)}</span>
+            </div>
+            <div>
+              <span className="text-[#8c4a2f] block uppercase text-[10px]">03 — DURATION</span>
+              <span className="font-bold">{trip.duration}</span>
+            </div>
+            <div>
+              <span className="text-[#8c4a2f] block uppercase text-[10px]">04 — LEADER</span>
+              <span className="font-bold">{trip.founder.name}</span>
+            </div>
+            <div>
+              <span className="text-[#8c4a2f] block uppercase text-[10px]">05 — SEATS</span>
+              <span className="font-bold text-[#8c4a2f]">{trip.seatsRemaining} of {trip.maxGroupSize} left</span>
+            </div>
+            <div>
+              <span className="text-[#8c4a2f] block uppercase text-[10px]">06 — PRICE</span>
+              <span className="font-bold text-base">{formatPrice(trip.price)}</span>
+            </div>
+          </div>
+
+          {/* Real Gallery System */}
+          <div className="mb-14">
+            <GallerySystem images={trip.gallery} metadata={trip.galleryMeta} tripName={trip.name} />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            {/* Main Content Column */}
+            <div className="lg:col-span-8 space-y-12">
+              {/* Founder Note Callout Block */}
+              {trip.founderNote && (
+                <div className="p-6 bg-white border-l-4 border-[#FACC15] border-y border-r border-[#e6ded1] rounded-r-sm space-y-2">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#8c4a2f]">
+                    <span className="w-2 h-2 rounded-full bg-[#FACC15]" />
+                    <span className="font-bold">A NOTE FROM {trip.founderNote.author.toUpperCase()}</span>
+                  </div>
+                  <p className="text-sm text-[#1c1917] italic font-serif leading-relaxed">
+                    &ldquo;{trip.founderNote.text}&rdquo;
+                  </p>
+                </div>
+              )}
+
+              {/* The Trip in Numbers Stat Grid */}
+              <div className="p-6 bg-[#1c1917] text-white rounded-sm space-y-4">
+                <span className="font-mono text-xs text-[#FACC15] uppercase tracking-widest block">
+                  02 &mdash; THE TRIP IN NUMBERS
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2 font-mono">
+                  <div className="border-r border-white/10 pr-2">
+                    <span className="text-2xl font-bold text-[#FACC15] block">{trip.durationDays}</span>
+                    <span className="text-[11px] text-[#e6ded1]">DAYS</span>
+                  </div>
+                  <div className="border-r border-white/10 pr-2">
+                    <span className="text-2xl font-bold text-[#FACC15] block">{trip.maxGroupSize}</span>
+                    <span className="text-[11px] text-[#e6ded1]">MAX CAP</span>
+                  </div>
+                  <div className="border-r border-white/10 pr-2">
+                    <span className="text-2xl font-bold text-[#FACC15] block">₹{trip.bookingAmount}</span>
+                    <span className="text-[11px] text-[#e6ded1]">DEPOSIT</span>
+                  </div>
+                  <div>
+                    <span className="text-2xl font-bold text-[#FACC15] block">{trip.seatsRemaining}</span>
+                    <span className="text-[11px] text-[#e6ded1]">SEATS LEFT</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Itinerary */}
-              <div>
-                <h2 className="font-display text-display-sm text-brand-black mb-6">
-                  Day-by-Day Itinerary
-                </h2>
-                <div className="space-y-2">
-                  {trip.itinerary.map((day, index) => (
+              {/* Day by Day Itinerary */}
+              <div className="space-y-6">
+                <div className="border-b border-[#e6ded1] pb-4">
+                  <span className="font-mono text-xs text-[#8c4a2f] uppercase tracking-widest block mb-1">
+                    03 &mdash; DAY BY DAY ROUTE
+                  </span>
+                  <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#1c1917]">
+                    Detailed Expedition Itinerary
+                  </h2>
+                </div>
+
+                <div className="space-y-3">
+                  {trip.itinerary.map((day) => (
                     <div
                       key={day.day}
-                      className="border border-brand-gray rounded-sm overflow-hidden"
+                      className="bg-white border border-[#e6ded1] rounded-sm overflow-hidden"
                     >
                       <button
-                        onClick={() =>
-                          setOpenDay(openDay === index ? null : index)
-                        }
-                        className="w-full flex items-center justify-between p-4 md:p-5 text-left hover:bg-brand-offwhite transition-colors"
-                        aria-expanded={openDay === index}
+                        onClick={() => toggleDay(day.day)}
+                        className="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-[#faf7f2] transition-colors"
                       >
-                        <div className="flex items-center gap-4">
-                          <span className="font-display text-xl text-brand-yellow bg-brand-black w-10 h-10 rounded-full flex items-center justify-center shrink-0">
-                            {day.day}
+                        <div className="flex items-center gap-3">
+                          <span className="w-8 h-8 rounded bg-[#1c1917] text-[#FACC15] font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                            D{day.day}
                           </span>
                           <div>
-                            <p className="font-semibold text-brand-black">
+                            <h3 className="font-serif text-base sm:text-lg font-semibold text-[#1c1917]">
                               {day.title}
-                            </p>
-                            <p className="text-sm text-gray-500">
-                              {day.location}
-                            </p>
+                            </h3>
+                            <span className="text-xs font-mono text-[#8c4a2f]">
+                              {day.location} &middot; Stay: {day.stay}
+                            </span>
                           </div>
                         </div>
-                        <svg
-                          className={cn(
-                            "w-5 h-5 text-gray-400 transition-transform shrink-0",
-                            openDay === index && "rotate-180"
-                          )}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
+                        <span className="font-mono text-lg text-[#1c1917]">
+                          {openDay === day.day ? "−" : "+"}
+                        </span>
                       </button>
-                      {openDay === index && (
-                        <div className="px-4 md:px-5 pb-5 border-t border-brand-gray/50">
-                          <div className="pt-4 space-y-3">
-                            <p className="text-gray-700 text-sm leading-relaxed">
-                              {day.description}
-                            </p>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
-                              <div className="bg-brand-offwhite p-3 rounded-sm">
-                                <p className="text-xs text-gray-500 mb-0.5">
-                                  Stay
-                                </p>
-                                <p className="text-brand-black font-medium">
-                                  {day.stay}
-                                </p>
-                              </div>
-                              <div className="bg-brand-offwhite p-3 rounded-sm">
-                                <p className="text-xs text-gray-500 mb-0.5">
-                                  Meals
-                                </p>
-                                <p className="text-brand-black font-medium">
-                                  {day.meals}
-                                </p>
-                              </div>
-                              <div className="bg-brand-offwhite p-3 rounded-sm">
-                                <p className="text-xs text-gray-500 mb-0.5">
-                                  Activities
-                                </p>
-                                <p className="text-brand-black font-medium">
-                                  {day.activities.join(", ")}
-                                </p>
-                              </div>
-                            </div>
+
+                      {openDay === day.day && (
+                        <div className="px-5 pb-5 pt-2 border-t border-[#e6ded1] space-y-3 text-sm text-[#1c1917]">
+                          <p className="leading-relaxed text-gray-700 font-sans">
+                            {day.description}
+                          </p>
+                          <div className="flex flex-wrap gap-2 pt-2">
+                            {day.activities.map((act, i) => (
+                              <span
+                                key={i}
+                                className="px-2.5 py-1 bg-[#faf7f2] border border-[#e6ded1] rounded text-xs font-mono text-[#1c1917]"
+                              >
+                                &bull; {act}
+                              </span>
+                            ))}
                           </div>
                         </div>
                       )}
@@ -193,238 +194,115 @@ export function TripDetail({ trip }: TripDetailProps) {
                 </div>
               </div>
 
-              {/* Included / Excluded */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-display text-xl text-brand-black mb-4">
-                    What&apos;s Included
-                  </h3>
-                  <ul className="space-y-2">
-                    {trip.included.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2 text-sm text-gray-700"
-                      >
-                        <svg
-                          className="w-4 h-4 text-green-600 shrink-0 mt-0.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-display text-xl text-brand-black mb-4">
-                    What&apos;s Not Included
-                  </h3>
-                  <ul className="space-y-2">
-                    {trip.excluded.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2 text-sm text-gray-700"
-                      >
-                        <svg
-                          className="w-4 h-4 text-red-500 shrink-0 mt-0.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Who it's for */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-green-50 p-6 rounded-sm">
-                  <h3 className="font-display text-xl text-brand-black mb-4">
-                    Who This Trip is For
-                  </h3>
-                  <ul className="space-y-2">
-                    {trip.whoItsFor.map((item) => (
-                      <li
-                        key={item}
-                        className="text-sm text-gray-700 flex items-start gap-2"
-                      >
-                        <span className="text-green-600 mt-1">✓</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-sm">
-                  <h3 className="font-display text-xl text-brand-black mb-4">
-                    Who This Trip Isn&apos;t For
-                  </h3>
-                  <ul className="space-y-2">
-                    {trip.whoItsNotFor.map((item) => (
-                      <li
-                        key={item}
-                        className="text-sm text-gray-700 flex items-start gap-2"
-                      >
-                        <span className="text-red-500 mt-1">✗</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Trip Leader */}
-              <div className="bg-brand-offwhite p-6 md:p-8 rounded-sm">
-                <h3 className="font-display text-xl text-brand-black mb-4">
-                  Your Trip Leader
-                </h3>
-                <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 rounded-full bg-brand-yellow flex items-center justify-center shrink-0">
-                    <span className="font-display text-2xl text-brand-black">
-                      {trip.founder.name.charAt(0)}
+              {/* Hard Truth Callout */}
+              {trip.hardTruth && (
+                <div className="p-6 bg-amber-50/60 border border-amber-200 rounded-sm space-y-4">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 bg-[#8c4a2f] text-white text-[10px] font-mono font-bold uppercase rounded">
+                      BEFORE YOU BOOK
                     </span>
+                    <h3 className="font-serif text-lg font-semibold text-[#1c1917]">
+                      {trip.hardTruth.headline}
+                    </h3>
                   </div>
-                  <div>
-                    <p className="font-semibold text-brand-black text-lg">
-                      {trip.founder.name}
-                    </p>
-                    <p className="text-sm text-gray-500 mb-2">
-                      {trip.founder.role} &middot; {trip.founder.experience}
-                    </p>
-                    <p className="text-sm text-gray-700 leading-relaxed">
-                      {trip.founder.shortBio}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* FAQs */}
-              {trip.faqs.length > 0 && (
-                <div>
-                  <h2 className="font-display text-display-sm text-brand-black mb-6">
-                    FAQs
-                  </h2>
-                  <div className="space-y-4">
-                    {trip.faqs.map((faq, i) => (
-                      <details
-                        key={i}
-                        className="group border border-brand-gray rounded-sm"
-                      >
-                        <summary className="cursor-pointer p-4 font-medium text-brand-black text-sm list-none flex items-center justify-between">
-                          {faq.question}
-                          <svg
-                            className="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M19 9l-7 7-7-7"
-                            />
-                          </svg>
-                        </summary>
-                        <div className="px-4 pb-4 text-sm text-gray-600 leading-relaxed">
-                          {faq.answer}
-                        </div>
-                      </details>
+                  <ul className="space-y-2 text-xs text-gray-700 font-sans list-disc pl-5">
+                    {trip.hardTruth.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               )}
+
+              {/* Included / Excluded Two-Up */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-[#e6ded1]">
+                <div className="bg-white border border-[#e6ded1] p-6 rounded-sm space-y-3">
+                  <h3 className="font-serif text-lg font-semibold text-[#128c7e] flex items-center gap-2">
+                    <span>&check;</span> What&apos;s Included
+                  </h3>
+                  <ul className="space-y-2 text-xs text-gray-700 font-sans">
+                    {trip.included.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-[#128c7e] font-bold">&check;</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-white border border-[#e6ded1] p-6 rounded-sm space-y-3">
+                  <h3 className="font-serif text-lg font-semibold text-[#8c4a2f] flex items-center gap-2">
+                    <span>&times;</span> What&apos;s Excluded
+                  </h3>
+                  <ul className="space-y-2 text-xs text-gray-700 font-sans">
+                    {trip.excluded.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-[#8c4a2f] font-bold">&times;</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            {/* Sidebar — Booking Card (Sticky) */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24 bg-white border border-brand-gray rounded-sm p-6 space-y-5">
+            {/* Sidebar Pricing & Leader Column */}
+            <div className="lg:col-span-4 space-y-6">
+              <div className="sticky top-28 bg-white border border-[#e6ded1] p-6 rounded-sm space-y-6 shadow-sm">
                 <div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide">
-                    Trip Price
-                  </p>
-                  <p className="font-display text-4xl text-brand-black">
-                    {formatPrice(trip.price)}
-                  </p>
-                  <p className="text-xs text-gray-500 mt-1">per person</p>
+                  <span className="text-xs font-mono text-[#8c4a2f] uppercase block mb-1">
+                    Fixed Group Pricing
+                  </span>
+                  <div className="flex items-baseline gap-2">
+                    <span className="font-mono text-3xl font-bold text-[#1c1917]">
+                      {formatPrice(trip.price)}
+                    </span>
+                    <span className="text-xs text-gray-500">/ person</span>
+                  </div>
+                  <span className="text-xs font-mono text-[#128c7e] block mt-1">
+                    Hold seat deposit: ₹{trip.bookingAmount}
+                  </span>
                 </div>
 
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Dates</span>
-                    <span className="font-medium text-brand-black">
-                      {formatDateRange(trip.dates.start, trip.dates.end)}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Duration</span>
-                    <span className="font-medium text-brand-black">
-                      {trip.duration}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Group Size</span>
-                    <span className="font-medium text-brand-black">
-                      Max {trip.maxGroupSize}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Seats Left</span>
-                    <span className="font-semibold text-brand-black">
-                      {trip.seatsRemaining}
-                    </span>
+                {/* Founder Badge */}
+                <div className="p-4 bg-[#faf7f2] border border-[#e6ded1] rounded space-y-2">
+                  <span className="text-[10px] font-mono uppercase text-[#8c4a2f] block">
+                    Expedition Leader
+                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-[#FACC15]" />
+                    <div>
+                      <span className="font-serif font-bold text-sm text-[#1c1917] block">{trip.founder.name}</span>
+                      <span className="text-xs text-gray-500 font-mono">{trip.founder.role}</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="border-t border-brand-gray pt-4 space-y-3">
-                  <Button
-                    href={getWhatsAppLink(whatsappMessage)}
-                    variant="primary"
-                    size="lg"
-                    className="w-full"
-                    external
+                {/* Primary WhatsApp CTA */}
+                <Button
+                  href={whatsappUrl}
+                  external
+                  variant="primary"
+                  size="lg"
+                  className="w-full justify-center bg-[#128c7e] hover:bg-[#0e6c61] text-white font-medium py-3.5"
+                  onClick={() => trackEvent("click_trip_whatsapp", { tripSlug: trip.slug })}
+                >
+                  Book on WhatsApp ({trip.seatsRemaining} seats left)
+                </Button>
+
+                <div className="text-center">
+                  <button
+                    onClick={() => {
+                      setShowRefundModal(true);
+                      trackEvent("open_refund_policy", { tripSlug: trip.slug });
+                    }}
+                    className="text-xs font-mono text-[#8c4a2f] underline hover:text-[#1c1917]"
                   >
-                    Book Your Spot
-                  </Button>
-                  <Button
-                    href={getWhatsAppLink(whatsappMessage)}
-                    variant="whatsapp"
-                    size="md"
-                    className="w-full"
-                    external
-                  >
-                    WhatsApp Us
-                  </Button>
+                    View Refund & Cancellation Terms
+                  </button>
                 </div>
 
-                {trip.bookingAmount > 0 && (
-                  <div className="text-xs text-gray-500 text-center">
-                    Booking amount: {formatPrice(trip.bookingAmount)} &middot;
-                    Remaining on trip day
-                  </div>
-                )}
-
-                {/* Trust signal */}
-                <div className="text-center pt-2 border-t border-brand-gray">
-                  <p className="text-xs text-gray-500">
-                    Questions? We reply on WhatsApp within 2 hours.
-                  </p>
+                <div className="pt-4 border-t border-[#e6ded1] text-center text-xs font-mono text-gray-500">
+                  ⚡ We reply on WhatsApp within 2 hours
                 </div>
               </div>
             </div>
@@ -432,28 +310,51 @@ export function TripDetail({ trip }: TripDetailProps) {
         </div>
       </div>
 
-      {/* Mobile Sticky CTA */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-brand-gray p-3 flex gap-2 lg:hidden z-40">
+      {/* Sticky Mobile CTA */}
+      <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#1c1917] text-white p-3 border-t border-[#FACC15]/30 flex items-center justify-between shadow-lg">
+        <div>
+          <span className="text-[10px] font-mono text-[#FACC15] block uppercase">
+            {trip.seatsRemaining} of {trip.maxGroupSize} seats left
+          </span>
+          <span className="font-mono text-sm font-bold text-white">
+            {formatPrice(trip.price)}
+          </span>
+        </div>
+
         <Button
-          href={getWhatsAppLink(whatsappMessage)}
+          href={whatsappUrl}
+          external
           variant="primary"
-          size="md"
-          className="flex-1"
-          external
+          size="sm"
+          className="bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] font-bold text-xs px-4 py-2"
+          onClick={() => trackEvent("click_trip_whatsapp", { tripSlug: trip.slug, mobile: true })}
         >
-          Book Now &middot; {formatPrice(trip.price)}
-        </Button>
-        <Button
-          href={getWhatsAppLink(whatsappMessage)}
-          variant="whatsapp"
-          size="md"
-          external
-        >
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-          </svg>
+          Book on WhatsApp &rarr;
         </Button>
       </div>
+
+      {/* Refund Terms Modal */}
+      {showRefundModal && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white border border-[#e6ded1] max-w-lg w-full p-6 sm:p-8 rounded-sm space-y-6 text-[#1c1917]">
+            <div className="flex items-center justify-between border-b border-[#e6ded1] pb-4">
+              <h3 className="font-serif text-xl font-bold">Cancellation & Refund Policy</h3>
+              <button onClick={() => setShowRefundModal(false)} className="text-xl font-mono">&times;</button>
+            </div>
+            <div className="space-y-3 text-xs font-sans text-gray-700 leading-relaxed">
+              <p><strong>30+ Days Before Departure:</strong> 100% deposit refund or 100% transfer credit to any future trip.</p>
+              <p><strong>15–29 Days Before Departure:</strong> 50% deposit refund or 100% transfer credit.</p>
+              <p><strong>Under 14 Days:</strong> Deposit non-refundable unless seat is filled by replacement joiner.</p>
+              <p><strong>Mountain Pass Closures:</strong> If passes are closed due to severe weather, founder leaders re-route with zero extra leader fees.</p>
+            </div>
+            <div className="pt-4 border-t border-[#e6ded1] flex justify-end">
+              <Button onClick={() => setShowRefundModal(false)} variant="primary" size="sm" className="bg-[#1c1917] text-white">
+                Understood
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

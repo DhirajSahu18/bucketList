@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue } from "next/font/google";
+import { Inter, Playfair_Display, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -9,39 +9,45 @@ import { Analytics } from "@/components/seo/Analytics";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const displayFont = Bebas_Neue({
-  weight: "400",
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "TheBucketList.co — Founder-Led Group & Private Trips Across India",
+    default: "TheBucketList.co — Founder-Led Trip Site",
     template: "%s | TheBucketList.co",
   },
   description:
-    "Two founders. Five years of trips. Zero outsourced groups. Small-group journeys across India — from the Himalayas to the coast. Personally led by experienced trip leaders.",
+    "Two founders. Five years of trips. Zero outsourced groups. Small-group journeys across India — personally led by Aryan & Kashshish.",
   metadataBase: new URL("https://thebucketlist.co"),
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://thebucketlist.co",
     siteName: "TheBucketList.co",
-    title: "TheBucketList.co — Founder-Led Group & Private Trips Across India",
+    title: "TheBucketList.co — Founder-Led Trip Site",
     description:
-      "Two founders. Five years of trips. Zero outsourced groups. Small-group journeys across India.",
+      "Two founders. Five years of trips. Zero outsourced groups. Small-group journeys across India — personally led by Aryan & Kashshish.",
   },
   twitter: {
     card: "summary_large_image",
     title: "TheBucketList.co — Founder-Led Trips Across India",
     description:
-      "Small-group journeys personally led by experienced trip leaders.",
+      "Small-group journeys personally led by Aryan & Kashshish.",
   },
   robots: {
     index: true,
@@ -55,8 +61,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${displayFont.variable}`}>
-      <body className="font-body">
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfair.variable} ${spaceMono.variable}`}
+    >
+      <body className="font-sans bg-[#faf7f2] text-[#1c1917] antialiased selection:bg-[#FACC15] selection:text-[#1c1917]">
         <OrganizationSchema />
         <Analytics />
         <Navbar />

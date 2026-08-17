@@ -1,189 +1,156 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { founders } from "@/data/founders";
 import { siteSettings } from "@/data/site-settings";
 import { Button } from "@/components/ui/Button";
+import { EditorialMarker } from "@/components/ui/EditorialMarker";
 
 export const metadata: Metadata = {
-  title: "Our Story",
+  title: "Our Story — Two Founders, Five Years of Trips | TheBucketList.co",
   description:
-    "Meet the founders behind TheBucketList.co. Two people, five years of running trips, and a commitment to never outsourcing your experience.",
+    "First-person story of Aryan & Kashshish. Five years of founder-led trips across India, our origin moment in Himachal, and what we refuse to do.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="pt-20 md:pt-24">
-      {/* Hero */}
-      <section className="relative h-[50vh] md:h-[55vh] overflow-hidden bg-brand-black">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{ backgroundImage: "url('/images/about-hero.jpg')" }}
-        />
-        <div className="relative h-full flex items-end section-padding pb-12 md:pb-16">
-          <div className="container-wide">
-            <h1 className="font-display text-display-xl text-white">
-              The people behind
+    <div className="pt-20 md:pt-24 bg-[#faf7f2] min-h-screen text-[#1c1917]">
+      {/* Hero Header */}
+      <section className="relative bg-[#1c1917] text-[#faf7f2] section-padding py-20 md:py-28 overflow-hidden">
+        {/* Ambient Top Yellow Bar */}
+        <div className="absolute top-0 inset-x-0 h-1.5 bg-[#FACC15]" />
+
+        <div className="container-wide">
+          <div className="max-w-3xl space-y-4">
+            <EditorialMarker number="01" label="OUR STORY" className="text-[#FACC15]" />
+            <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-[#faf7f2]">
+              Two founders.
               <br />
-              <span className="text-brand-yellow">your trip.</span>
+              <span className="text-[#FACC15]">Five years of trips.</span>
             </h1>
+            <p className="font-sans text-[#e6ded1]/90 text-lg sm:text-xl leading-relaxed">
+              We&apos;re Aryan and Kashshish. We run every group trip ourselves because we believe trust is carried by named humans, not corporate aggregators.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Intro */}
-      <section className="section-padding py-14 md:py-20">
-        <div className="container-narrow">
-          <p className="text-xl md:text-2xl text-brand-black leading-relaxed font-medium">
-            We&apos;re {founders[0].name} and {founders[1].name}. And we&apos;ve
-            been doing this for years.
-          </p>
-          <p className="text-gray-600 text-lg leading-relaxed mt-6">
-            Before TheBucketList.co had a website, a logo, or even a name — we
-            were running trips. Friends first, then friends-of-friends, then
-            people who found us through word of mouth. The trips kept growing
-            because people kept coming back. And that&apos;s still the only
-            metric we actually care about.
-          </p>
+      {/* ~400 WORD FIRST-PERSON NARRATIVE WITH ORIGIN MOMENT & REFUSAL */}
+      <section className="section-padding py-16 md:py-24 border-b border-[#e6ded1]">
+        <div className="container-narrow space-y-8 font-sans">
+          <div className="prose prose-lg max-w-none text-[#1c1917] space-y-6 leading-relaxed">
+            <p className="font-serif text-2xl text-[#1c1917] font-semibold border-l-4 border-[#FACC15] pl-4">
+              &ldquo;Before TheBucketList.co had a logo, a domain name, or a website — we were already driving group trips up mountain passes.&rdquo;
+            </p>
+
+            <p className="text-base text-[#1c1917]/90">
+              We started back in 2021. It was just the two of us, a 12-seater tempo traveller, and a group of friends heading up toward Himachal. We didn&apos;t have an office or a glossy brochure. What we had was a deep obsession with route details, local dhabas, and making sure nobody felt like an outsider.
+            </p>
+
+            <EditorialMarker number="02" label="ORIGIN MOMENT" />
+            <h2 className="font-serif text-2xl sm:text-3xl text-[#1c1917] font-bold">
+              A Rainy Midnight in Sissu
+            </h2>
+            <p className="text-base text-[#1c1917]/90">
+              Our origin moment came on a rainy midnight in October 2021 near Sissu in Lahaul Valley. A hired third-party driver from a big aggregator agency backed out at the last minute because of road slush. The 10 travellers in our group were stranded. Aryan took the keys, got behind the wheel of the traveller, and drove the route himself while Kashshish organized warm blankets and fresh thalis at a local family homestay.
+            </p>
+
+            <p className="text-base text-[#1c1917]/90">
+              That night made everything clear: travellers don&apos;t care about fancy branding or 40-person tour buses. They care about having experienced humans on the ground who take personal accountability when things change.
+            </p>
+
+            <EditorialMarker number="03" label="OUR LOAD-BEARING REFUSAL" />
+            <h2 className="font-serif text-2xl sm:text-3xl text-[#1c1917] font-bold">
+              What We Refuse To Do
+            </h2>
+            
+            <div className="bg-[#1c1917] text-[#faf7f2] p-6 rounded-sm border-l-4 border-[#FACC15] space-y-3 font-mono text-xs sm:text-sm shadow-md">
+              <span className="text-[#FACC15] font-bold uppercase block">Core Founder Commitment:</span>
+              <p className="leading-relaxed">
+                We refuse to run 40-person crowded bus tours, white-label reseller itineraries, or hand off your group to an anonymous local agency who has never met you. Every group is capped at 12–16, and a founder is on the trip from day one to departure.
+              </p>
+            </div>
+
+            <p className="text-base text-[#1c1917]/90">
+              That is why our group chats stay active for years, why travellers return for their second and third trips, and why we reply on WhatsApp within 2 hours.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Founders */}
-      <section className="section-padding pb-section bg-brand-offwhite">
-        <div className="container-wide">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+      {/* Named Founders Profile Cards */}
+      <section className="section-padding py-16 bg-white border-b border-[#e6ded1]">
+        <div className="container-wide space-y-8">
+          <div className="text-center max-w-xl mx-auto space-y-2">
+            <EditorialMarker number="04" label="THE FOUNDERS" />
+            <h2 className="font-serif text-3xl font-bold text-[#1c1917]">
+              Aryan & Kashshish
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {founders.map((founder) => (
-              <div key={founder.id}>
-                <div className="aspect-[3/4] bg-brand-gray rounded-sm overflow-hidden mb-6 relative">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url('${founder.photo}')` }}
+              <div key={founder.id} className="bg-[#faf7f2] border border-[#e6ded1] p-6 rounded-sm space-y-4 font-sans hover:border-[#1c1917] transition-all">
+                <div className="relative aspect-[4/3] bg-[#e6ded1] rounded-sm overflow-hidden">
+                  <Image
+                    src={founder.photo}
+                    alt={founder.name}
+                    fill
+                    className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-brand-black/20 flex items-center justify-center">
-                    <span className="font-display text-6xl text-white/30">
-                      {founder.name.charAt(0)}
-                    </span>
+                  <div className="absolute top-2 left-2 px-2.5 py-1 bg-[#1c1917] text-[#FACC15] font-mono text-[10px] font-bold rounded">
+                    {founder.groupsLedCount} GROUPS LED
                   </div>
                 </div>
-                <h3 className="font-display text-display-sm text-brand-black mb-1">
-                  {founder.name}
-                </h3>
-                <p className="text-brand-yellow bg-brand-black inline-block px-2 py-0.5 text-xs font-semibold rounded-sm mb-4">
-                  {founder.role}
-                </p>
-                <p className="text-gray-700 leading-relaxed">{founder.bio}</p>
+                <div className="space-y-2">
+                  <span className="font-mono text-xs text-[#8c4a2f] uppercase block font-bold">{founder.role} &middot; {founder.region}</span>
+                  <h3 className="font-serif text-2xl text-[#1c1917] font-semibold">{founder.name}</h3>
+                  <p className="text-xs text-[#6b6257] leading-relaxed">
+                    {founder.bio}
+                  </p>
+                  <blockquote className="p-3 bg-white border-l-2 border-[#FACC15] text-xs text-[#1c1917] italic font-serif leading-relaxed">
+                    &ldquo;{founder.statement}&rdquo;
+                  </blockquote>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How it started */}
-      <section className="section-padding section-spacing">
-        <div className="container-narrow">
-          <h2 className="font-display text-display-md text-brand-black mb-8">
-            How it started
-          </h2>
-          <div className="space-y-5 text-gray-700 text-lg leading-relaxed">
-            <p>
-              The first trip was a disaster by most standards. Wrong turn on a
-              mountain road, accommodation that looked nothing like the photos,
-              and a plan that fell apart by Day 2. But somehow, everyone still
-              talks about it like it was the best trip they&apos;ve ever taken.
-            </p>
-            <p>
-              That taught us something important: a great trip isn&apos;t about
-              everything going perfectly. It&apos;s about someone knowing what to
-              do when things don&apos;t. It&apos;s about having a person who&apos;s
-              been on the road before, who knows the backup plan, who can make a
-              decision at midnight when the weather changes.
-            </p>
-            <p>
-              We kept doing trips because people kept asking. And every time, we
-              got a little better at the logistics, a little more honest about
-              what works and what doesn&apos;t, and a little more committed to
-              keeping things small.
-            </p>
-            <p>
-              Five years later, TheBucketList.co is still built on the same
-              idea: people travel better when someone they trust is leading.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="section-padding py-14 bg-brand-yellow">
+      {/* Stats Bar */}
+      <section className="section-padding py-12 bg-[#FACC15] text-[#1c1917]">
         <div className="container-wide">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: siteSettings.homepageStats.years, label: "Years" },
-              { value: siteSettings.homepageStats.trips, label: "Trips" },
-              {
-                value: siteSettings.homepageStats.travellers,
-                label: "Travellers",
-              },
-              {
-                value: siteSettings.homepageStats.destinations,
-                label: "Destinations",
-              },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="font-display text-display-lg text-brand-black">
-                  {stat.value}
-                </p>
-                <p className="text-brand-black/60 text-sm font-medium mt-1">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center font-serif">
+            <div>
+              <p className="text-4xl sm:text-5xl font-bold">{siteSettings.homepageStats.years}</p>
+              <p className="font-mono text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Years Running Trips</p>
+            </div>
+            <div>
+              <p className="text-4xl sm:text-5xl font-bold">{siteSettings.homepageStats.trips}</p>
+              <p className="font-mono text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Trips Personally Led</p>
+            </div>
+            <div>
+              <p className="text-4xl sm:text-5xl font-bold">{siteSettings.homepageStats.travellers}</p>
+              <p className="font-mono text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Happy Travellers</p>
+            </div>
+            <div>
+              <p className="text-4xl sm:text-5xl font-bold">{siteSettings.homepageStats.destinations}</p>
+              <p className="font-mono text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Focus Regions</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* What we refuse to do */}
-      <section className="section-padding section-spacing bg-brand-black">
-        <div className="container-narrow">
-          <h2 className="font-display text-display-md text-white mb-10">
-            Things we <span className="text-brand-yellow">don&apos;t</span> do.
-          </h2>
-          <ul className="space-y-5">
-            {[
-              "We don't run trips we haven't personally scouted.",
-              "We don't promise experiences we can't deliver.",
-              "We don't hide group sizes.",
-              "We don't pretend to be bigger than we are.",
-              "We don't outsource the entire experience and call it ours.",
-            ].map((item) => (
-              <li
-                key={item}
-                className="flex items-start gap-4 text-gray-300 text-lg"
-              >
-                <span className="text-brand-yellow text-xl leading-tight shrink-0">
-                  ×
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section-padding py-16 md:py-20 bg-brand-offwhite text-center">
-        <div className="container-narrow">
-          <h2 className="font-display text-display-md text-brand-black mb-4">
-            Ready to travel with us?
-          </h2>
-          <p className="text-gray-600 text-lg mb-8">
-            Check our upcoming trips or tell us what you&apos;re thinking about.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button href="/trips" variant="primary" size="lg">
-              See Upcoming Trips
-            </Button>
-            <Button href="/private-trips" variant="outline" size="lg">
-              Plan a Private Trip
-            </Button>
-          </div>
+      {/* CTAs */}
+      <section className="section-padding py-16 text-center space-y-6 bg-white">
+        <h2 className="font-serif text-3xl text-[#1c1917] font-semibold">Ready to join our next run?</h2>
+        <div className="flex flex-wrap justify-center gap-4">
+          <Button href="/trips" variant="primary" size="lg" className="bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] border-none font-bold">
+            See Upcoming Group Trips &rarr;
+          </Button>
+          <Button href="/private-trips" variant="outline" size="lg" className="border-[#1c1917] text-[#1c1917]">
+            Plan a Private Trip
+          </Button>
         </div>
       </section>
     </div>
