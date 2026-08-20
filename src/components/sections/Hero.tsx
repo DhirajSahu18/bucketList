@@ -26,21 +26,21 @@ export function Hero() {
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FAF7F2]/10 border border-[#FACC15]/40 rounded-full text-xs font-mono text-[#FACC15] backdrop-blur-xs">
               <span className="w-2 h-2 rounded-full bg-[#FACC15] animate-pulse" />
-              <span>Aryan & Kashshish &middot; Founder-Led Trips</span>
+              <span>Small-group trips across India &middot; Capped at 12&ndash;16</span>
             </div>
 
-            {/* Position Line Hero Headline */}
+            {/* Trip-Led Hero Headline */}
             <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#faf7f2] leading-[1.1]">
-              Two founders.
+              Raw mountain roads.
               <br />
-              <span className="text-[#FACC15]">Five years of trips.</span>
+              <span className="text-[#FACC15]">Real family homestays.</span>
               <br />
-              Zero outsourced groups.
+              Small groups only.
             </h1>
 
             {/* Evocative, High-Impact & Inspiring Supporting Copy */}
             <p className="font-sans text-lg sm:text-2xl text-[#e6ded1] max-w-2xl leading-relaxed font-light">
-              Raw mountain roads, hand-picked family homestays, and late-night campfire stargazing. Every trip is personally hosted by <span className="text-[#FACC15] font-semibold">Aryan & Kashshish</span> for just <span className="text-white font-semibold">12–16 travellers</span>.
+              The Spiti circuit over Kunzum Pass. Tea estates above Munnar. Late-night campfire stargazing at 14,000 ft. Every departure is capped at <span className="text-white font-semibold">12&ndash;16 travellers</span> and built from routes we&rsquo;ve <span className="text-[#FACC15] font-semibold">scouted and driven ourselves</span>.
             </p>
 
             {/* CTAs */}
@@ -63,7 +63,7 @@ export function Hero() {
             {/* Micro Trust Line */}
             <div className="pt-4 flex flex-wrap items-center gap-6 text-xs font-mono text-[#e6ded1]/70 border-t border-white/10">
               <span className="flex items-center gap-1.5">
-                <strong className="text-[#FACC15] font-semibold">{siteSettings.homepageStats.trips}</strong> Trips Led
+                <strong className="text-[#FACC15] font-semibold">{siteSettings.homepageStats.trips}</strong> Trips Run
               </span>
               <span>&middot;</span>
               <span className="flex items-center gap-1.5">

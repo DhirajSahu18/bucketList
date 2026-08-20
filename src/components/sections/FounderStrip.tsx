@@ -14,7 +14,7 @@ export function FounderStrip() {
               You won&apos;t be handed off to someone you&apos;ve never met.
             </h2>
             <p className="text-gray-600 text-base md:text-lg">
-              We design every itinerary, drive or lead every group, and stay with you from Day 1 to the final farewell chai.
+              We design every itinerary ourselves, scout the routes on the ground, and pick each homestay before a single group books it.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export function FounderStrip() {
                   {/* Groups Led Badge */}
                   <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#faf7f2] border border-[#e6ded1] rounded text-xs font-mono text-[#1c1917]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]" />
-                    <span className="font-semibold text-[#8c4a2f]">{founder.groupsLedCount} groups</span> personally led
+                    <span className="font-semibold text-[#8c4a2f]">{founder.groupsLedCount} groups</span> led
                   </div>
 
                   <p className="text-sm text-gray-600 leading-relaxed">

@@ -28,26 +28,26 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "TheBucketList.co — Founder-Led Trip Site",
+    default: "TheBucketList.co — Small-Group Trips Across India",
     template: "%s | TheBucketList.co",
   },
   description:
-    "Two founders. Five years of trips. Zero outsourced groups. Small-group journeys across India — personally led by Aryan & Kashshish.",
+    "Small groups. Real places. Zero outsourced tours. Small-group journeys across India, capped at 12–16 travellers, on routes we scout and run ourselves.",
   metadataBase: new URL("https://thebucketlist.co"),
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://thebucketlist.co",
     siteName: "TheBucketList.co",
-    title: "TheBucketList.co — Founder-Led Trip Site",
+    title: "TheBucketList.co — Small-Group Trips Across India",
     description:
-      "Two founders. Five years of trips. Zero outsourced groups. Small-group journeys across India — personally led by Aryan & Kashshish.",
+      "Small groups. Real places. Zero outsourced tours. Small-group journeys across India, capped at 12–16 travellers, on routes we scout and run ourselves.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TheBucketList.co — Founder-Led Trips Across India",
+    title: "TheBucketList.co — Small-Group Trips Across India",
     description:
-      "Small-group journeys personally led by Aryan & Kashshish.",
+      "Small-group journeys across India, capped at 12–16 travellers.",
   },
   robots: {
     index: true,

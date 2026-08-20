@@ -72,7 +72,7 @@ export const trips: Trip[] = [
       ],
     },
     summary:
-      "A complete 8-day Spiti circuit from Manali to Shimla — crossing Kunzum Pass (15,060 ft), exploring Kaza, Key Monastery, Hikkim, and camping under star-filled skies at Chandratal Lake. Personally driven and led by Aryan.",
+      "A complete 8-day Spiti circuit from Manali to Shimla — crossing Kunzum Pass (15,060 ft), exploring Kaza, Key Monastery, Hikkim, and camping under star-filled skies at Chandratal Lake. A route we scout and drive ourselves, end to end.",
     difficulty: "Challenging",
     accommodationType: "Traditional Homestays & Camps",
     startingPoint: "Manali",
@@ -163,7 +163,7 @@ export const trips: Trip[] = [
       "All accommodation (clean twin/triple sharing homestays & tents)",
       "All meals as specified in itinerary",
       "Private Tempo Traveller / SUV transport throughout",
-      "Expedition leader (Aryan) present 24/7",
+      "Experienced expedition leader present 24/7",
       "Inner Line Permits and environmental green passes",
       "Oxygen cylinder, pulse oximeter, and emergency medical kit",
     ],
@@ -188,7 +188,7 @@ export const trips: Trip[] = [
       {
         question: "How do you handle altitude sickness (AMS)?",
         answer:
-          "Our itinerary spends the first two nights acclimatizing gradually in Sissu (10,200 ft) and Kaza before heading higher. We carry an oxygen cylinder, pulse oximeter, and first-aid kit. Aryan is trained in high-altitude first aid.",
+          "Our itinerary spends the first two nights acclimatizing gradually in Sissu (10,200 ft) and Kaza before heading higher. We carry an oxygen cylinder, pulse oximeter, and first-aid kit. Our expedition leaders are trained in high-altitude first aid.",
       },
       {
         question: "Will my mobile network work in Spiti?",
@@ -265,7 +265,7 @@ export const trips: Trip[] = [
       ],
     },
     summary:
-      "Five relaxed days exploring Old Manali cafes, pine forests, Sissu waterfall in Lahaul Valley, and hidden trails in Sethan village. Led by Kashshish with focus on stays, food, and cozy mountain vibes.",
+      "Five relaxed days exploring Old Manali cafes, pine forests, Sissu waterfall in Lahaul Valley, and hidden trails in Sethan village. Built around the stays, the food, and an unhurried mountain pace.",
     difficulty: "Easy",
     accommodationType: "Boutique Heritage Hotel",
     startingPoint: "Delhi",
@@ -286,7 +286,7 @@ export const trips: Trip[] = [
         title: "Old Manali Cafes & Hadimba Forest Walk",
         location: "Old Manali",
         description:
-          "Slow morning with artisan coffee in Old Manali. Walk through the cedar forest around Hadimba Temple and explore local wood-and-stone architecture with Kashshish.",
+          "Slow morning with artisan coffee in Old Manali. Walk through the cedar forest around Hadimba Temple and explore local wood-and-stone architecture with your trip leader.",
         stay: "Boutique Stay in Old Manali",
         meals: "Breakfast & Dinner",
         activities: ["Hadimba Deodar forest walk", "Old Manali cafe crawl", "Group introduction dinner"],
@@ -327,7 +327,7 @@ export const trips: Trip[] = [
       "4 nights boutique accommodation in Old Manali",
       "Breakfast and dinner daily + special Lahauli lunch",
       "All local transfers to Sissu & Sethan",
-      "Trip leader (Kashshish) present throughout",
+      "Experienced trip leader present throughout",
     ],
     excluded: [
       "Personal expenses and optional adventure sports (paragliding, zipline)",
@@ -347,7 +347,7 @@ export const trips: Trip[] = [
       {
         question: "Is this trip suitable for solo travellers?",
         answer:
-          "Over 60% of our group joiners are solo travellers. Kashshish ensures everyone feels welcomed from Day 1.",
+          "Over 60% of our group joiners are solo travellers. Our trip leaders make sure everyone feels welcomed from Day 1.",
       },
     ],
     status: "almost-full",
@@ -408,7 +408,7 @@ export const trips: Trip[] = [
       ],
     },
     summary:
-      "A structured 6-day trek to Kedarnath (11,755 ft) with proper acclimatization, verified clean temple stays, experienced trekking paces, and Rishikesh evening ghat walks. Led by Aryan.",
+      "A structured 6-day trek to Kedarnath (11,755 ft) with proper acclimatization, verified clean temple stays, experienced trekking paces, and Rishikesh evening ghat walks.",
     difficulty: "Moderate",
     accommodationType: "Clean Lodges & Mountain Guesthouses",
     startingPoint: "Rishikesh / Haridwar",
@@ -480,7 +480,7 @@ export const trips: Trip[] = [
       "5 nights accommodation in Guptkashi, Kedarnath & Rishikesh",
       "All meals specified during the trek",
       "Mandakini Valley permits & registration",
-      "Trek leader (Aryan) + local guide + first-aid kit",
+      "Experienced trek leader + local guide + first-aid kit",
     ],
     excluded: [
       "Travel to/from Rishikesh",
@@ -559,7 +559,7 @@ export const trips: Trip[] = [
       ],
     },
     summary:
-      "An 8-day journey through Fort Kochi's spice alleys, Munnar's rolling tea estates, private Alleppey houseboat backwater floating, and Varkala's red cliffs. Curated by Kashshish.",
+      "An 8-day journey through Fort Kochi's spice alleys, Munnar's rolling tea estates, private Alleppey houseboat backwater floating, and Varkala's red cliffs. Curated stay by stay.",
     difficulty: "Easy",
     accommodationType: "Heritage Stays & Private Houseboat",
     startingPoint: "Kochi",
@@ -650,7 +650,7 @@ export const trips: Trip[] = [
       "All 7 nights accommodation (heritage hotels + private deluxe houseboat)",
       "All meals mentioned (including onboard chef meals on houseboat)",
       "Private AC Tempo Traveller transport throughout",
-      "Trip leader (Kashshish) present 24/7",
+      "Experienced trip leader present 24/7",
       "All spice plantation entries and houseboat fees",
     ],
     excluded: [

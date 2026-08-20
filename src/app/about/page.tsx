@@ -8,7 +8,7 @@ import { EditorialMarker } from "@/components/ui/EditorialMarker";
 export const metadata: Metadata = {
   title: "Our Story — Two Founders, Five Years of Trips | TheBucketList.co",
   description:
-    "First-person story of Aryan & Kashshish. Five years of founder-led trips across India, our origin moment in Himachal, and what we refuse to do.",
+    "First-person story of Aryan & Kashshish. Five years of building small-group trips across India, our origin moment in Himachal, and what we refuse to do.",
 };
 
 export default function AboutPage() {
@@ -28,7 +28,7 @@ export default function AboutPage() {
               <span className="text-[#FACC15]">Five years of trips.</span>
             </h1>
             <p className="font-sans text-[#e6ded1]/90 text-lg sm:text-xl leading-relaxed">
-              We&apos;re Aryan and Kashshish. We run every group trip ourselves because we believe trust is carried by named humans, not corporate aggregators.
+              We&apos;re Aryan and Kashshish. We build every trip in-house because we believe trust is carried by people who have actually been there, not corporate aggregators.
             </p>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default function AboutPage() {
             </div>
             <div>
               <p className="text-4xl sm:text-5xl font-bold">{siteSettings.homepageStats.trips}</p>
-              <p className="font-mono text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Trips Personally Led</p>
+              <p className="font-mono text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Trips Run</p>
             </div>
             <div>
               <p className="text-4xl sm:text-5xl font-bold">{siteSettings.homepageStats.travellers}</p>

@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!destination) return {};
 
   return {
-    title: `${destination.name} Founder Guide & Trips | TheBucketList.co`,
-    description: `${destination.emotionalHook} — Founder-written guide, month-by-month weather, packing list, and upcoming small group trips to ${destination.name}.`,
+    title: `${destination.name} Travel Guide & Trips | TheBucketList.co`,
+    description: `${destination.emotionalHook} — First-hand guide, month-by-month weather, packing list, and upcoming small group trips to ${destination.name}.`,
     openGraph: {
       title: `${destination.name} | TheBucketList.co`,
       description: destination.emotionalHook,
@@ -179,7 +179,7 @@ export default function DestinationPage({ params }: Props) {
                 Everything you actually need to know about {destination.name}
               </h2>
               <p className="text-xs font-mono text-gray-500 mt-2">
-                By Aryan & Kashshish &middot; Updated 2026
+                By the TheBucketList.co team &middot; Updated 2026
               </p>
             </div>
 

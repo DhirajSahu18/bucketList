@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/Button";
 import { getWhatsAppLink } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${
+  process.env.NEXT_PUBLIC_FORMSPREE_ID || "xkjwkoyv"
+}`;
+
 export function PrivateTripForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,32 +16,60 @@ export function PrivateTripForm() {
     email: "",
     destination: "Spiti Valley",
     preferredDates: "",
-    numberOfTravellers: "4",
+    numberOfTravellers: "2-4",
     approximateBudget: "₹20,000 – ₹30,000 / person",
     additionalNotes: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
     trackEvent("submit_private_form", { destination: formData.destination, groupSize: formData.numberOfTravellers });
 
+    // Keep the local JSON backup, but never let it block or fail the submission.
+    fetch("/api/enquiries", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...formData, tripType: "private" }),
+    }).catch((err) => console.error("Local enquiry backup failed:", err));
+
     try {
-      await fetch("/api/enquiries", {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          ...formData,
+          _subject: `Private trip enquiry — ${formData.name} (${formData.destination})`,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          destination: formData.destination,
+          preferredDates: formData.preferredDates || "Not specified",
+          numberOfTravellers: formData.numberOfTravellers,
+          approximateBudget: formData.approximateBudget,
+          additionalNotes: formData.additionalNotes || "None",
           tripType: "private",
         }),
       });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(
+          data?.errors?.map((x: { message: string }) => x.message).join(", ") ||
+            "Submission failed"
+        );
+      }
+
       setSubmitted(true);
     } catch (err) {
       console.error(err);
-      setSubmitted(true);
+      setError(
+        "We couldn't send that through. Please try again, or message us on WhatsApp — we'll pick it up right away."
+      );
     } finally {
       setLoading(false);
     }
@@ -100,6 +132,19 @@ export function PrivateTripForm() {
             placeholder="+91 98765 43210"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded focus:outline-none focus:border-[#FACC15]"
+          />
+        </div>
+
+        {/* Email */}
+        <div className="space-y-1">
+          <label className="text-xs font-mono uppercase text-[#8c4a2f] block">Email Address *</label>
+          <input
+            type="email"
+            required
+            placeholder="you@example.com"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded focus:outline-none focus:border-[#FACC15]"
           />
         </div>
@@ -173,6 +218,15 @@ export function PrivateTripForm() {
           className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded focus:outline-none focus:border-[#FACC15]"
         />
       </div>
+
+      {error && (
+        <p
+          role="alert"
+          className="text-xs font-mono text-[#8c4a2f] bg-[#faf1e8] border border-[#e6ded1] p-3 rounded"
+        >
+          {error}
+        </p>
+      )}
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#e6ded1]">
         <Button

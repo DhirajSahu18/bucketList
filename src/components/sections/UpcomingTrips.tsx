@@ -70,7 +70,7 @@ export function UpcomingTrips() {
                     <div className="pt-6 border-t border-[#e6ded1] space-y-4">
                       <div className="flex items-center justify-between font-mono text-xs text-[#6b6257]">
                         <span>Dates: {formatDateRange(featuredTrip.dates.start, featuredTrip.dates.end)}</span>
-                        <span>Leader: <strong className="text-[#1c1917]">{featuredTrip.founder.name}</strong></span>
+                        <span>Group: <strong className="text-[#1c1917]">Max {featuredTrip.maxGroupSize}</strong></span>
                       </div>
 
                       <div className="flex items-center justify-between">

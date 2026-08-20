@@ -23,7 +23,7 @@ export function Footer() {
               </div>
 
               <p className="font-serif text-lg text-[#FACC15] font-semibold leading-tight pt-1">
-                Two founders. Five years of trips. Zero outsourced groups.
+                Small groups. Real places. Zero outsourced tours.
               </p>
 
               <p className="text-xs text-[#e6ded1]/80 max-w-sm leading-relaxed font-sans">
@@ -59,9 +59,9 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Direct Founder Contact */}
+            {/* Direct Contact */}
             <div className="md:col-span-3 space-y-3 font-mono text-xs">
-              <span className="text-[#FACC15] uppercase tracking-wider block font-bold border-b border-[#FAF7F2]/10 pb-1">Direct Founder Contact</span>
+              <span className="text-[#FACC15] uppercase tracking-wider block font-bold border-b border-[#FAF7F2]/10 pb-1">Direct Contact</span>
               <p className="text-gray-300 font-semibold">Aryan & Kashshish</p>
               <a
                 href={whatsappUrl}

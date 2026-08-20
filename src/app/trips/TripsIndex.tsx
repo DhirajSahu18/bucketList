@@ -55,7 +55,7 @@ export function TripsIndex() {
               Upcoming Small-Group Expeditions
             </h1>
             <p className="text-gray-600 text-base sm:text-lg font-sans">
-              Every group capped at 12–16 travellers. Driven and led personally by Aryan or Kashshish. Zero white-label reseller itineraries.
+              Every group capped at 12–16 travellers, on routes we scout and drive ourselves. Zero white-label reseller itineraries.
             </p>
           </div>
 

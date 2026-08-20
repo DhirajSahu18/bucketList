@@ -41,10 +41,10 @@ export function TripCard({ trip }: TripCardProps) {
           )}
         </div>
 
-        {/* Founder Badge Overlay */}
+        {/* Group Size Badge Overlay */}
         <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/60 backdrop-blur-md rounded-xs border border-white/10 text-white text-xs">
           <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]" />
-          <span className="font-mono text-[11px]">Led by {trip.founder.name.split(" ")[0]}</span>
+          <span className="font-mono text-[11px]">Max {trip.maxGroupSize} travellers</span>
         </div>
       </div>
 

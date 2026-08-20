@@ -122,7 +122,7 @@ export default function PrivateTripsPage() {
                   We don&apos;t ask for instant payments. You fill out the 4 quick fields on the form (dates, group size, destinations in mind, budget band).
                 </p>
                 <p>
-                  Within 2 hours on WhatsApp, Aryan or Kashshish will share a customized route outline, recommended homestays, and a transparent pricing breakdown.
+                  Within 2 hours on WhatsApp, we will share a customized route outline, recommended homestays, and a transparent pricing breakdown.
                 </p>
               </div>
 
@@ -131,7 +131,7 @@ export default function PrivateTripsPage() {
                   ⚡ Trust Signal
                 </span>
                 <p className="text-[#1c1917]">
-                  &ldquo;We reply on WhatsApp within 2 hours&rdquo; — personally handled by Aryan & Kashshish.
+                  &ldquo;We reply on WhatsApp within 2 hours&rdquo; — every enquiry answered by a real person.
                 </p>
               </div>
             </div>

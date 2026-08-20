@@ -1,4 +1,4 @@
-export const primaryPositioning = "Two founders. Five years of trips. Zero outsourced groups.";
+export const primaryPositioning = "Small groups. Real places. Zero outsourced tours.";
 
 export const backupPositioningLines = [
   "Small by design.",
@@ -17,11 +17,11 @@ export const bannedVocabulary = [
 ] as const;
 
 export const positioningCopy = {
-  heroHeadline: "Two founders. Five years of trips. Zero outsourced groups.",
+  heroHeadline: "Small groups. Real places. Zero outsourced tours.",
   heroSubhead:
-    "We build and personally lead small-group journeys across India — from the high Himalayas to the coast.",
-  founderBlockHeadline: "Two founders. Five years of trips.",
-  founderBlockLead: "A founder leads every group",
+    "Small-group journeys across India — from the high Himalayas to the coast, scouted route by route.",
+  founderBlockHeadline: "Five years of building these trips.",
+  founderBlockLead: "The people who scout the routes",
   threeDifferences: [
     {
       title: "Capped size",
@@ -29,9 +29,9 @@ export const positioningCopy = {
         "Every group is strictly capped at 12–16 travellers. Never a 40-person tour bus, never an unwieldy crowd.",
     },
     {
-      title: "Founder-led",
+      title: "Experienced leaders",
       description:
-        "A founder leads every group. No junior freelance guides, no line-item handoffs, no anonymous trip captains.",
+        "Every group runs with an experienced trip leader who knows the route first-hand. No line-item handoffs to an agency that has never driven it.",
     },
     {
       title: "Built, not resold",

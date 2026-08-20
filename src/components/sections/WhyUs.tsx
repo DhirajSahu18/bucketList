@@ -4,8 +4,8 @@ export function WhyUs() {
   const pillars = [
     {
       num: "01",
-      title: "Named Founder On Ground",
-      text: "Aryan or Kashshish is with you on every trip. We don't hand your itinerary off to an anonymous local agency who has never met you.",
+      title: "Experienced Leader On Ground",
+      text: "Every group travels with an experienced trip leader who has driven the route before. We don't hand your itinerary off to an anonymous local agency who has never met you.",
     },
     {
       num: "02",

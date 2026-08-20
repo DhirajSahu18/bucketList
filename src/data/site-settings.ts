@@ -6,7 +6,7 @@ export const siteSettings: SiteSettings = {
   instagram: "https://instagram.com/thebucketlist.co",
   responseTime: "within 2 hours",
   footerDescription:
-    "Founder-led group and private trips across India. Small groups. Real places. Personally led by Aryan & Kashshish.",
+    "Group and private trips across India. Small groups. Real places. Routes we scout and run ourselves.",
   homepageStats: {
     years: "5",
     trips: "47",
@@ -15,7 +15,7 @@ export const siteSettings: SiteSettings = {
   },
   brandCopy: {
     primaryPositioning:
-      "Two founders. Five years of trips. Zero outsourced groups.",
+      "Small groups. Real places. Zero outsourced tours.",
     secondaryPositioning: [
       "Small by design.",
       "Planned by people who've actually been there.",

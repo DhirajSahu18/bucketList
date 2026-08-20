@@ -74,8 +74,8 @@ export function TripDetail({ trip }: TripDetailProps) {
               <span className="font-bold">{trip.duration}</span>
             </div>
             <div>
-              <span className="text-[#8c4a2f] block uppercase text-[10px]">04 — LEADER</span>
-              <span className="font-bold">{trip.founder.name}</span>
+              <span className="text-[#8c4a2f] block uppercase text-[10px]">04 — GROUP CAP</span>
+              <span className="font-bold">Max {trip.maxGroupSize} travellers</span>
             </div>
             <div>
               <span className="text-[#8c4a2f] block uppercase text-[10px]">05 — SEATS</span>
@@ -263,20 +263,6 @@ export function TripDetail({ trip }: TripDetailProps) {
                   </span>
                 </div>
 
-                {/* Founder Badge */}
-                <div className="p-4 bg-[#faf7f2] border border-[#e6ded1] rounded space-y-2">
-                  <span className="text-[10px] font-mono uppercase text-[#8c4a2f] block">
-                    Expedition Leader
-                  </span>
-                  <div className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-[#FACC15]" />
-                    <div>
-                      <span className="font-serif font-bold text-sm text-[#1c1917] block">{trip.founder.name}</span>
-                      <span className="text-xs text-gray-500 font-mono">{trip.founder.role}</span>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Primary WhatsApp CTA */}
                 <Button
                   href={whatsappUrl}
@@ -345,7 +331,7 @@ export function TripDetail({ trip }: TripDetailProps) {
               <p><strong>30+ Days Before Departure:</strong> 100% deposit refund or 100% transfer credit to any future trip.</p>
               <p><strong>15–29 Days Before Departure:</strong> 50% deposit refund or 100% transfer credit.</p>
               <p><strong>Under 14 Days:</strong> Deposit non-refundable unless seat is filled by replacement joiner.</p>
-              <p><strong>Mountain Pass Closures:</strong> If passes are closed due to severe weather, founder leaders re-route with zero extra leader fees.</p>
+              <p><strong>Mountain Pass Closures:</strong> If passes are closed due to severe weather, our trip leaders re-route with zero extra leader fees.</p>
             </div>
             <div className="pt-4 border-t border-[#e6ded1] flex justify-end">
               <Button onClick={() => setShowRefundModal(false)} variant="primary" size="sm" className="bg-[#1c1917] text-white">

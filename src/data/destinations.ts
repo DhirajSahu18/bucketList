@@ -21,7 +21,7 @@ May: The passes start clearing. Snow walls flank the road near Kunzum. Days are 
 
 June to July: Peak summer season. Kunzum Pass is fully open. Rivers are full and green patches appear around Kaza and Tabo.
 
-August: Monsoon phase across Lahaul and Kinnaur. High road slides happen; our founder leaders monitor pass clearances daily.
+August: Monsoon phase across Lahaul and Kinnaur. High road slides happen; our trip leaders monitor pass clearances daily.
 
 September: The golden month. Clear blue skies, turquoise Chandratal Lake, zero rain, and crisp 10°C daytime weather.
 
@@ -62,7 +62,7 @@ At TheBucketList.co, we spend our first two nights acclimatizing in Sissu and Ka
       {
         question: "What happens if a road or pass closes?",
         answer:
-          "Aryan and Kashshish monitor weather updates and Himachal road clearances 24/7. We maintain alternate homestay bookings and secondary circuit routes so safety is never compromised.",
+          "We monitor weather updates and Himachal road clearances 24/7. We maintain alternate homestay bookings and secondary circuit routes so safety is never compromised.",
       },
     ],
     images: [
@@ -93,7 +93,7 @@ Manali works across all non-monsoon months. Spring (March–May) offers apple bl
 
 Overnight Volvo or private Tempo Traveller from Delhi (~12 hours) brings you directly to Old Manali by morning.
 
-## Founder Recommendations
+## Our Recommendations
 
 Skip the commercial Mall Road. Spend your afternoons in Old Manali's artisan cafes, take an early morning walk through Hadimba Deodar forest, and cross Atal Tunnel to Sissu for riverfront trout lunch.`,
     faqs: [

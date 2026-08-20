@@ -21,7 +21,7 @@ export function OrganizationSchema() {
     name: "TheBucketList.co",
     url: "https://thebucketlist.co",
     description:
-      "Founder-led group and private trips across India. Small groups, personally led by experienced trip leaders.",
+      "Group and private trips across India. Small groups of 12–16 travellers, run by experienced trip leaders.",
     foundingDate: "2021",
     areaServed: {
       "@type": "Country",

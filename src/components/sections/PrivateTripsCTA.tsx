@@ -9,7 +9,7 @@ export function PrivateTripsCTA() {
     { num: "01", title: "Tell us your group", desc: "Dates, duration, group size (family or friends), and style." },
     { num: "02", title: "We ask the right questions", desc: "Acclimatization preferences, pace, and accommodation comfort." },
     { num: "03", title: "We design the route", desc: "Custom day-by-day itinerary built around your people." },
-    { num: "04", title: "We lead the journey", desc: "Same founder vehicles, driver safety, and homestay locks." },
+    { num: "04", title: "We lead the journey", desc: "Same vehicles, driver safety standards, and vetted homestays." },
   ];
 
   return (
@@ -19,7 +19,7 @@ export function PrivateTripsCTA() {
           <div className="max-w-2xl mb-12">
             <EditorialMarker number="06" label="YOUR TRIP, YOUR WAY" className="text-[#FACC15]" />
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#faf7f2] font-semibold leading-tight mb-4">
-              Private trips with the exact same founder accountability.
+              Private trips with the exact same accountability.
             </h2>
             <p className="text-[#e6ded1] text-base md:text-lg">
               Want to travel with just your family or alumni group? We design custom road trips and treks around your dates and pace.

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Cancellation & Refund Policy | TheBucketList.co",
   description:
-    "Transparent cancellation and refund terms for founder-led group and private trips with TheBucketList.co.",
+    "Transparent cancellation and refund terms for group and private trips with TheBucketList.co.",
 };
 
 export default function RefundPolicyPage() {

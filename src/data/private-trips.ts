@@ -9,7 +9,7 @@ export const privateTripExamples: PrivateTripExample[] = [
     idealGroup: "4–10 friends",
     indicativePrice: "From ₹24,500 / person",
     description:
-      "The Spiti circuit on your schedule. Choose your dates, your pace, and how many monastery stops you want. Aryan handles the mountain vehicle, permits, and homestays.",
+      "The Spiti circuit on your schedule. Choose your dates, your pace, and how many monastery stops you want. We handle the mountain vehicle, permits, and homestays.",
     image: "/images/brand_group_mountains.jpg",
   },
   {
@@ -31,7 +31,7 @@ export const privateTripExamples: PrivateTripExample[] = [
     idealGroup: "4–12 friends",
     indicativePrice: "From ₹14,500 / person",
     description:
-      "Old Manali cafe exploration, Sissu waterfall drives, and Sethan pine forest hikes with boutique stay accommodation curated by Kashshish.",
+      "Old Manali cafe exploration, Sissu waterfall drives, and Sethan pine forest hikes with boutique stay accommodation curated stay by stay.",
     image: "/images/brand_hero_founders.jpg",
   },
   {
