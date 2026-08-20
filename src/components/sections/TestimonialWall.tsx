@@ -4,16 +4,16 @@ import { EditorialMarker } from "@/components/ui/EditorialMarker";
 
 export function TestimonialWall() {
   return (
-    <section className="py-16 md:py-24 bg-white border-b border-[#e6ded1]">
+    <section className="py-16 md:py-24 bg-white border-b border-[#e6ded1] font-sans text-[#1c1917]">
       <div className="section-padding">
         <div className="container-wide">
-          <div className="max-w-2xl mb-12">
-            <EditorialMarker number="05" label="PEOPLE WHO ACTUALLY WENT" />
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1c1917] font-semibold leading-tight mb-4">
-              Unfiltered Proof & WhatsApp Messages
+          <div className="max-w-2xl mb-12 space-y-2">
+            <EditorialMarker number="04" label="PAST JOINERS" />
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
+              People who came with us.
             </h2>
             <p className="text-gray-600 text-base md:text-lg">
-              Real screenshots, verified Google reviews, and unfiltered WhatsApp messages from past group joiners.
+              Real WhatsApp chats, Google reviews, and stories from our trip community.
             </p>
           </div>
 
@@ -24,7 +24,7 @@ export function TestimonialWall() {
                 className="break-inside-avoid bg-[#faf7f2] border border-[#e6ded1] p-6 rounded-sm space-y-4 hover:border-[#1c1917] transition-all duration-300"
               >
                 {/* Source Badge Header */}
-                <div className="flex items-center justify-between border-b border-[#e6ded1] pb-3 text-xs font-mono">
+                <div className="flex items-center justify-between border-b border-[#e6ded1] pb-3 text-xs">
                   <div className="flex items-center gap-2">
                     {item.source === "whatsapp" && (
                       <span className="px-2 py-0.5 bg-[#128c7e] text-white text-[10px] rounded font-bold">
@@ -41,9 +41,9 @@ export function TestimonialWall() {
                         Instagram Story
                       </span>
                     )}
-                    <span className="text-[#6b6257]">{item.date}</span>
+                    <span className="text-[#6b6257] text-[11px] font-medium">{item.date}</span>
                   </div>
-                  <span className="text-[10px] uppercase font-bold text-[#8c4a2f]">REAL TRIP</span>
+                  <span className="text-[10px] uppercase font-bold text-[#8c4a2f]">VERIFIED JOINER</span>
                 </div>
 
                 {/* Optional Image */}
@@ -60,17 +60,17 @@ export function TestimonialWall() {
                 )}
 
                 {/* Review Text */}
-                <p className="text-sm text-[#1c1917] leading-relaxed font-sans italic">
+                <p className="text-sm text-[#1c1917] leading-relaxed font-serif italic">
                   &ldquo;{item.review}&rdquo;
                 </p>
 
                 {/* Author Info */}
-                <div className="pt-3 border-t border-[#e6ded1] flex items-center justify-between text-xs font-mono">
+                <div className="pt-3 border-t border-[#e6ded1] flex items-center justify-between text-xs font-sans">
                   <div>
                     <span className="font-bold text-[#1c1917] block">{item.name}</span>
-                    {item.handle && <span className="text-[#8c4a2f] text-[11px]">{item.handle}</span>}
+                    {item.handle && <span className="text-[#8c4a2f] text-[11px] font-medium">{item.handle}</span>}
                   </div>
-                  <span className="text-[#6b6257] text-[11px]">{item.destinationName}</span>
+                  <span className="text-[#6b6257] text-[11px] font-medium">{item.destinationName}</span>
                 </div>
               </div>
             ))}

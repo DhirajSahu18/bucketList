@@ -4,40 +4,43 @@ export function WhyUs() {
   const pillars = [
     {
       num: "01",
-      title: "Experienced Leader On Ground",
-      text: "Every group travels with an experienced trip leader who has driven the route before. We don't hand your itinerary off to an anonymous local agency who has never met you.",
+      title: "Real People On Ground",
+      text: "Aryan or Kashshish is on every trip. We handle vehicle timing, stay check-ins, and local food spots so you can focus on enjoying the journey.",
     },
     {
       num: "02",
-      title: "12–16 Group Cap",
-      text: "Never 40-person crowded bus tours. Small groups mean faster starts, real conversations, and staying at boutique family homestays.",
+      title: "Zero Group Chaos",
+      text: "Whether it's a quiet mountain trek or an 80-person New Year departure, room allocations and bus seating run smoothly from Day 1.",
     },
     {
       num: "03",
-      title: "Zero Reseller Reselling",
-      text: "We design every route, test every homestay mattress, and drive the mountain passes ourselves.",
+      title: "Driven & Scouted By Us",
+      text: "We stay in every homestay first, eat at every local cafe, and drive every mountain pass ourselves before bringing our joiners.",
     },
     {
       num: "04",
-      title: "Direct WhatsApp Hand-off",
-      text: "No complex checkouts or hidden fees. We reply on WhatsApp within 2 hours with real answers to your route questions.",
+      title: "No Hidden Red Tape",
+      text: "Transparent fixed pricing, simple deposit rules, and direct 1-on-1 WhatsApp answers within 2 hours.",
     },
   ];
 
   return (
     <section className="section-padding py-20 bg-white border-b border-[#e6ded1] font-sans text-[#1c1917]">
       <div className="container-wide space-y-12">
-        <div className="max-w-2xl">
-          <EditorialMarker number="02" label="OUR PRINCIPLES" />
+        <div className="max-w-2xl space-y-2">
+          <EditorialMarker number="02" label="THE BUCKETLIST DIFFERENCE" />
           <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight">
             How we actually run trips differently.
           </h2>
+          <p className="text-gray-600 text-base sm:text-lg">
+            No corporate reseller packages. Just well-planned trips led by people who know the roads.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {pillars.map((p) => (
             <div key={p.num} className="bg-[#faf7f2] p-6 border border-[#e6ded1] rounded-sm space-y-3 hover:border-[#1c1917] transition-all">
-              <span className="font-mono text-xs text-[#8c4a2f] font-bold block">{p.num} &middot; PRINCIPLE</span>
+              <span className="font-sans text-xs text-[#8c4a2f] font-bold block uppercase tracking-wider">{p.num} &middot; BENEFIT</span>
               <h3 className="font-serif text-xl font-bold text-[#1c1917]">{p.title}</h3>
               <p className="text-xs text-[#6b6257] leading-relaxed">{p.text}</p>
             </div>

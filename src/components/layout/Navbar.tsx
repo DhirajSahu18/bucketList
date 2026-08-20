@@ -8,7 +8,7 @@ import { trackEvent } from "@/lib/analytics";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const whatsappUrl = getWhatsAppLink("Hi Aryan & Kashshish, I'm exploring trips on TheBucketList.co and would like to ask a quick question.");
+  const whatsappUrl = getWhatsAppLink("Hi Aryan & Kashshish, I'm exploring trips on TheBucketList.co and would like to check details for Himachal Unplugged!");
 
   return (
     <header className="fixed top-0 inset-x-0 z-40 bg-[#1c1917]/95 backdrop-blur-md border-b border-[#FAF7F2]/10 text-[#faf7f2]">
@@ -31,9 +31,9 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest font-medium">
+          <nav className="hidden md:flex items-center gap-8 text-xs font-sans uppercase tracking-widest font-semibold">
             <Link href="/trips" className="text-[#faf7f2]/85 hover:text-[#FACC15] transition-colors flex items-center gap-1.5">
-              <span>Group Trips</span>
+              <span>Community Trips</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15] opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>
             <Link href="/destinations" className="text-[#faf7f2]/85 hover:text-[#FACC15] transition-colors">
@@ -54,7 +54,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent("click_trip_whatsapp", { source: "navbar" })}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] font-mono text-xs font-bold rounded-sm shadow-sm transition-all hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] font-sans text-xs font-bold rounded-sm shadow-sm transition-all hover:scale-105 active:scale-95"
             >
               <span className="w-2 h-2 rounded-full bg-[#1c1917] animate-pulse" />
               <span>WhatsApp Us (&lt;2h reply)</span>
@@ -64,7 +64,7 @@ export function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-[#faf7f2] font-mono text-xs hover:text-[#FACC15] transition-colors"
+            className="md:hidden p-2 text-[#faf7f2] font-sans text-xs hover:text-[#FACC15] transition-colors font-semibold"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? "CLOSE [×]" : "MENU [≡]"}
@@ -74,13 +74,13 @@ export function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#1c1917] border-t border-[#FAF7F2]/10 px-6 py-6 space-y-4 font-mono text-xs uppercase tracking-wider">
+        <div className="md:hidden bg-[#1c1917] border-t border-[#FAF7F2]/10 px-6 py-6 space-y-4 font-sans text-xs uppercase tracking-wider">
           <Link
             href="/trips"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-[#faf7f2] hover:text-[#FACC15] py-2.5 border-b border-white/10 font-bold"
           >
-            Group Trips &rarr;
+            Community Trips &rarr;
           </Link>
           <Link
             href="/destinations"

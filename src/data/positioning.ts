@@ -1,9 +1,9 @@
-export const primaryPositioning = "Small groups. Real places. Zero outsourced tours.";
+export const primaryPositioning = "Good people. Great places. A trip that's planned properly.";
 
 export const backupPositioningLines = [
-  "Small by design.",
-  "Planned by people who've actually been there.",
-  "The trip you'd plan for your best friend.",
+  "Good people. Great places. Zero hassle.",
+  "Planned by travellers who know the roads.",
+  "Real community trips with people you'll actually like.",
 ] as const;
 
 export type BackupPositioningLine = (typeof backupPositioningLines)[number];
@@ -12,32 +12,35 @@ export const bannedVocabulary = [
   "tribe",
   "vibe",
   "wanderlust",
-  "captain",
   "squad",
+  "once in a lifetime",
+  "unforgettable",
+  "seamless operational excellence",
+  "curated experience",
 ] as const;
 
 export const positioningCopy = {
-  heroHeadline: "Small groups. Real places. Zero outsourced tours.",
+  heroHeadline: "Come for the Mountains. Stay for the Memories.",
   heroSubhead:
-    "Small-group journeys across India — from the high Himalayas to the coast, scouted route by route.",
-  founderBlockHeadline: "Five years of building these trips.",
-  founderBlockLead: "The people who scout the routes",
+    "Old Manali cedar trails, Solang snow excursions, Kasol river campfires, and live acoustic music — planned properly with people you'll actually like.",
+  founderBlockHeadline: "Two founders who actually travel on ground.",
+  founderBlockLead: "We've driven the routes before. We know what needs planning.",
   threeDifferences: [
     {
-      title: "Capped size",
+      title: "Founders On Ground",
       description:
-        "Every group is strictly capped at 12–16 travellers. Never a 40-person tour bus, never an unwieldy crowd.",
+        "Aryan or Kashshish is on every trip. We handle vehicle timing, stay check-ins, and local food spots so you can just enjoy the trip.",
     },
     {
-      title: "Experienced leaders",
+      title: "Big Group? Still Well Organised.",
       description:
-        "Every group runs with an experienced trip leader who knows the route first-hand. No line-item handoffs to an agency that has never driven it.",
+        "Rooms, buses, timing, meals, and the small details that usually get messy are worked out before you arrive.",
     },
     {
-      title: "Built, not resold",
+      title: "Driven & Scouted By Us",
       description:
-        "We scout every route, test every homestay, and manage every detail ourselves. Zero white-label reseller packages.",
+        "We stay in every homestay first, eat at every local cafe, and drive every mountain highway ourselves. No resold packages.",
     },
   ],
-  trustBadge: "We reply on WhatsApp within 2 hours",
+  trustBadge: "Direct 1-on-1 WhatsApp reply within 2 hours",
 };

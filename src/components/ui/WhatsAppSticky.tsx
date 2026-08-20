@@ -25,7 +25,7 @@ export function WhatsAppSticky() {
   return (
     <div className="fixed bottom-6 right-6 z-40 hidden sm:block">
       <a
-        href={getWhatsAppLink("Hi Aryan & Kashshish, I'm interested in an upcoming trip.")}
+        href={getWhatsAppLink("Hi Aryan & Kashshish, I'm exploring trips on TheBucketList.co and want to check details for Himachal Unplugged!")}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackEvent("click_sticky_whatsapp")}
@@ -35,9 +35,9 @@ export function WhatsAppSticky() {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FACC15] opacity-75"></span>
           <span className="relative inline-flex rounded-full h-3 w-3 bg-[#FACC15]"></span>
         </span>
-        <div className="text-left font-mono">
+        <div className="text-left font-sans">
           <span className="block text-xs font-bold text-white leading-tight">Chat on WhatsApp</span>
-          <span className="block text-[10px] text-[#FACC15]">Replies &lt;2 hours</span>
+          <span className="block text-[10px] text-[#FACC15] font-semibold">Replies &lt;2 hours</span>
         </div>
       </a>
     </div>

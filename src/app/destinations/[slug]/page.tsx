@@ -5,6 +5,7 @@ import Image from "next/image";
 import { destinations } from "@/data/destinations";
 import { trips } from "@/data/trips";
 import { testimonials } from "@/data/testimonials";
+import { siteSettings } from "@/data/site-settings";
 import { TripCard } from "@/components/ui/TripCard";
 import { Button } from "@/components/ui/Button";
 import { EditorialMarker } from "@/components/ui/EditorialMarker";
@@ -24,12 +25,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const destination = destinations.find((d) => d.slug === params.slug);
   if (!destination) return {};
 
+  const siteUrl = siteSettings.siteUrl || "https://thebucketlist.co";
+  const canonicalUrl = `${siteUrl}/destinations/${destination.slug}`;
+
   return {
-    title: `${destination.name} Travel Guide & Trips | TheBucketList.co`,
-    description: `${destination.emotionalHook} — First-hand guide, month-by-month weather, packing list, and upcoming small group trips to ${destination.name}.`,
+    title: `${destination.name} Travel Captain Guide & Trips | TheBucketList.co`,
+    description: `${destination.emotionalHook} — Travel captain guide, weather, packing list, and upcoming community trips to ${destination.name}.`,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${destination.name} | TheBucketList.co`,
       description: destination.emotionalHook,
+      url: canonicalUrl,
       images: [destination.heroImage],
     },
   };
@@ -79,10 +87,10 @@ export default function DestinationPage({ params }: Props) {
             <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917] via-[#1c1917]/40 to-transparent" />
           </div>
 
-          <div className="relative z-10 section-padding w-full">
+          <div className="relative z-10 section-padding w-full font-sans">
             <div className="container-wide">
-              <nav className="mb-3 text-xs font-mono text-[#e6ded1]/80 flex items-center gap-2">
-                <Link href="/destinations" className="hover:text-white">
+              <nav className="mb-3 text-xs text-[#e6ded1]/80 flex items-center gap-2 font-medium">
+                <Link href="/destinations" className="hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FACC15]">
                   Destinations
                 </Link>
                 <span>/</span>
@@ -101,7 +109,7 @@ export default function DestinationPage({ params }: Props) {
         {/* 2. QUICK FACTS */}
         <section className="section-padding py-8 bg-white border-b border-[#e6ded1]">
           <div className="container-wide">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 font-mono text-xs">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 font-sans text-xs">
               <div className="p-3.5 bg-[#faf7f2] rounded-sm border border-[#e6ded1]">
                 <span className="text-[#8c4a2f] block text-[10px] uppercase font-bold">Best Time</span>
                 <span className="font-semibold text-[#1c1917]">{destination.bestTime}</span>
@@ -137,8 +145,8 @@ export default function DestinationPage({ params }: Props) {
                     Upcoming Trips to {destination.name}
                   </h2>
                 </div>
-                <span className="font-mono text-xs text-[#8c4a2f] font-bold">
-                  Small group cap (12–16)
+                <span className="font-sans text-xs text-[#8c4a2f] font-bold">
+                  Experienced Travel Captains
                 </span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -152,16 +160,16 @@ export default function DestinationPage({ params }: Props) {
 
         {/* 4. OR PLAN IT AS A PRIVATE TRIP */}
         <section className="section-padding py-12 bg-[#1c1917] text-[#faf7f2]">
-          <div className="container-wide flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="container-wide flex flex-col md:flex-row items-center justify-between gap-6 font-sans">
             <div>
-              <span className="font-mono text-xs text-[#FACC15] uppercase tracking-wider block mb-1 font-bold">
+              <span className="text-xs text-[#FACC15] uppercase tracking-wider block mb-1 font-bold">
                 Custom Dates & Group Sizes
               </span>
               <h3 className="font-serif text-2xl text-[#faf7f2]">
                 Want to do {destination.name} with your own group of friends?
               </h3>
               <p className="text-[#e6ded1]/75 text-sm mt-1">
-                We&apos;ll build the itinerary around your dates, pace, and homestay preferences.
+                We&apos;ll build the itinerary around your dates, pace, and stay preferences.
               </p>
             </div>
             <Button href="/private-trips" variant="primary" size="md" className="bg-[#FACC15] text-[#1c1917] shrink-0 font-bold border-none">
@@ -174,12 +182,12 @@ export default function DestinationPage({ params }: Props) {
         <section className="section-padding py-16 md:py-24 bg-white border-b border-[#e6ded1]">
           <div className="container-narrow space-y-8 font-sans">
             <div className="border-b border-[#e6ded1] pb-6">
-              <EditorialMarker number="02" label="FOUNDER GUIDE" />
+              <EditorialMarker number="02" label="TRAVEL CAPTAIN GUIDE" />
               <h2 className="font-serif text-3xl sm:text-4xl text-[#1c1917] font-bold">
                 Everything you actually need to know about {destination.name}
               </h2>
-              <p className="text-xs font-mono text-gray-500 mt-2">
-                By the TheBucketList.co team &middot; Updated 2026
+              <p className="text-xs text-gray-500 mt-2 font-medium">
+                By Aryan & Kashshish &middot; Updated 2026
               </p>
             </div>
 
@@ -220,11 +228,11 @@ export default function DestinationPage({ params }: Props) {
                 {destination.faqs.map((faq, i) => (
                   <details
                     key={i}
-                    className="group bg-white border border-[#e6ded1] rounded-sm"
+                    className="group bg-white border border-[#e6ded1] rounded-sm focus-within:ring-2 focus-within:ring-[#FACC15]"
                   >
-                    <summary className="cursor-pointer p-4 sm:p-5 font-serif text-lg text-[#1c1917] list-none flex items-center justify-between">
+                    <summary className="cursor-pointer p-4 sm:p-5 font-serif text-lg text-[#1c1917] list-none flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FACC15]">
                       {faq.question}
-                      <span className="font-mono text-sm text-[#8c4a2f]">↓</span>
+                      <span className="font-sans text-sm text-[#8c4a2f] font-bold">↓</span>
                     </summary>
                     <div className="px-4 sm:px-5 pb-4 text-sm text-[#6b6257] leading-relaxed border-t border-[#e6ded1]/50 pt-3 font-sans">
                       {faq.answer}
@@ -257,7 +265,7 @@ export default function DestinationPage({ params }: Props) {
                     <p className="text-xs text-[#6b6257] leading-relaxed font-serif italic">
                       &ldquo;{rev.review}&rdquo;
                     </p>
-                    <div className="pt-2 border-t border-[#e6ded1] flex items-center justify-between text-[10px] font-mono text-gray-500">
+                    <div className="pt-2 border-t border-[#e6ded1] flex items-center justify-between text-[10px] text-gray-500 font-medium">
                       <span>{rev.tripName}</span>
                       <span>{rev.date}</span>
                     </div>

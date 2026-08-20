@@ -153,6 +153,7 @@ export interface Enquiry {
 }
 
 export interface SiteSettings {
+  siteUrl?: string;
   whatsappNumber: string;
   email: string;
   instagram: string;

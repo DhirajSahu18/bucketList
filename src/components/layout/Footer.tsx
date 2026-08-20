@@ -23,33 +23,33 @@ export function Footer() {
               </div>
 
               <p className="font-serif text-lg text-[#FACC15] font-semibold leading-tight pt-1">
-                Small groups. Real places. Zero outsourced tours.
+                Two founders. Five years of trips. Responsible community travel.
               </p>
 
               <p className="text-xs text-[#e6ded1]/80 max-w-sm leading-relaxed font-sans">
                 {siteSettings.footerDescription}
               </p>
 
-              <div className="inline-flex items-center gap-2 pt-2 text-xs font-mono text-[#FAF7F2]">
+              <div className="inline-flex items-center gap-2 pt-2 text-xs font-sans text-[#FAF7F2]">
                 <span className="w-2 h-2 rounded-full bg-[#FACC15] animate-pulse" />
-                <span>47 trips &middot; 312 travellers &middot; 4 focus regions</span>
+                <span>80+ journeys &middot; 1,200+ travellers &middot; Founder-Led Trips</span>
               </div>
             </div>
 
             {/* Explore Links */}
-            <div className="md:col-span-2 space-y-3 font-mono text-xs">
+            <div className="md:col-span-2 space-y-3 font-sans text-xs">
               <span className="text-[#FACC15] uppercase tracking-wider block font-bold border-b border-[#FAF7F2]/10 pb-1">Explore</span>
               <ul className="space-y-2.5 text-[#e6ded1]/80">
-                <li><Link href="/trips" className="hover:text-[#FACC15] transition-colors">Group Trips</Link></li>
+                <li><Link href="/trips" className="hover:text-[#FACC15] transition-colors">Community Trips</Link></li>
                 <li><Link href="/destinations" className="hover:text-[#FACC15] transition-colors">Destinations</Link></li>
-                <li><Link href="/destinations/spiti" className="hover:text-[#FACC15] transition-colors">Spiti Guide</Link></li>
+                <li><Link href="/destinations/manali" className="hover:text-[#FACC15] transition-colors">Himachal Guide</Link></li>
                 <li><Link href="/private-trips" className="hover:text-[#FACC15] transition-colors">Private Trips</Link></li>
                 <li><Link href="/about" className="hover:text-[#FACC15] transition-colors">Our Story</Link></li>
               </ul>
             </div>
 
             {/* Trust & Legal Policies */}
-            <div className="md:col-span-2 space-y-3 font-mono text-xs">
+            <div className="md:col-span-2 space-y-3 font-sans text-xs">
               <span className="text-[#FACC15] uppercase tracking-wider block font-bold border-b border-[#FAF7F2]/10 pb-1">Trust & Legal</span>
               <ul className="space-y-2.5 text-[#e6ded1]/80">
                 <li><Link href="/refund-policy" className="hover:text-[#FACC15] transition-colors">Refund & Cancellation</Link></li>
@@ -59,9 +59,9 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Direct Contact */}
-            <div className="md:col-span-3 space-y-3 font-mono text-xs">
-              <span className="text-[#FACC15] uppercase tracking-wider block font-bold border-b border-[#FAF7F2]/10 pb-1">Direct Contact</span>
+            {/* Direct Founder Contact */}
+            <div className="md:col-span-3 space-y-3 font-sans text-xs">
+              <span className="text-[#FACC15] uppercase tracking-wider block font-bold border-b border-[#FAF7F2]/10 pb-1">Direct Founder Contact</span>
               <p className="text-gray-300 font-semibold">Aryan & Kashshish</p>
               <a
                 href={whatsappUrl}
@@ -76,9 +76,9 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-gray-400 gap-4">
+          <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs font-sans text-gray-400 gap-4">
             <p>&copy; {new Date().getFullYear()} TheBucketList.co &middot; All Rights Reserved.</p>
-            <p className="text-[#FACC15]">Built with documentary precision for real travellers.</p>
+            <p className="text-[#FACC15]">Built with documentary precision for real community joiners.</p>
           </div>
         </div>
       </div>

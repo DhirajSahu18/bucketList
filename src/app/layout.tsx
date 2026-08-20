@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Space_Mono } from "next/font/google";
+import { Manrope, Playfair_Display, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -7,7 +7,7 @@ import { WhatsAppSticky } from "@/components/ui/WhatsAppSticky";
 import { OrganizationSchema } from "@/components/seo/StructuredData";
 import { Analytics } from "@/components/seo/Analytics";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -28,26 +28,26 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "TheBucketList.co — Small-Group Trips Across India",
+    default: "TheBucketList.co — Good People. Great Places. Trips Planned Properly.",
     template: "%s | TheBucketList.co",
   },
   description:
-    "Small groups. Real places. Zero outsourced tours. Small-group journeys across India, capped at 12–16 travellers, on routes we scout and run ourselves.",
+    "Community travel expeditions across Himachal, Uttarakhand, and Kerala — led on ground by founders Aryan & Kashshish.",
   metadataBase: new URL("https://thebucketlist.co"),
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://thebucketlist.co",
     siteName: "TheBucketList.co",
-    title: "TheBucketList.co — Small-Group Trips Across India",
+    title: "TheBucketList.co — Good People. Great Places. Trips Planned Properly.",
     description:
-      "Small groups. Real places. Zero outsourced tours. Small-group journeys across India, capped at 12–16 travellers, on routes we scout and run ourselves.",
+      "Community travel expeditions across Himachal, Uttarakhand, and Kerala — led on ground by founders Aryan & Kashshish.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TheBucketList.co — Small-Group Trips Across India",
+    title: "TheBucketList.co — Community Trips Across India",
     description:
-      "Small-group journeys across India, capped at 12–16 travellers.",
+      "Well-planned community trips led on ground by founders Aryan & Kashshish.",
   },
   robots: {
     index: true,
@@ -63,7 +63,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} ${spaceMono.variable}`}
+      className={`${manrope.variable} ${playfair.variable} ${spaceMono.variable}`}
     >
       <body className="font-sans bg-[#faf7f2] text-[#1c1917] antialiased selection:bg-[#FACC15] selection:text-[#1c1917]">
         <OrganizationSchema />

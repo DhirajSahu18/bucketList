@@ -2,169 +2,176 @@ import { Destination } from "@/types";
 
 export const destinations: Destination[] = [
   {
-    id: "dest-spiti",
-    name: "Spiti Valley",
-    slug: "spiti",
-    heroImage: "/images/destinations/spiti/hero.jpg",
-    description:
-      "A cold desert valley at 12,500 feet. Spiti is one of the last places in India that genuinely feels remote — ancient monasteries, stark landscapes, and roads that test everything.",
-    emotionalHook:
-      "High roads. Empty valleys. A trip you'll still be talking about years later.",
-    bestTime: "June to October",
-    duration: "7–10 days",
-    difficulty: "Challenging",
-    idealFor: ["Adventure seekers", "Photography enthusiasts", "Experienced mountain travellers", "Road trip lovers"],
-    startingPoint: "Manali / Shimla",
-    guideContent: `## When to Visit Month by Month
-
-May: The passes start clearing. Snow walls flank the road near Kunzum. Days are crisp, nights are freezing.
-
-June to July: Peak summer season. Kunzum Pass is fully open. Rivers are full and green patches appear around Kaza and Tabo.
-
-August: Monsoon phase across Lahaul and Kinnaur. High road slides happen; our trip leaders monitor pass clearances daily.
-
-September: The golden month. Clear blue skies, turquoise Chandratal Lake, zero rain, and crisp 10°C daytime weather.
-
-October: Autumn chills return. First fresh dustings of snow on Key Monastery. Perfect for travellers who love dramatic cold mountain light.
-
-## What to Pack
-
-Layered warmth is non-negotiable. Bring thermal base layers, a fleece jacket, a heavy windproof down jacket for evenings at Chandratal (where temperature dips below 0°C), UV-400 sunglasses, SPF 50+ sunscreen, lip balm, and an insulated water bottle.
-
-Cash is critical — ATMs in Kaza frequently run out of cash or lose power. Bring at least ₹5,000–₹8,000 cash for personal purchases.
-
-## What Most Operators Get Wrong
-
-Most commercial operators pack 30 travellers into overloaded tempo travellers and rush from Manali to Kaza without proper acclimatization stops. They skip Sissu or attempt Batal in a single 14-hour drive.
-
-At TheBucketList.co, we spend our first two nights acclimatizing in Sissu and Kaza before attempting high pass camps. We cap groups at 12 travellers per vehicle so everyone gets a window seat and breathing room.
-
-## First-Timer Mistakes
-
-1. Rushing altitude: Attempting Chandratal on Day 2 without spending a night below 10,000 feet first.
-2. Expecting 5G network: Jio & BSNL work intermittently in Kaza town, but high passes have zero network. Inform your family before entering the valley.
-3. Over-packing rigid hard suitcases: High-altitude Tempo Travellers fit soft duffle bags and rucksacks significantly better.
-
-## How Many Days You Actually Need
-
-7 days minimum for a Manali-to-Shimla circuit. 8 to 9 days is the sweet spot to visit Hikkim, Komic, Langza, Dhankar, Tabo, and Chandratal Lake without feeling like you lived inside a moving vehicle.`,
-    faqs: [
-      {
-        question: "Is Spiti suitable for first-time mountain travellers?",
-        answer:
-          "We recommend at least one previous mountain trip (like Manali or Uttarakhand) before Spiti due to high altitude (12,500–15,000+ ft) and long road days. However, our gradual acclimatization itinerary makes it safe for motivated first-timers.",
-      },
-      {
-        question: "How is phone connectivity in Spiti?",
-        answer:
-          "BSNL and Jio have patchy 3G/4G coverage in Kaza town. On high passes (Kunzum, Batal, Chandratal) there is zero connectivity. We carry satellite emergency communication protocols and brief families before departure.",
-      },
-      {
-        question: "What happens if a road or pass closes?",
-        answer:
-          "We monitor weather updates and Himachal road clearances 24/7. We maintain alternate homestay bookings and secondary circuit routes so safety is never compromised.",
-      },
-    ],
-    images: [
-      "/images/destinations/spiti/hero.jpg",
-      "/images/brand_group_mountains.jpg",
-      "/images/brand_hero_founders.jpg",
-    ],
-  },
-  {
     id: "dest-manali",
-    name: "Manali",
+    name: "Himachal & Manali Circuit",
     slug: "manali",
     heroImage: "/images/destinations/manali/hero.jpg",
     description:
-      "The gateway to the high Himalayas. Old Manali cafes, cedar pine forests, Sissu waterfall in Lahaul Valley, and quiet villages.",
+      "From Old Manali cedar forests and Solang mountain valleys to Kasol, Dharamshala, and Amritsar. The ultimate Himachal highway and community travel hub.",
     emotionalHook:
-      "Where the plains end and the mountains begin to mean something.",
-    bestTime: "March to June, September to November",
-    duration: "4–6 days",
+      "Pine-scented mountain air, river campfires, highway tunes, and epic Himachal views with your crew.",
+    bestTime: "Year-Round (Oct–Jan Peak Season)",
+    duration: "5–8 days",
     difficulty: "Easy",
-    idealFor: ["First-time mountain travellers", "Groups of friends", "Couples", "Solo female travellers"],
-    startingPoint: "Delhi / Chandigarh",
-    guideContent: `## When to Visit
+    idealFor: ["Friends groups", "Solo travellers", "Community travel joiners", "New Year celebrators"],
+    startingPoint: "Delhi / Chandigarh / Manali",
+    guideContent: `## When to Visit Month by Month
 
-Manali works across all non-monsoon months. Spring (March–May) offers apple blossoms and snow near Solang. Post-monsoon (September–November) brings golden pine forests and crystal-clear mountain views.
+October to November: Autumn crisp air in Old Manali. Clear blue mountain skies, snow-dusted peaks in Solang, and perfect campfire evenings in Kasol.
 
-## How to Get There
+December to January: The festive New Year season! Snowfall across Sethan and Solang, vibrant music energy, and Himachal Unplugged flagship runs.
 
-Overnight Volvo or private Tempo Traveller from Delhi (~12 hours) brings you directly to Old Manali by morning.
+February to April: Late winter snow walls at Atal Tunnel, blooming apple orchards in Kullu Valley, and sunny mountain trail hikes.
 
-## Our Recommendations
+May to September: Green summer escapes from city heat into Parvati Valley, Dharamshala cafes, and mountain viewpoints.
 
-Skip the commercial Mall Road. Spend your afternoons in Old Manali's artisan cafes, take an early morning walk through Hadimba Deodar forest, and cross Atal Tunnel to Sissu for riverfront trout lunch.`,
+## What to Pack
+
+Heavy woolens, thermal base layers, a fleece hoodie, waterproof winter jacket, comfortable walking boots, beanie, gloves, and sunglasses. For New Year runs, bring your favourite party outfit alongside warm mountain layers.
+
+## What Makes Himachal Unplugged Different
+
+Himachal Unplugged is an energetic community trip led by founders Aryan & Kashshish. We combine curated mountain stays, Solang snow excursions, Kasol riverside campfires, and vibrant music gatherings with smooth stay allocations and vehicle convoy coordination.
+
+## Essential Himachal Travel Tips
+
+1. Dress in warm layers: Mountain temperatures in Manali and Kasol drop rapidly after sunset.
+2. Carry power banks: Cold weather drains phone batteries faster during long mountain road days.
+3. Stay hydrated: Mountain altitude and cold air require consistent water intake.`,
     faqs: [
       {
-        question: "Is Manali safe for solo female travellers?",
+        question: "Is Himachal Unplugged suitable for solo travellers?",
         answer:
-          "Extremely safe. Manali is a welcoming mountain town. Over 60% of our group joiners are solo travellers.",
+          "Over 60% of our joiners come solo. Our founders (Aryan & Kashshish) facilitate group introductions from Day 1 so everyone feels part of the crew within hours.",
+      },
+      {
+        question: "What is included in the Himachal Unplugged package?",
+        answer:
+          "Sanitized group transport from Delhi/Chandigarh, hotel & campsite stays, daily breakfasts & dinners, festive New Year events, and on-ground founder leadership throughout.",
+      },
+      {
+        question: "How are safety and group coordination managed?",
+        answer:
+          "Our team monitors road weather 24/7, maintains direct vehicle convoy communication, and enforces strict safety standards across all activities.",
       },
     ],
     images: [
       "/images/destinations/manali/hero.jpg",
-      "/images/brand_hero_founders.jpg",
-      "/images/brand_group_indoor.jpg",
+      "/images/brand_group_mountains.jpg",
+      "/images/trips/manali-escape.jpg",
     ],
-  },
-  {
-    id: "dest-kedarnath",
-    name: "Kedarnath",
-    slug: "kedarnath",
-    heroImage: "/images/destinations/kedarnath/hero.jpg",
-    description:
-      "One of the most powerful treks in India. 16 km through mountain valleys to a 1,200-year-old temple at 11,755 feet.",
-    emotionalHook:
-      "Sixteen kilometres to one of the oldest and most revered temples in the Himalayas.",
-    bestTime: "May to June, September to October",
-    duration: "5–6 days",
-    difficulty: "Moderate",
-    idealFor: ["Trekking enthusiasts", "Spiritual travellers", "Groups of friends"],
-    startingPoint: "Rishikesh / Haridwar",
-    guideContent: `## When to Visit
-
-Kedarnath is open May to June and September to October. Monsoon (July–August) closes the trek route. Early May offers snow-lined trails while late September gives crystal clear skies.`,
-    faqs: [
+    galleryMeta: [
       {
-        question: "How fit do I need to be for Kedarnath?",
-        answer:
-          "Regular walking or stair climbing for 3 weeks prior makes the 16 km uphill trek very manageable.",
+        src: "/images/destinations/manali/hero.jpg",
+        type: "internet",
+        source: "Unsplash",
+        alt: "Old Manali cedar forest and mountain valley view",
       },
-    ],
-    images: [
-      "/images/destinations/kedarnath/hero.jpg",
-      "/images/brand_group_amritsar.jpg",
+      {
+        src: "/images/brand_group_mountains.jpg",
+        type: "brand",
+        source: "TheBucketList.co Real Client Trip",
+        alt: "Traveller group on Himachal mountain scenic road",
+      },
+      {
+        src: "/images/trips/manali-escape.jpg",
+        type: "internet",
+        source: "Unsplash",
+        alt: "Solang Valley pine forests and mountain trails",
+      },
     ],
   },
   {
     id: "dest-kerala",
-    name: "Kerala",
+    name: "Kerala Backwaters & Hills",
     slug: "kerala",
     heroImage: "/images/destinations/kerala/hero.jpg",
     description:
-      "India's green coast. Backwaters, tea hill stations in Munnar, red cliffs of Varkala, and authentic coastal cuisine.",
+      "A lush coastal tropical journey from Fort Kochi's heritage streets to Munnar's rolling tea estates and Alleppey's serene houseboat backwaters.",
     emotionalHook:
-      "Backwaters. Hill stations. Food that makes you want to cancel your return ticket.",
-    bestTime: "October to March",
-    duration: "6–8 days",
+      "Floating past coconut palms on private houseboats and smelling fresh tea leaves in Munnar.",
+    bestTime: "September to March",
+    duration: "7 days",
     difficulty: "Easy",
-    idealFor: ["Families", "Couples", "Food lovers", "First-time group joiners"],
+    idealFor: ["Couples", "Friends groups", "Relaxed travellers", "Nature lovers"],
     startingPoint: "Kochi",
-    guideContent: `## When to Visit
+    guideContent: `## When to Visit Month by Month
 
-October to March is ideal with comfortable coastal breezes, green post-monsoon backwaters, and cool Munnar tea hills.`,
+September to November: Post-monsoon lush green hills in Munnar. Waterfalls are cascading and backwaters are crystal clear.
+
+December to February: Peak tropical weather. Pleasant 24°C days in Fort Kochi and cool 15°C evenings in Munnar tea estates.
+
+March to May: Warm coastal season ideal for Varkala beach cliff sunsets and backwater breezes.
+
+## What to Pack
+
+Light breathable cotton clothes, sunglasses, sun hat, swimwear, light cardigan for Munnar hill evenings, and camera gear.`,
     faqs: [
       {
-        question: "What is the food like on the Kerala trip?",
+        question: "What type of accommodation is provided in Kerala?",
         answer:
-          "Exceptional local food — fresh coastal seafood curries, appam, puttu, and traditional banana leaf thalis.",
+          "Boutique tea estate stays in Munnar, heritage boutique hotels in Kochi, and private luxury houseboats in Alleppey.",
+      },
+      {
+        question: "Is Kerala suitable for friends and community groups?",
+        answer:
+          "Yes! Kashshish leads our Kerala runs with a mix of relaxed backwater floating, tea estate walks, and vibrant beach sunsets.",
       },
     ],
     images: [
       "/images/destinations/kerala/hero.jpg",
-      "/images/brand_group_stadium.jpg",
+      "/images/trips/kerala-backwaters.jpg",
+    ],
+    galleryMeta: [
+      {
+        src: "/images/destinations/kerala/hero.jpg",
+        type: "internet",
+        source: "Unsplash",
+        alt: "Alleppey backwaters houseboat floating under palms",
+      },
+      {
+        src: "/images/trips/kerala-backwaters.jpg",
+        type: "internet",
+        source: "Unsplash",
+        alt: "Munnar rolling tea plantations landscape",
+      },
+    ],
+  },
+  {
+    id: "dest-kedarnath",
+    name: "Kedarnath Valley",
+    slug: "kedarnath",
+    heroImage: "/images/destinations/kedarnath/hero.jpg",
+    description:
+      "An inspiring Himalayan trek to the ancient shrine of Kedarnath (11,755 ft), surrounded by snow-capped peaks and Garhwal mountain wilderness.",
+    emotionalHook:
+      "Walking through Garhwal valleys under towering snow peaks to reach one of India's most sacred mountain temples.",
+    bestTime: "May to June & September to October",
+    duration: "6 days",
+    difficulty: "Moderate",
+    idealFor: ["Trekkers", "Mountain lovers", "Spiritual explorers"],
+    startingPoint: "Rishikesh / Haridwar",
+    guideContent: `## Trekking Kedarnath Responsibly
+
+Kedarnath requires fitness and pace discipline. Led personally by Aryan, our Garhwal mountain trekking teams maintain steady acclimatization steps from Rishikesh to Sonprayag and Gaurikund.`,
+    faqs: [
+      {
+        question: "How difficult is the Kedarnath trek?",
+        answer:
+          "The 16 km trail from Gaurikund is paved but steep. A basic level of walking fitness is recommended.",
+      },
+    ],
+    images: [
+      "/images/destinations/kedarnath/hero.jpg",
+      "/images/trips/kedarnath-trek.jpg",
+    ],
+    galleryMeta: [
+      {
+        src: "/images/destinations/kedarnath/hero.jpg",
+        type: "internet",
+        source: "Unsplash",
+        alt: "Kedarnath temple behind snow peaks",
+      },
     ],
   },
 ];

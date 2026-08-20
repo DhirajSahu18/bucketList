@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import { TripsIndex } from "./TripsIndex";
 
 export const metadata: Metadata = {
-  title: "Upcoming Trips",
+  title: "Upcoming Trips | TheBucketList.co",
   description:
-    "Browse our upcoming small-group trips across India. Carefully planned, led by experienced trip leaders, and always capped at a small group size.",
+    "Browse upcoming community expeditions across Himachal, Uttarakhand, and Kerala — led on ground by experienced travel captains.",
 };
 
 export default function TripsPage() {

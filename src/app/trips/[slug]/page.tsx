@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { trips } from "@/data/trips";
+import { siteSettings } from "@/data/site-settings";
 import { TripDetail } from "./TripDetail";
 import { TripSchema, FAQSchema, BreadcrumbSchema } from "@/components/seo/StructuredData";
 
@@ -18,12 +19,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const trip = trips.find((t) => t.slug === params.slug);
   if (!trip) return {};
 
+  const siteUrl = siteSettings.siteUrl || "https://thebucketlist.co";
+  const canonicalUrl = `${siteUrl}/trips/${trip.slug}`;
+
   return {
     title: `${trip.name} — ${trip.destination.name}`,
     description: trip.summary,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${trip.name} | TheBucketList.co`,
       description: trip.summary,
+      url: canonicalUrl,
       images: [trip.heroImage],
     },
   };

@@ -8,12 +8,12 @@ import { EditorialMarker } from "@/components/ui/EditorialMarker";
 export const metadata: Metadata = {
   title: "Our Story — Two Founders, Five Years of Trips | TheBucketList.co",
   description:
-    "First-person story of Aryan & Kashshish. Five years of building small-group trips across India, our origin moment in Himachal, and what we refuse to do.",
+    "Learn about Aryan & Kashshish, our founders leading community expeditions across Himachal, Uttarakhand, Kerala, and Himalayan mountain circuits.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="pt-20 md:pt-24 bg-[#faf7f2] min-h-screen text-[#1c1917]">
+    <div className="pt-20 md:pt-24 bg-[#faf7f2] min-h-screen text-[#1c1917] font-sans">
       {/* Hero Header */}
       <section className="relative bg-[#1c1917] text-[#faf7f2] section-padding py-20 md:py-28 overflow-hidden">
         {/* Ambient Top Yellow Bar */}
@@ -25,53 +25,49 @@ export default function AboutPage() {
             <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-[#faf7f2]">
               Two founders.
               <br />
-              <span className="text-[#FACC15]">Five years of trips.</span>
+              <span className="text-[#FACC15]">Hundreds of mountain miles.</span>
             </h1>
-            <p className="font-sans text-[#e6ded1]/90 text-lg sm:text-xl leading-relaxed">
-              We&apos;re Aryan and Kashshish. We build every trip in-house because we believe trust is carried by people who have actually been there, not corporate aggregators.
+            <p className="text-[#e6ded1]/90 text-lg sm:text-xl leading-relaxed font-normal">
+              We&apos;re Aryan and Kashshish. We started leading mountain runs in 2021 because we loved taking group road trips up Himalayan passes — and wanted to build trips where everything is planned properly.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ~400 WORD FIRST-PERSON NARRATIVE WITH ORIGIN MOMENT & REFUSAL */}
+      {/* Narrative Section */}
       <section className="section-padding py-16 md:py-24 border-b border-[#e6ded1]">
-        <div className="container-narrow space-y-8 font-sans">
-          <div className="prose prose-lg max-w-none text-[#1c1917] space-y-6 leading-relaxed">
-            <p className="font-serif text-2xl text-[#1c1917] font-semibold border-l-4 border-[#FACC15] pl-4">
-              &ldquo;Before TheBucketList.co had a logo, a domain name, or a website — we were already driving group trips up mountain passes.&rdquo;
+        <div className="container-narrow space-y-8">
+          <div className="prose prose-lg max-w-none text-[#1c1917] space-y-6 leading-relaxed font-sans">
+            <p className="font-serif text-2xl text-[#1c1917] font-bold border-l-4 border-[#FACC15] pl-4">
+              &ldquo;Before we had a website — we were already driving group trips up mountain passes.&rdquo;
             </p>
 
             <p className="text-base text-[#1c1917]/90">
-              We started back in 2021. It was just the two of us, a 12-seater tempo traveller, and a group of friends heading up toward Himachal. We didn&apos;t have an office or a glossy brochure. What we had was a deep obsession with route details, local dhabas, and making sure nobody felt like an outsider.
+              We started back in 2021 with a single mountain vehicle heading up toward Himachal. Over 5 years and 80+ trips later, we&apos;ve expanded from Himalayan pass road trips to flagship New Year runs like Himachal Unplugged and tropical coastal journeys in Kerala.
             </p>
 
-            <EditorialMarker number="02" label="ORIGIN MOMENT" />
+            <EditorialMarker number="02" label="HOW WE WORK" />
             <h2 className="font-serif text-2xl sm:text-3xl text-[#1c1917] font-bold">
-              A Rainy Midnight in Sissu
+              Good People. Great Places.
             </h2>
             <p className="text-base text-[#1c1917]/90">
-              Our origin moment came on a rainy midnight in October 2021 near Sissu in Lahaul Valley. A hired third-party driver from a big aggregator agency backed out at the last minute because of road slush. The 10 travellers in our group were stranded. Aryan took the keys, got behind the wheel of the traveller, and drove the route himself while Kashshish organized warm blankets and fresh thalis at a local family homestay.
+              Whether it&apos;s a small trek or an 80-person community trip, our goal stays simple: zero group chaos, clear timing, pre-tested homestays, and making sure solo joiners feel part of the crew within their first hour.
             </p>
 
-            <p className="text-base text-[#1c1917]/90">
-              That night made everything clear: travellers don&apos;t care about fancy branding or 40-person tour buses. They care about having experienced humans on the ground who take personal accountability when things change.
-            </p>
-
-            <EditorialMarker number="03" label="OUR LOAD-BEARING REFUSAL" />
+            <EditorialMarker number="03" label="FOUNDER COMMITMENT" />
             <h2 className="font-serif text-2xl sm:text-3xl text-[#1c1917] font-bold">
-              What We Refuse To Do
+              What We Guarantee
             </h2>
             
-            <div className="bg-[#1c1917] text-[#faf7f2] p-6 rounded-sm border-l-4 border-[#FACC15] space-y-3 font-mono text-xs sm:text-sm shadow-md">
-              <span className="text-[#FACC15] font-bold uppercase block">Core Founder Commitment:</span>
-              <p className="leading-relaxed">
-                We refuse to run 40-person crowded bus tours, white-label reseller itineraries, or hand off your group to an anonymous local agency who has never met you. Every group is capped at 12–16, and a founder is on the trip from day one to departure.
+            <div className="bg-[#1c1917] text-[#faf7f2] p-6 rounded-sm border-l-4 border-[#FACC15] space-y-3 text-xs sm:text-sm shadow-md">
+              <span className="text-[#FACC15] font-bold uppercase block tracking-wider">Direct Founder Promise:</span>
+              <p className="leading-relaxed font-medium">
+                We scout every route, stay in every homestay first, and travel on ground with our groups. You will never be handed off to an anonymous line-item reseller agency. We maintain direct WhatsApp contact from your first inquiry through post-trip reunions.
               </p>
             </div>
 
             <p className="text-base text-[#1c1917]/90">
-              That is why our group chats stay active for years, why travellers return for their second and third trips, and why we reply on WhatsApp within 2 hours.
+              That&apos;s why our trip group chats stay active for years, why joiners return for their second and third trips, and why we reply on WhatsApp within 2 hours.
             </p>
           </div>
         </div>
@@ -90,20 +86,20 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {founders.map((founder) => (
               <div key={founder.id} className="bg-[#faf7f2] border border-[#e6ded1] p-6 rounded-sm space-y-4 font-sans hover:border-[#1c1917] transition-all">
-                <div className="relative aspect-[4/3] bg-[#e6ded1] rounded-sm overflow-hidden">
+                <div className="relative aspect-[4/3] bg-[#1c1917] rounded-sm overflow-hidden flex items-center justify-center">
                   <Image
                     src={founder.photo}
                     alt={founder.name}
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute top-2 left-2 px-2.5 py-1 bg-[#1c1917] text-[#FACC15] font-mono text-[10px] font-bold rounded">
-                    {founder.groupsLedCount} GROUPS LED
+                  <div className="absolute top-2 left-2 px-2.5 py-1 bg-[#1c1917] text-[#FACC15] font-sans text-[10px] font-bold rounded-xs">
+                    {founder.experience} EXPERIENCE
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <span className="font-mono text-xs text-[#8c4a2f] uppercase block font-bold">{founder.role} &middot; {founder.region}</span>
-                  <h3 className="font-serif text-2xl text-[#1c1917] font-semibold">{founder.name}</h3>
+                  <span className="text-xs text-[#8c4a2f] uppercase block font-bold">{founder.role} &middot; {founder.region}</span>
+                  <h3 className="font-serif text-2xl text-[#1c1917] font-bold">{founder.name}</h3>
                   <p className="text-xs text-[#6b6257] leading-relaxed">
                     {founder.bio}
                   </p>
@@ -120,22 +116,22 @@ export default function AboutPage() {
       {/* Stats Bar */}
       <section className="section-padding py-12 bg-[#FACC15] text-[#1c1917]">
         <div className="container-wide">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center font-serif">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center font-sans">
             <div>
-              <p className="text-4xl sm:text-5xl font-bold">{siteSettings.homepageStats.years}</p>
-              <p className="font-mono text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Years Running Trips</p>
+              <p className="text-4xl sm:text-5xl font-bold font-mono">{siteSettings.homepageStats.years}</p>
+              <p className="text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Years Running Trips</p>
             </div>
             <div>
-              <p className="text-4xl sm:text-5xl font-bold">{siteSettings.homepageStats.trips}</p>
-              <p className="font-mono text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Trips Run</p>
+              <p className="text-4xl sm:text-5xl font-bold font-mono">{siteSettings.homepageStats.trips}</p>
+              <p className="text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Trips Led</p>
             </div>
             <div>
-              <p className="text-4xl sm:text-5xl font-bold">{siteSettings.homepageStats.travellers}</p>
-              <p className="font-mono text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Happy Travellers</p>
+              <p className="text-4xl sm:text-5xl font-bold font-mono">{siteSettings.homepageStats.travellers}</p>
+              <p className="text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Happy Joiners</p>
             </div>
             <div>
-              <p className="text-4xl sm:text-5xl font-bold">{siteSettings.homepageStats.destinations}</p>
-              <p className="font-mono text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Focus Regions</p>
+              <p className="text-4xl sm:text-5xl font-bold font-mono">{siteSettings.homepageStats.destinations}</p>
+              <p className="text-xs uppercase font-bold text-[#1c1917]/80 mt-1">Focus Regions</p>
             </div>
           </div>
         </div>
@@ -143,10 +139,10 @@ export default function AboutPage() {
 
       {/* CTAs */}
       <section className="section-padding py-16 text-center space-y-6 bg-white">
-        <h2 className="font-serif text-3xl text-[#1c1917] font-semibold">Ready to join our next run?</h2>
+        <h2 className="font-serif text-3xl text-[#1c1917] font-bold">Ready to join our next community run?</h2>
         <div className="flex flex-wrap justify-center gap-4">
           <Button href="/trips" variant="primary" size="lg" className="bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] border-none font-bold">
-            See Upcoming Group Trips &rarr;
+            See Upcoming Trips &rarr;
           </Button>
           <Button href="/private-trips" variant="outline" size="lg" className="border-[#1c1917] text-[#1c1917]">
             Plan a Private Trip

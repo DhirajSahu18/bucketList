@@ -1,49 +1,63 @@
+import { Trip } from "@/types";
 import { siteSettings } from "@/data/site-settings";
 
-export function cn(...classes: (string | boolean | undefined | null)[]): string {
+export function cn(...classes: (string | undefined | null | false)[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
-export function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-}
-
-export function formatDateRange(start: string, end: string): string {
-  const startDate = new Date(start);
-  const endDate = new Date(end);
-  const startMonth = startDate.toLocaleDateString("en-IN", { month: "short" });
-  const endMonth = endDate.toLocaleDateString("en-IN", { month: "short" });
-
-  if (startMonth === endMonth) {
-    return `${startDate.getDate()}–${endDate.getDate()} ${startMonth} ${endDate.getFullYear()}`;
-  }
-  return `${startDate.getDate()} ${startMonth} – ${endDate.getDate()} ${endMonth} ${endDate.getFullYear()}`;
-}
-
 export function formatPrice(price: number): string {
-  if (price === 0) return "₹XX,XXX";
-  return `₹${price.toLocaleString("en-IN")}`;
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0,
+  }).format(price);
+}
+
+export function formatDateRange(startDateStr: string, endDateStr: string): string {
+  const start = new Date(startDateStr);
+  const end = new Date(endDateStr);
+
+  const startDay = start.getDate();
+  const endDay = end.getDate();
+  const month = start.toLocaleString("default", { month: "short" });
+  const year = start.getFullYear();
+
+  return `${startDay}–${endDay} ${month} ${year}`;
+}
+
+export function getTripStatus(trip: Trip): "upcoming" | "filling" | "sold-out" | "past" {
+  if (trip.status === "completed") {
+    return "past";
+  }
+  const endDate = new Date(trip.dates.end);
+  const now = new Date();
+  if (endDate < now) {
+    return "past";
+  }
+  if (trip.seatsRemaining <= 0) {
+    return "sold-out";
+  }
+  if (trip.seatsRemaining <= 4) {
+    return "filling";
+  }
+  return "upcoming";
 }
 
 export function getWhatsAppLink(message?: string): string {
-  const baseUrl = `https://wa.me/${siteSettings.whatsappNumber}`;
+  const cleanNumber = siteSettings.whatsappNumber.replace(/[^0-9]/g, "");
+  const baseUrl = `https://wa.me/${cleanNumber}`;
   if (message) {
-    return `${baseUrl}?text=${encodeURIComponent(message)}`;
+    return `${baseUrl}?text=${encodeURIComponent(message.trim())}`;
   }
   return baseUrl;
 }
 
 export function getWhatsAppTripMessage(tripName: string, dates: string): string {
-  return `Hi, I'm interested in the ${tripName} trip (${dates}). I'd like to know more.`;
+  return `Hi Aryan & Kashshish, I'm interested in the ${tripName} trip (${dates}). I'd like to check seat availability!`;
 }
 
 export function getWhatsAppPrivateMessage(): string {
-  return "Hi, I'd like to discuss planning a private trip.";
+  return "Hi Aryan & Kashshish, I'd like to discuss planning a private trip for our group.";
 }
 
 export function slugify(text: string): string {

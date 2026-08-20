@@ -21,7 +21,7 @@ export function OrganizationSchema() {
     name: "TheBucketList.co",
     url: "https://thebucketlist.co",
     description:
-      "Group and private trips across India. Small groups of 12–16 travellers, run by experienced trip leaders.",
+      "Responsible community expeditions across Himachal, Uttarakhand, Kerala, and international destinations. Led by experienced travel captains.",
     foundingDate: "2021",
     areaServed: {
       "@type": "Country",

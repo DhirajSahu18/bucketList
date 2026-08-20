@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { AssetMeta } from "@/types";
 import { trackEvent } from "@/lib/analytics";
@@ -13,6 +13,7 @@ interface GallerySystemProps {
 
 export function GallerySystem({ images, metadata, tripName }: GallerySystemProps) {
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const openLightbox = (index: number) => {
     setActiveModalIndex(index);
@@ -42,6 +43,21 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeModalIndex, closeLightbox, nextImage, prevImage]);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) nextImage();
+      else prevImage();
+    }
+    touchStartX.current = null;
+  };
+
   return (
     <div className="space-y-4">
       {/* Desktop Grid Layout (Hero + 2 Stacked) */}
@@ -59,8 +75,8 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
             priority
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-          <div className="absolute bottom-3 left-3 px-3 py-1 bg-[#1c1917]/80 backdrop-blur-md text-[#FACC15] font-mono text-xs rounded">
-            Click to view visual story ({images.length} photos)
+          <div className="absolute bottom-3 left-3 px-3 py-1.5 bg-[#1c1917]/85 backdrop-blur-md text-[#FACC15] font-sans text-xs rounded-xs font-bold shadow-md">
+            View full photo gallery ({images.length} photos) &rarr;
           </div>
         </div>
 
@@ -99,7 +115,7 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
                 fill
                 className="object-cover"
               />
-              <div className="absolute bottom-2 right-2 px-2 py-0.5 bg-black/70 text-white font-mono text-[10px] rounded">
+              <div className="absolute bottom-2 right-2 px-2.5 py-1 bg-black/80 text-white font-sans text-[10px] rounded-xs font-semibold">
                 {idx + 1} / {images.length}
               </div>
             </div>
@@ -109,17 +125,27 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
 
       {/* Lightbox Modal */}
       {activeModalIndex !== null && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${tripName} Image Gallery Lightbox`}
+          tabIndex={-1}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="fixed inset-0 z-50 bg-black/92 backdrop-blur-md flex items-center justify-center p-4 focus:outline-none"
+        >
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white hover:text-[#FACC15] font-mono text-xl p-2 z-10"
+            aria-label="Close image gallery modal"
+            className="absolute top-4 right-4 text-white hover:text-[#FACC15] font-sans text-xs p-2 z-10 font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FACC15]"
           >
-            &times; Close
+            Close [ESC] &times;
           </button>
 
           <button
             onClick={prevImage}
-            className="absolute left-4 text-white hover:text-[#FACC15] text-3xl p-2 z-10"
+            aria-label="Previous image"
+            className="absolute left-4 text-white hover:text-[#FACC15] text-3xl p-2 z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FACC15]"
           >
             &#8249;
           </button>
@@ -128,18 +154,18 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
             <div className="relative w-full h-[70vh]">
               <Image
                 src={images[activeModalIndex]}
-                alt={`${tripName} enlarged view`}
+                alt={`${tripName} enlarged view photo ${activeModalIndex + 1}`}
                 fill
                 className="object-contain"
               />
             </div>
 
-            {/* Asset Provenance & Caption */}
-            <div className="mt-4 text-center text-xs font-mono text-[#e6ded1] space-y-1">
-              <span>Photo {activeModalIndex + 1} of {images.length}</span>
-              {metadata && metadata[activeModalIndex] && (
-                <div className="text-[11px] text-[#FACC15]">
-                  Source: {metadata[activeModalIndex].type.toUpperCase()} &middot; {metadata[activeModalIndex].source || "TheBucketList Archive"}
+            {/* Photo Caption */}
+            <div className="mt-4 text-center text-xs font-sans text-[#e6ded1] space-y-1">
+              <span className="font-semibold">Photo {activeModalIndex + 1} of {images.length}</span>
+              {metadata && metadata[activeModalIndex] && metadata[activeModalIndex].source && (
+                <div className="text-[11px] text-[#FACC15] font-medium">
+                  {metadata[activeModalIndex].source}
                 </div>
               )}
             </div>
@@ -147,7 +173,8 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
 
           <button
             onClick={nextImage}
-            className="absolute right-4 text-white hover:text-[#FACC15] text-3xl p-2 z-10"
+            aria-label="Next image"
+            className="absolute right-4 text-white hover:text-[#FACC15] text-3xl p-2 z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FACC15]"
           >
             &#8250;
           </button>

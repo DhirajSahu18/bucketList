@@ -12,10 +12,15 @@ export type EventName =
 
 export function trackEvent(eventName: EventName, payload?: Record<string, any>) {
   if (typeof window !== "undefined") {
-    // Log for development and ready for Google Analytics / Plausible / PostHog
-    console.log(`[Analytics Event] ${eventName}:`, payload || {});
-    if ((window as any).gtag) {
-      (window as any).gtag("event", eventName, payload);
+    try {
+      if (process.env.NODE_ENV === "development") {
+        console.log(`[Analytics Event] ${eventName}:`, payload || {});
+      }
+      if ((window as any).gtag) {
+        (window as any).gtag("event", eventName, payload);
+      }
+    } catch {
+      // Swallowed silently so analytics never break user interactions
     }
   }
 }

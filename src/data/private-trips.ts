@@ -3,13 +3,13 @@ import { PrivateTripExample } from "@/types";
 export const privateTripExamples: PrivateTripExample[] = [
   {
     id: "pvt-1",
-    destination: "Spiti Valley",
-    title: "Spiti Circuit Private Road Trip",
-    duration: "8–10 days",
-    idealGroup: "4–10 friends",
-    indicativePrice: "From ₹24,500 / person",
+    destination: "Himachal Pradesh",
+    title: "Himachal & Kasol Custom Community Run",
+    duration: "5–7 days",
+    idealGroup: "8–25 friends / alumni",
+    indicativePrice: "From ₹16,500 / person",
     description:
-      "The Spiti circuit on your schedule. Choose your dates, your pace, and how many monastery stops you want. We handle the mountain vehicle, permits, and homestays.",
+      "A custom Himachal road trip on your dates. Choose your pace across Manali, Kasol, and Solang Valley. Aryan & Kashshish handle private transit, stays, and campfire events.",
     image: "/images/brand_group_mountains.jpg",
   },
   {
@@ -17,10 +17,10 @@ export const privateTripExamples: PrivateTripExample[] = [
     destination: "Kerala",
     title: "Kerala Backwaters & Hills Escape",
     duration: "7–8 days",
-    idealGroup: "Family / 4–8 people",
-    indicativePrice: "From ₹28,500 / person",
+    idealGroup: "Family / 6–15 people",
+    indicativePrice: "From ₹22,500 / person",
     description:
-      "A private Kerala journey — Fort Kochi heritage walks, Munnar tea plantation stays, and floating on an authentic private deluxe houseboat in Alleppey.",
+      "A private Kerala journey — Fort Kochi heritage walks, Munnar tea plantation stays, and floating on an authentic private deluxe houseboat in Alleppey. Managed by Kashshish.",
     image: "/images/brand_group_stadium.jpg",
   },
   {
@@ -28,10 +28,10 @@ export const privateTripExamples: PrivateTripExample[] = [
     destination: "Manali & Lahaul",
     title: "Manali & Sethan Private Retreat",
     duration: "5–6 days",
-    idealGroup: "4–12 friends",
+    idealGroup: "6–20 friends",
     indicativePrice: "From ₹14,500 / person",
     description:
-      "Old Manali cafe exploration, Sissu waterfall drives, and Sethan pine forest hikes with boutique stay accommodation curated stay by stay.",
+      "Old Manali cafe exploration, Sissu waterfall drives, and Sethan pine forest hikes with boutique stay accommodation curated by Kashshish.",
     image: "/images/brand_hero_founders.jpg",
   },
   {
@@ -39,10 +39,10 @@ export const privateTripExamples: PrivateTripExample[] = [
     destination: "Kedarnath & Valley",
     title: "Kedarnath Custom Group Trek",
     duration: "6 days",
-    idealGroup: "6–12 people",
-    indicativePrice: "From ₹18,500 / person",
+    idealGroup: "6–20 people",
+    indicativePrice: "From ₹14,500 / person",
     description:
-      "A structured private trek to Kedarnath (11,755 ft) with dedicated support, pre-booked clean temple stays, and Rishikesh Ganga Aarti.",
+      "A structured private trek to Kedarnath (11,755 ft) with dedicated support, pre-booked clean temple stays, and Rishikesh Ganga Aarti. Led by Aryan.",
     image: "/images/brand_group_amritsar.jpg",
   },
   {
@@ -50,10 +50,10 @@ export const privateTripExamples: PrivateTripExample[] = [
     destination: "Himachal Pradesh",
     title: "Custom Himalayan Reunion Journey",
     duration: "5–10 days",
-    idealGroup: "6–16 alumni & friends",
-    indicativePrice: "From ₹22,000 / person",
+    idealGroup: "10–50 alumni & friends",
+    indicativePrice: "From ₹18,000 / person",
     description:
-      "Tell us what you want from the mountains — road trips, quiet villages, bonfire evenings, or a mix — and we'll design it from scratch.",
-    image: "/images/brand_group_indoor.jpg",
+      "Tell us what your crew wants from the mountains — highway road trips, Kasol riverside bonfires, or festive events — and we'll execute it from scratch.",
+    image: "/images/brand_group_stadium.jpg",
   },
 ];

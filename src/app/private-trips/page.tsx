@@ -6,43 +6,41 @@ import { getWhatsAppLink, getWhatsAppPrivateMessage } from "@/lib/utils";
 import { PrivateTripForm } from "./PrivateTripForm";
 
 export const metadata: Metadata = {
-  title: "Private Trips Consultation | TheBucketList.co",
+  title: "Private Trips & Custom Groups | TheBucketList.co",
   description:
-    "Consultative private trips designed around your dates, group, and budget. Pre-qualifying sample itineraries with indicative pricing.",
+    "Custom private trips designed around your group, dates, and budget. Pre-qualifying sample itineraries with indicative pricing.",
 };
 
 export default function PrivateTripsPage() {
   return (
-    <div className="pt-20 md:pt-24 bg-[#faf7f2] min-h-screen text-[#1c1917]">
+    <div className="pt-20 md:pt-24 bg-[#faf7f2] min-h-screen text-[#1c1917] font-sans">
       {/* Consultative Hero Panel (Inverted Dark Aesthetic) */}
       <section className="relative bg-[#1c1917] text-[#faf7f2] section-padding py-20 md:py-28 overflow-hidden">
         <div className="relative container-wide">
           <div className="max-w-3xl space-y-6">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#FACC15] block font-bold">
-              Consultative &middot; Not Transactional
+            <span className="text-xs uppercase tracking-widest text-[#FACC15] block font-bold">
+              PRIVATE & CUSTOM TRIPS
             </span>
             <h1 className="font-serif text-4xl sm:text-6xl text-[#faf7f2] font-bold leading-tight">
-              Tell us what you&apos;re thinking.
-              <br />
-              <span className="text-[#FACC15]">We&apos;ll build the trip.</span>
+              What are you planning?
             </h1>
-            <p className="text-[#e6ded1]/90 text-lg sm:text-xl font-sans leading-relaxed">
-              No off-the-shelf reseller packages. We talk through your dates, group size, and pacing, then design a customized itinerary with pre-qualifying indicative pricing.
+            <p className="text-[#e6ded1]/90 text-lg sm:text-xl leading-relaxed font-normal">
+              Tell us your dates, group size, and the kind of trip you want. We&apos;ll help you figure out the rest.
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <Button href="#consultation-form" variant="primary" size="lg" className="bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] border-none font-bold">
-                Tell us what you&apos;re thinking &rarr;
+                Tell us about your group &rarr;
               </Button>
               <a
                 href={getWhatsAppLink(getWhatsAppPrivateMessage())}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#128c7e] text-white px-6 py-3.5 rounded text-sm font-medium hover:bg-[#0e6c61] transition-colors"
+                className="inline-flex items-center gap-2 bg-[#128c7e] text-white px-6 py-3.5 rounded text-sm font-bold hover:bg-[#0e6c61] transition-colors"
               >
                 <span>WhatsApp Aryan & Kashshish</span>
               </a>
             </div>
-            <p className="text-xs font-mono text-[#FACC15] pt-1">
+            <p className="text-xs text-[#FACC15] pt-1 font-semibold">
               ⚡ We reply on WhatsApp within 2 hours
             </p>
           </div>
@@ -51,18 +49,18 @@ export default function PrivateTripsPage() {
 
       {/* Pre-Qualifying Sample Itineraries with Indicative Pricing */}
       <section className="section-padding py-16 md:py-24 border-b border-[#e6ded1]">
-        <div className="container-wide space-y-10 font-sans">
+        <div className="container-wide space-y-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#e6ded1] pb-6 gap-4">
             <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#8c4a2f] block mb-1">
-                Indicative Benchmarks
+              <span className="text-xs uppercase tracking-widest text-[#8c4a2f] block mb-1 font-bold">
+                SAMPLE ITINERARIES
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl text-[#1c1917] font-bold">
-                Sample Private Itineraries
+                Sample Private Routes & Indicative Prices
               </h2>
             </div>
-            <p className="text-xs font-mono text-[#6b6257]">
-              Indicative pricing to pre-qualify your group budget
+            <p className="text-xs text-[#6b6257] font-medium">
+              Indicative pricing to help estimate your group budget
             </p>
           </div>
 
@@ -70,7 +68,7 @@ export default function PrivateTripsPage() {
             {privateTripExamples.map((item) => (
               <div
                 key={item.id}
-                className="bg-white border border-[#e6ded1] rounded overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
+                className="bg-white border border-[#e6ded1] rounded-sm overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="relative aspect-[16/10] bg-[#e6ded1]">
@@ -80,23 +78,23 @@ export default function PrivateTripsPage() {
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute bottom-2 left-2 bg-[#1c1917]/80 text-[#faf7f2] font-mono text-xs px-2 py-0.5 rounded">
+                    <div className="absolute bottom-2 left-2 bg-[#1c1917]/80 text-[#faf7f2] text-xs px-2.5 py-1 rounded-xs font-semibold">
                       {item.duration} &middot; {item.idealGroup}
                     </div>
                   </div>
                   <div className="p-5 space-y-2">
-                    <h3 className="font-serif text-xl text-[#1c1917] font-semibold">
+                    <h3 className="font-serif text-xl text-[#1c1917] font-bold">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-[#6b6257] leading-relaxed">
+                    <p className="text-xs text-[#6b6257] leading-relaxed font-sans">
                       {item.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-5 pt-0 border-t border-[#e6ded1]/60 flex items-center justify-between font-mono text-xs mt-4">
-                  <span className="text-gray-500">Indicative:</span>
-                  <span className="font-semibold text-[#8c4a2f] bg-[#faf7f2] px-2.5 py-1 rounded border border-[#e6ded1]">
+                <div className="p-5 pt-0 border-t border-[#e6ded1]/60 flex items-center justify-between text-xs mt-4">
+                  <span className="text-gray-500 font-medium">Indicative:</span>
+                  <span className="font-semibold text-[#8c4a2f] bg-[#faf7f2] px-2.5 py-1 rounded-xs border border-[#e6ded1]">
                     {item.indicativePrice}
                   </span>
                 </div>
@@ -111,27 +109,30 @@ export default function PrivateTripsPage() {
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5 space-y-6">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#8c4a2f] block">
-                Consultative Route
+              <span className="text-xs uppercase tracking-widest text-[#8c4a2f] block font-bold">
+                HOW IT WORKS
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl text-[#1c1917] font-bold leading-tight">
-                How our private trip consultation works
+                Simple, transparent planning
               </h2>
-              <div className="space-y-4 text-sm text-[#6b6257] font-sans leading-relaxed">
+              <div className="space-y-4 text-sm text-[#6b6257] leading-relaxed">
                 <p>
-                  We don&apos;t ask for instant payments. You fill out the 4 quick fields on the form (dates, group size, destinations in mind, budget band).
+                  <strong>1. Tell us what you have in mind:</strong> Fill out the quick form with your preferred dates, group size, and destination.
                 </p>
                 <p>
-                  Within 2 hours on WhatsApp, we will share a customized route outline, recommended homestays, and a transparent pricing breakdown.
+                  <strong>2. We ask a few quick questions:</strong> We get in touch on WhatsApp to understand your pace, stay preferences, and celebration plans.
+                </p>
+                <p>
+                  <strong>3. We build the route:</strong> You get a customized day-by-day route with transparent costs before committing.
                 </p>
               </div>
 
-              <div className="p-5 bg-white border border-[#e6ded1] rounded space-y-3 font-mono text-xs">
-                <span className="text-[#8c4a2f] font-semibold block">
-                  ⚡ Trust Signal
+              <div className="p-5 bg-white border border-[#e6ded1] rounded-sm space-y-2 text-xs">
+                <span className="text-[#8c4a2f] font-bold block uppercase">
+                  ⚡ Direct Founder Contact
                 </span>
-                <p className="text-[#1c1917]">
-                  &ldquo;We reply on WhatsApp within 2 hours&rdquo; — every enquiry answered by a real person.
+                <p className="text-[#1c1917] font-medium">
+                  We reply on WhatsApp within 2 hours — personally handled by Aryan & Kashshish.
                 </p>
               </div>
             </div>
