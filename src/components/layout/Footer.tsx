@@ -39,7 +39,7 @@ export function Footer() {
             {/* Explore Links */}
             <div className="md:col-span-2 space-y-3 font-sans text-xs">
               <span className="text-[#FACC15] uppercase tracking-wider block font-bold border-b border-[#FAF7F2]/10 pb-1">Explore</span>
-              <ul className="space-y-2.5 text-[#e6ded1]/80">
+              <ul className="space-y-2.5 text-[#e6ded1]/80 font-medium">
                 <li><Link href="/trips" className="hover:text-[#FACC15] transition-colors">Community Trips</Link></li>
                 <li><Link href="/destinations" className="hover:text-[#FACC15] transition-colors">Destinations</Link></li>
                 <li><Link href="/destinations/manali" className="hover:text-[#FACC15] transition-colors">Himachal Guide</Link></li>
@@ -51,7 +51,7 @@ export function Footer() {
             {/* Trust & Legal Policies */}
             <div className="md:col-span-2 space-y-3 font-sans text-xs">
               <span className="text-[#FACC15] uppercase tracking-wider block font-bold border-b border-[#FAF7F2]/10 pb-1">Trust & Legal</span>
-              <ul className="space-y-2.5 text-[#e6ded1]/80">
+              <ul className="space-y-2.5 text-[#e6ded1]/80 font-medium">
                 <li><Link href="/refund-policy" className="hover:text-[#FACC15] transition-colors">Refund & Cancellation</Link></li>
                 <li><Link href="/cancellation-policy" className="hover:text-[#FACC15] transition-colors">Cancellation Terms</Link></li>
                 <li><span className="text-[#FACC15] font-bold">Replies &lt;2h on WhatsApp</span></li>
@@ -67,10 +67,10 @@ export function Footer() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] rounded-sm text-xs font-bold transition-all shadow-md"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] rounded-sm text-xs font-extrabold transition-all shadow-md"
               >
                 <span className="w-2 h-2 rounded-full bg-[#1c1917]" />
-                <span>Chat on WhatsApp &rarr;</span>
+                <span>Chat on WhatsApp</span>
               </a>
               <p className="text-[11px] text-gray-400">Email: {siteSettings.email}</p>
             </div>

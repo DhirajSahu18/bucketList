@@ -9,10 +9,10 @@ export function TestimonialWall() {
         <div className="container-wide">
           <div className="max-w-2xl mb-12 space-y-2">
             <EditorialMarker number="04" label="PAST JOINERS" />
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
               People who came with us.
             </h2>
-            <p className="text-gray-600 text-base md:text-lg">
+            <p className="text-[#4e473e] text-base md:text-lg font-normal">
               Real WhatsApp chats, Google reviews, and stories from our trip community.
             </p>
           </div>
@@ -21,34 +21,34 @@ export function TestimonialWall() {
             {testimonials.map((item) => (
               <div
                 key={item.id}
-                className="break-inside-avoid bg-[#faf7f2] border border-[#e6ded1] p-6 rounded-sm space-y-4 hover:border-[#1c1917] transition-all duration-300"
+                className="break-inside-avoid bg-[#faf7f2] border border-[#e6ded1] p-6 rounded-sm space-y-4 hover:border-[#1c1917] hover:shadow-md transition-all duration-300"
               >
                 {/* Source Badge Header */}
                 <div className="flex items-center justify-between border-b border-[#e6ded1] pb-3 text-xs">
                   <div className="flex items-center gap-2">
                     {item.source === "whatsapp" && (
-                      <span className="px-2 py-0.5 bg-[#128c7e] text-white text-[10px] rounded font-bold">
+                      <span className="px-2.5 py-0.5 bg-[#128c7e] text-white text-[10px] rounded font-bold uppercase tracking-wider">
                         WhatsApp Chat
                       </span>
                     )}
                     {item.source === "google" && (
-                      <span className="px-2 py-0.5 bg-[#FACC15] text-[#1c1917] text-[10px] rounded font-bold">
+                      <span className="px-2.5 py-0.5 bg-[#FACC15] text-[#1c1917] text-[10px] rounded font-extrabold uppercase tracking-wider">
                         5.0 ★ Google Review
                       </span>
                     )}
                     {item.source === "instagram" && (
-                      <span className="px-2 py-0.5 bg-[#8c4a2f] text-white text-[10px] rounded font-bold">
+                      <span className="px-2.5 py-0.5 bg-[#8c4a2f] text-white text-[10px] rounded font-bold uppercase tracking-wider">
                         Instagram Story
                       </span>
                     )}
-                    <span className="text-[#6b6257] text-[11px] font-medium">{item.date}</span>
+                    <span className="text-[#4e473e] text-[11px] font-semibold">{item.date}</span>
                   </div>
-                  <span className="text-[10px] uppercase font-bold text-[#8c4a2f]">VERIFIED JOINER</span>
+                  <span className="text-[10px] uppercase font-extrabold text-[#8c4a2f] tracking-wider">VERIFIED JOINER</span>
                 </div>
 
                 {/* Optional Image */}
                 {item.image && (
-                  <div className="relative aspect-[4/3] rounded overflow-hidden bg-gray-200">
+                  <div className="relative aspect-[4/3] rounded-xs overflow-hidden bg-gray-200 shadow-xs">
                     <Image
                       src={item.image}
                       alt={item.name}
@@ -60,17 +60,17 @@ export function TestimonialWall() {
                 )}
 
                 {/* Review Text */}
-                <p className="text-sm text-[#1c1917] leading-relaxed font-serif italic">
+                <p className="text-sm sm:text-base text-[#1c1917] leading-relaxed font-serif italic">
                   &ldquo;{item.review}&rdquo;
                 </p>
 
                 {/* Author Info */}
                 <div className="pt-3 border-t border-[#e6ded1] flex items-center justify-between text-xs font-sans">
                   <div>
-                    <span className="font-bold text-[#1c1917] block">{item.name}</span>
-                    {item.handle && <span className="text-[#8c4a2f] text-[11px] font-medium">{item.handle}</span>}
+                    <span className="font-extrabold text-[#1c1917] block">{item.name}</span>
+                    {item.handle && <span className="text-[#8c4a2f] text-[11px] font-bold">{item.handle}</span>}
                   </div>
-                  <span className="text-[#6b6257] text-[11px] font-medium">{item.destinationName}</span>
+                  <span className="text-[#4e473e] text-[11px] font-bold">{item.destinationName}</span>
                 </div>
               </div>
             ))}

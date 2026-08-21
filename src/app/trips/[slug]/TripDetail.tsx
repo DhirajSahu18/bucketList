@@ -344,7 +344,7 @@ export function TripDetail({ trip }: TripDetailProps) {
           className="bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] font-bold text-xs px-4 py-2 border-none"
           onClick={() => trackEvent("click_trip_whatsapp", { tripSlug: trip.slug, mobile: true })}
         >
-          {status === "sold-out" ? "Join Waitlist &rarr;" : "Book on WhatsApp &rarr;"}
+          {status === "sold-out" ? "Join Waitlist" : "Book on WhatsApp"}
         </Button>
       </div>
 

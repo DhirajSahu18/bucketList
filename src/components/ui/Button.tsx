@@ -27,7 +27,7 @@ export function Button({
   disabled = false,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-semibold tracking-wide transition-all duration-200 rounded-sm uppercase disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center font-semibold tracking-wide transition-all duration-200 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variants = {
     primary:
