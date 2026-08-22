@@ -2,7 +2,7 @@ import { SiteSettings } from "@/types";
 
 export const siteSettings: SiteSettings = {
   siteUrl: "https://thebucketlist.co",
-  whatsappNumber: "+919876543210",
+  whatsappNumber: "+919930117942",
   email: "hello@thebucketlist.co",
   instagram: "https://instagram.com/thebucketlist.co",
   responseTime: "within 2 hours",

@@ -75,8 +75,8 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
             priority
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-          <div className="absolute bottom-3 left-3 px-3 py-1.5 bg-[#1c1917]/85 backdrop-blur-md text-[#FACC15] font-sans text-xs rounded-xs font-bold shadow-md">
-            View full photo gallery ({images.length} photos) &rarr;
+          <div className="absolute bottom-3 left-3 px-3 py-1.5 bg-[#1c1917]/85 backdrop-blur-md text-[#FACC15] font-sans text-xs rounded-xs font-extrabold shadow-md">
+            View full photo gallery ({images.length} photos)
           </div>
         </div>
 
@@ -100,14 +100,14 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
         </div>
       </div>
 
-      {/* Mobile Horizontal Carousel */}
+      {/* Mobile Intentional Single-Hero Image Carousel */}
       <div className="block md:hidden">
         <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-2">
           {images.map((img, idx) => (
             <div
               key={idx}
               onClick={() => openLightbox(idx)}
-              className="snap-center shrink-0 w-[85%] relative aspect-[16/10] rounded-sm overflow-hidden bg-[#1c1917]"
+              className="snap-center shrink-0 w-full relative aspect-[16/10] rounded-sm overflow-hidden bg-[#1c1917] cursor-pointer"
             >
               <Image
                 src={img}

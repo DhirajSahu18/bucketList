@@ -15,8 +15,8 @@ export function UpcomingTrips() {
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div className="max-w-2xl space-y-1">
-              <EditorialMarker number="03" label="UPCOMING DEPARTURES" />
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1c1917] font-extrabold leading-tight">
+              <EditorialMarker label="UPCOMING DEPARTURES" />
+              <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl text-[#1c1917] font-extrabold leading-tight">
                 Upcoming Community Runs
               </h2>
             </div>
@@ -51,14 +51,17 @@ export function UpcomingTrips() {
                   {/* Info Column */}
                   <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6">
                     <div className="space-y-3">
-                      <div className="flex items-center justify-between text-xs font-sans text-[#8c4a2f] font-bold">
-                        <span>{featuredTrip.destination.name.toUpperCase()} &middot; {featuredTrip.duration}</span>
-                        <span className="px-2.5 py-0.5 bg-[#FACC15] text-[#1c1917] font-extrabold rounded-xs">
-                          {featuredTrip.seatsRemaining} seats left
+                      {/* Responsive Metadata Header Row */}
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-sans">
+                        <span className="text-[#8c4a2f] font-extrabold uppercase tracking-wider">
+                          {featuredTrip.destination.name} &middot; {featuredTrip.duration}
+                        </span>
+                        <span className="px-2.5 py-1 bg-[#FACC15] text-[#1c1917] font-extrabold text-xs rounded-xs shrink-0 self-start sm:self-auto shadow-xs">
+                          ⚡ {featuredTrip.seatsRemaining} seats left
                         </span>
                       </div>
 
-                      <h3 className="font-serif text-2xl sm:text-3xl text-[#1c1917] font-extrabold group-hover:text-[#8c4a2f] transition-colors leading-tight">
+                      <h3 className="font-sans text-2xl sm:text-3xl text-[#1c1917] font-extrabold group-hover:text-[#8c4a2f] transition-colors leading-tight">
                         {featuredTrip.name}
                       </h3>
 
@@ -68,12 +71,12 @@ export function UpcomingTrips() {
                     </div>
 
                     <div className="pt-5 border-t border-[#e6ded1] space-y-4 font-sans">
-                      <div className="flex items-center justify-between text-xs text-[#4e473e] font-semibold">
+                      <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#4e473e] font-semibold">
                         <span>Dates: {formatDateRange(featuredTrip.dates.start, featuredTrip.dates.end)}</span>
                         <span>Leader: <strong className="text-[#1c1917]">{featuredTrip.founder.name}</strong></span>
                       </div>
 
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between gap-3">
                         <div>
                           <span className="text-[10px] text-[#8c4a2f] block uppercase font-bold tracking-wider">Fixed Price</span>
                           <span className="text-xl font-extrabold text-[#1c1917] font-mono">
@@ -82,7 +85,7 @@ export function UpcomingTrips() {
                           <span className="text-xs text-[#4e473e] font-medium"> / head</span>
                         </div>
 
-                        <span className="inline-flex items-center justify-center px-5 py-2.5 bg-[#1c1917] text-[#FAF7F2] text-xs font-extrabold rounded-xs group-hover:bg-[#8c4a2f] transition-colors">
+                        <span className="inline-flex items-center justify-center px-5 py-2.5 bg-[#1c1917] text-[#FAF7F2] text-xs font-extrabold rounded-xs group-hover:bg-[#8c4a2f] transition-colors shrink-0">
                           Explore Trip
                         </span>
                       </div>

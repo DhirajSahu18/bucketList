@@ -3,51 +3,48 @@ import { EditorialMarker } from "@/components/ui/EditorialMarker";
 export function WhyUs() {
   const pillars = [
     {
-      num: "01",
       title: "Real People On Ground",
-      text: "Aryan or Kashshish is on every trip. We handle vehicle timing, stay check-ins, and local food spots so you can focus on enjoying the journey.",
+      text: "Aryan or Kashshish is on every trip. We handle vehicle timing, stay check-ins, and local spots so you can focus on enjoying the journey.",
     },
     {
-      num: "02",
-      title: "Zero Group Chaos",
-      text: "Whether it's a quiet mountain trek or an 80-person New Year departure, room allocations and bus seating run smoothly from Day 1.",
-    },
-    {
-      num: "03",
-      title: "Driven & Scouted By Us",
+      title: "Scouted Routes & Homestays",
       text: "We stay in every homestay first, eat at every local cafe, and drive every mountain pass ourselves before bringing our joiners.",
     },
     {
-      num: "04",
-      title: "No Hidden Red Tape",
-      text: "Transparent fixed pricing, simple deposit rules, and direct 1-on-1 WhatsApp answers within 2 hours.",
+      title: "Zero Group Chaos & Transparent Costs",
+      text: "Room allocations and seating run smoothly from Day 1. Transparent fixed pricing with simple deposit rules and direct 1-on-1 support.",
     },
   ];
 
   return (
-    <section className="section-padding py-20 bg-white border-b border-[#e6ded1] font-sans text-[#1c1917]">
-      <div className="container-wide space-y-12">
-        <div className="max-w-2xl space-y-2">
-          <EditorialMarker number="02" label="THE BUCKETLIST DIFFERENCE" />
-          <h2 className="font-serif text-3xl sm:text-5xl font-extrabold tracking-tight">
-            How we actually run trips differently.
-          </h2>
-          <p className="text-[#4e473e] text-base sm:text-lg font-normal">
-            No corporate reseller packages. Just well-planned trips led by people who know the roads.
-          </p>
-        </div>
+    <section className="section-padding py-20 md:py-28 bg-white border-b border-[#e6ded1] font-sans text-[#1c1917]">
+      <div className="container-wide">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Large Editorial Statement */}
+          <div className="lg:col-span-5 space-y-4">
+            <EditorialMarker label="THE BUCKETLIST DIFFERENCE" />
+            <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#1c1917] leading-tight">
+              Trips planned properly, led by people who know the roads.
+            </h2>
+            <p className="text-[#4e473e] text-base sm:text-lg font-normal leading-relaxed">
+              No corporate reseller packages or random local assignment. Just handpicked routes, authentic stays, and real on-ground management.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {pillars.map((p) => (
-            <div key={p.num} className="bg-[#faf7f2] p-6 sm:p-7 border border-[#e6ded1] rounded-sm space-y-3.5 hover:border-[#1c1917] hover:shadow-md transition-all duration-300">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#FACC15] shrink-0" />
-                <span className="font-sans text-xs text-[#8c4a2f] font-extrabold uppercase tracking-wider">{p.num} &middot; BENEFIT</span>
+          {/* Right Column: Open Editorial Supporting List */}
+          <div className="lg:col-span-7 space-y-8 divide-y divide-[#e6ded1]">
+            {pillars.map((p, i) => (
+              <div key={i} className={i === 0 ? "space-y-2.5" : "pt-8 space-y-2.5"}>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#FACC15] shrink-0" />
+                  <h3 className="font-sans text-xl font-extrabold text-[#1c1917]">{p.title}</h3>
+                </div>
+                <p className="text-sm sm:text-base text-[#4e473e] leading-relaxed font-normal pl-4 border-l-2 border-[#FACC15]/40">
+                  {p.text}
+                </p>
               </div>
-              <h3 className="font-serif text-xl font-extrabold text-[#1c1917]">{p.title}</h3>
-              <p className="text-xs sm:text-sm text-[#4e473e] leading-relaxed font-normal">{p.text}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -25,7 +25,7 @@ export function WhatsAppSticky() {
   return (
     <div className="fixed bottom-6 right-6 z-40 hidden sm:block">
       <a
-        href={getWhatsAppLink("Hi Aryan & Kashshish, I'm exploring trips on TheBucketList.co and want to check details for Himachal Unplugged!")}
+        href={getWhatsAppLink("Hi, I'm interested in booking upcoming trips with TheBucketList.co!")}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackEvent("click_sticky_whatsapp")}

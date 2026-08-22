@@ -77,8 +77,8 @@ Notes: ${formData.additionalNotes || "None"}`;
         <div className="w-12 h-12 rounded-full bg-[#FACC15] flex items-center justify-center mx-auto text-xl font-sans font-bold">
           &check;
         </div>
-        <h3 className="font-serif text-2xl font-semibold">Consultation Request Received</h3>
-        <p className="text-sm text-gray-600 max-w-md mx-auto font-sans leading-relaxed">
+        <h3 className="font-sans text-2xl font-extrabold">Consultation Request Received</h3>
+        <p className="text-sm text-[#4e473e] max-w-md mx-auto font-sans leading-relaxed">
           Thanks {formData.name}! Aryan or Kashshish will review your preferences and message your WhatsApp at {formData.phone} within 2 hours.
         </p>
         <div className="pt-4 border-t border-[#e6ded1] flex flex-col items-center gap-3 font-sans">
@@ -86,11 +86,11 @@ Notes: ${formData.additionalNotes || "None"}`;
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#128c7e] hover:bg-[#0e6c61] text-white text-xs font-bold rounded shadow-sm transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#128c7e] hover:bg-[#0e6c61] text-white text-xs font-extrabold rounded-xs shadow-sm transition-all"
           >
-            <span>Chat on WhatsApp Right Away &rarr;</span>
+            <span>Chat on WhatsApp Right Away</span>
           </a>
-          <span className="text-[11px] text-gray-500 font-medium">
+          <span className="text-[11px] text-[#4e473e] font-medium">
             ⚡ Direct founder chat pre-filled with your details
           </span>
         </div>
@@ -99,13 +99,13 @@ Notes: ${formData.additionalNotes || "None"}`;
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white border border-[#e6ded1] p-6 sm:p-10 rounded-sm space-y-6 text-[#1c1917]">
-      <div className="border-b border-[#e6ded1] pb-4 font-sans">
-        <span className="text-xs text-[#8c4a2f] uppercase block mb-1 font-semibold">
+    <form onSubmit={handleSubmit} className="bg-white border border-[#e6ded1] p-6 sm:p-10 rounded-sm space-y-8 text-[#1c1917] font-sans">
+      <div className="border-b border-[#e6ded1] pb-4">
+        <span className="text-xs text-[#8c4a2f] uppercase block mb-1 font-extrabold">
           Private Consultation Form
         </span>
-        <h3 className="font-serif text-2xl font-semibold">Tell Us About Your Group</h3>
-        <p className="text-xs text-gray-500 mt-1 font-medium">
+        <h3 className="font-sans text-2xl sm:text-3xl font-extrabold text-[#1c1917]">Tell Us About Your Group</h3>
+        <p className="text-xs text-[#4e473e] mt-1 font-medium">
           We reply on WhatsApp within 2 hours &middot; No booking commitment
         </p>
       </div>
@@ -123,146 +123,148 @@ Notes: ${formData.additionalNotes || "None"}`;
 
       {/* Form Error Banner with Instant WhatsApp Fallback */}
       {errorMessage && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded text-xs text-red-800 space-y-3 font-sans">
+        <div className="p-4 bg-red-50 border border-red-200 rounded-xs text-xs text-red-800 space-y-3 font-sans">
           <p className="font-semibold">{errorMessage}</p>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-[#128c7e] text-white text-xs font-bold rounded"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#128c7e] text-white text-xs font-extrabold rounded-xs"
           >
-            Send Details via WhatsApp Instead &rarr;
+            Send Details via WhatsApp Instead
           </a>
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 font-sans">
-        {/* Name */}
-        <div className="space-y-1">
-          <label className="text-xs font-semibold uppercase text-[#8c4a2f] block">Your Name *</label>
-          <input
-            type="text"
-            required
-            placeholder="e.g. Rahul Sharma"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-[#FACC15] focus:border-transparent"
-          />
-        </div>
+      {/* Step 1: Contact Details */}
+      <div className="space-y-4">
+        <span className="text-xs text-[#8c4a2f] uppercase tracking-wider font-extrabold block">
+          Step 1 &middot; Contact Information
+        </span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Name */}
+          <div className="space-y-1">
+            <label className="text-xs font-extrabold uppercase text-[#1c1917] block">Your Name *</label>
+            <input
+              type="text"
+              required
+              placeholder="e.g. Rahul Sharma"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-xs focus:outline-none focus:ring-2 focus:ring-[#FACC15]"
+            />
+          </div>
 
-        {/* WhatsApp Phone */}
-        <div className="space-y-1">
-          <label className="text-xs font-semibold uppercase text-[#8c4a2f] block">WhatsApp Number *</label>
-          <input
-            type="tel"
-            required
-            placeholder="+91 98765 43210"
-            value={formData.phone}
-            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-[#FACC15] focus:border-transparent"
-          />
-        </div>
-
-        {/* Email */}
-        <div className="space-y-1">
-          <label className="text-xs font-semibold uppercase text-[#8c4a2f] block">Email Address (Optional)</label>
-          <input
-            type="email"
-            placeholder="rahul@example.com"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-[#FACC15] focus:border-transparent"
-          />
-        </div>
-
-        {/* Destination */}
-        <div className="space-y-1">
-          <label className="text-xs font-semibold uppercase text-[#8c4a2f] block">Destination in Mind *</label>
-          <select
-            value={formData.destination}
-            onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
-            className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-[#FACC15] focus:border-transparent"
-          >
-            <option value="Himachal & Manali">Himachal & Manali Circuit</option>
-            <option value="Kasol & Parvati">Kasol & Parvati Valley</option>
-            <option value="Kerala Backwaters">Kerala Backwaters & Hills</option>
-            <option value="Kedarnath Trek">Kedarnath Valley Trek</option>
-            <option value="Custom Himalayan">Custom Himalayan Community Journey</option>
-          </select>
-        </div>
-
-        {/* Group Size */}
-        <div className="space-y-1">
-          <label className="text-xs font-semibold uppercase text-[#8c4a2f] block">Group Size *</label>
-          <select
-            value={formData.numberOfTravellers}
-            onChange={(e) => setFormData({ ...formData, numberOfTravellers: e.target.value })}
-            className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-[#FACC15] focus:border-transparent"
-          >
-            <option value="4-8">4 to 8 people</option>
-            <option value="9-15">9 to 15 people</option>
-            <option value="16-30">16 to 30 people (College / Friends)</option>
-            <option value="30+">30+ (Alumni / Large Community Run)</option>
-          </select>
-        </div>
-
-        {/* Preferred Dates */}
-        <div className="space-y-1">
-          <label className="text-xs font-semibold uppercase text-[#8c4a2f] block">Preferred Dates / Season</label>
-          <input
-            type="text"
-            placeholder="e.g. New Year / December 2026"
-            value={formData.preferredDates}
-            onChange={(e) => setFormData({ ...formData, preferredDates: e.target.value })}
-            className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-[#FACC15] focus:border-transparent"
-          />
-        </div>
-
-        {/* Budget Band */}
-        <div className="sm:col-span-2 space-y-1">
-          <label className="text-xs font-semibold uppercase text-[#8c4a2f] block">Approx Budget / Head</label>
-          <select
-            value={formData.approximateBudget}
-            onChange={(e) => setFormData({ ...formData, approximateBudget: e.target.value })}
-            className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-[#FACC15] focus:border-transparent"
-          >
-            <option value="₹15,000 – ₹20,000 / person">₹15,000 – ₹20,000 / person</option>
-            <option value="₹20,000 – ₹30,000 / person">₹20,000 – ₹30,000 / person</option>
-            <option value="₹30,000+ / person">₹30,000+ / person</option>
-          </select>
+          {/* WhatsApp Phone */}
+          <div className="space-y-1">
+            <label className="text-xs font-extrabold uppercase text-[#1c1917] block">WhatsApp Number *</label>
+            <input
+              type="tel"
+              required
+              placeholder="+91 98765 43210"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-xs focus:outline-none focus:ring-2 focus:ring-[#FACC15]"
+            />
+          </div>
         </div>
       </div>
 
-      {/* Additional Notes */}
-      <div className="space-y-1 font-sans">
-        <label className="text-xs font-semibold uppercase text-[#8c4a2f] block">Specific Requests / Notes</label>
-        <textarea
-          rows={3}
-          placeholder="Tell us about your group, celebration plans, or specific stays..."
-          value={formData.additionalNotes}
-          onChange={(e) => setFormData({ ...formData, additionalNotes: e.target.value })}
-          className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-sm focus:outline-none focus:ring-2 focus:ring-[#FACC15] focus:border-transparent"
-        />
+      {/* Step 2: Trip Preferences */}
+      <div className="space-y-4 pt-4 border-t border-[#e6ded1]">
+        <span className="text-xs text-[#8c4a2f] uppercase tracking-wider font-extrabold block">
+          Step 2 &middot; Expedition Preferences
+        </span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Destination */}
+          <div className="space-y-1">
+            <label className="text-xs font-extrabold uppercase text-[#1c1917] block">Destination in Mind *</label>
+            <select
+              value={formData.destination}
+              onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
+              className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-xs focus:outline-none focus:ring-2 focus:ring-[#FACC15]"
+            >
+              <option value="Himachal & Manali">Himachal & Manali Circuit</option>
+              <option value="Kasol & Parvati">Kasol & Parvati Valley</option>
+              <option value="Kerala Backwaters">Kerala Backwaters & Hills</option>
+              <option value="Kedarnath Trek">Kedarnath Valley Trek</option>
+              <option value="Custom Himalayan">Custom Himalayan Community Journey</option>
+            </select>
+          </div>
+
+          {/* Group Size */}
+          <div className="space-y-1">
+            <label className="text-xs font-extrabold uppercase text-[#1c1917] block">Group Size *</label>
+            <select
+              value={formData.numberOfTravellers}
+              onChange={(e) => setFormData({ ...formData, numberOfTravellers: e.target.value })}
+              className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-xs focus:outline-none focus:ring-2 focus:ring-[#FACC15]"
+            >
+              <option value="4-8">4 to 8 people</option>
+              <option value="9-15">9 to 15 people</option>
+              <option value="16-30">16 to 30 people (College / Friends)</option>
+              <option value="30+">30+ (Alumni / Large Community Run)</option>
+            </select>
+          </div>
+
+          {/* Preferred Dates */}
+          <div className="space-y-1">
+            <label className="text-xs font-extrabold uppercase text-[#1c1917] block">Preferred Dates / Season</label>
+            <input
+              type="text"
+              placeholder="e.g. New Year / December 2026"
+              value={formData.preferredDates}
+              onChange={(e) => setFormData({ ...formData, preferredDates: e.target.value })}
+              className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-xs focus:outline-none focus:ring-2 focus:ring-[#FACC15]"
+            />
+          </div>
+
+          {/* Budget Band */}
+          <div className="space-y-1">
+            <label className="text-xs font-extrabold uppercase text-[#1c1917] block">Approx Budget / Head</label>
+            <select
+              value={formData.approximateBudget}
+              onChange={(e) => setFormData({ ...formData, approximateBudget: e.target.value })}
+              className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-xs focus:outline-none focus:ring-2 focus:ring-[#FACC15]"
+            >
+              <option value="₹15,000 – ₹20,000 / person">₹15,000 – ₹20,000 / person</option>
+              <option value="₹20,000 – ₹30,000 / person">₹20,000 – ₹30,000 / person</option>
+              <option value="₹30,000+ / person">₹30,000+ / person</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Additional Notes */}
+        <div className="space-y-1 pt-2">
+          <label className="text-xs font-extrabold uppercase text-[#1c1917] block">Specific Requests / Notes</label>
+          <textarea
+            rows={3}
+            placeholder="Tell us about your group, celebration plans, or specific stays..."
+            value={formData.additionalNotes}
+            onChange={(e) => setFormData({ ...formData, additionalNotes: e.target.value })}
+            className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-xs focus:outline-none focus:ring-2 focus:ring-[#FACC15]"
+          />
+        </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#e6ded1] font-sans">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#e6ded1]">
         <Button
           type="submit"
           variant="primary"
           size="lg"
-          className="w-full sm:w-auto bg-[#1c1917] text-[#FAF7F2] hover:bg-[#8c4a2f] text-xs px-8 py-3.5 font-bold"
+          className="w-full sm:w-auto bg-[#1c1917] text-[#FAF7F2] hover:bg-[#8c4a2f] text-xs px-8 py-3.5 font-extrabold"
           disabled={loading}
         >
-          {loading ? "Sending Request..." : "Request Private Itinerary Proposal &rarr;"}
+          {loading ? "Sending Request..." : "Request Private Itinerary Proposal"}
         </Button>
 
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs font-semibold text-[#128c7e] underline"
+          className="text-xs font-extrabold text-[#128c7e] underline"
         >
-          Or message Aryan & Kashshish on WhatsApp directly &rarr;
+          Or message Aryan & Kashshish on WhatsApp directly
         </a>
       </div>
     </form>

@@ -5,12 +5,12 @@ import { getWhatsAppLink } from "@/lib/utils";
 
 export function Hero() {
   const whatsappUrl = getWhatsAppLink(
-    "Hi! I'm interested in Himachal Unplugged. Could you share the latest details and help me understand how to join?"
+    "Hi, I am interested in booking the Himachal Unplugged New Year Expedition"
   );
 
   return (
     <section className="relative min-h-[88vh] flex items-center pt-24 pb-16 overflow-hidden bg-[#1c1917] text-[#faf7f2]">
-      {/* Background Image Overlay: Authentic Group Trip Photo */}
+      {/* Background Image Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/brand_group_mountains.jpg"
@@ -43,17 +43,13 @@ export function Hero() {
               Six days across Manali, Kasol, mountain roads and the places worth slowing down for. Led on ground by founders <span className="text-white font-bold">Aryan & Kashshish</span>.
             </p>
 
-            {/* Streamlined Trip Context Bar */}
-            <div className="flex flex-wrap items-center gap-2.5 font-sans text-xs text-[#FAF7F2] pt-1">
-              <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/20 rounded-xs font-bold">
-                📅 Dec 28 – Jan 02
-              </span>
-              <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/20 rounded-xs font-bold">
-                📍 Manali & Parvati Valley
-              </span>
-              <span className="px-3 py-1.5 bg-[#FACC15] text-[#1c1917] rounded-xs font-extrabold">
-                ⚡ 28 of 80 Seats Left
-              </span>
+            {/* Single Restrained Travel Context Bar */}
+            <div className="inline-flex flex-wrap items-center gap-2 sm:gap-3 px-3.5 py-2 bg-black/40 backdrop-blur-md border border-white/15 rounded-xs text-xs font-sans text-[#FAF7F2] font-medium">
+              <span>📅 Dec 28 – Jan 02</span>
+              <span className="text-white/30 hidden sm:inline">&middot;</span>
+              <span>📍 Manali & Parvati Valley</span>
+              <span className="text-white/30 hidden sm:inline">&middot;</span>
+              <span className="text-[#FACC15] font-extrabold">⚡ 28 of 80 Seats Left</span>
             </div>
 
             {/* Clean Single-Line CTAs */}
@@ -78,19 +74,34 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Micro Trust Line */}
-            <div className="pt-4 flex flex-wrap items-center gap-6 text-xs font-sans text-[#e6ded1] border-t border-white/15">
-              <span className="flex items-center gap-1.5 font-medium">
-                <strong className="text-[#FACC15] font-extrabold">{siteSettings.homepageStats.years} Years</strong> Running Trips
-              </span>
-              <span className="text-white/30">&middot;</span>
-              <span className="flex items-center gap-1.5 font-medium">
-                <strong className="text-[#FACC15] font-extrabold">{siteSettings.homepageStats.trips}</strong> Journeys Led
-              </span>
-              <span className="text-white/30">&middot;</span>
-              <span className="flex items-center gap-1.5 font-medium">
-                <strong className="text-[#FACC15] font-extrabold">{siteSettings.homepageStats.travellers}</strong> Travellers
-              </span>
+            {/* Coherent 3-Column Responsive Homepage Stats Grid */}
+            <div className="pt-6 border-t border-white/15 grid grid-cols-3 gap-3 text-xs font-sans text-[#e6ded1]">
+              <div className="space-y-0.5">
+                <span className="text-lg sm:text-2xl font-extrabold text-[#FACC15] block font-mono">
+                  {siteSettings.homepageStats.years} Years
+                </span>
+                <span className="text-[11px] text-[#e6ded1] font-semibold block leading-tight">
+                  Running Trips
+                </span>
+              </div>
+
+              <div className="space-y-0.5 border-l border-white/15 pl-3">
+                <span className="text-lg sm:text-2xl font-extrabold text-[#FACC15] block font-mono">
+                  {siteSettings.homepageStats.trips}
+                </span>
+                <span className="text-[11px] text-[#e6ded1] font-semibold block leading-tight">
+                  Journeys Led
+                </span>
+              </div>
+
+              <div className="space-y-0.5 border-l border-white/15 pl-3">
+                <span className="text-lg sm:text-2xl font-extrabold text-[#FACC15] block font-mono">
+                  {siteSettings.homepageStats.travellers}
+                </span>
+                <span className="text-[11px] text-[#e6ded1] font-semibold block leading-tight">
+                  Travellers
+                </span>
+              </div>
             </div>
           </div>
         </div>

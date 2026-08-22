@@ -70,10 +70,10 @@ export default function DestinationPage({ params }: Props) {
           { name: destination.name, url: `/destinations/${destination.slug}` },
         ]}
       />
-      <div className="pt-20 md:pt-24 bg-[#faf7f2] min-h-screen text-[#1c1917]">
+      <div className="pt-20 md:pt-24 bg-[#faf7f2] min-h-screen text-[#1c1917] font-sans">
         {/* 1. HERO PHOTO + ONE-LINE HOOK */}
-        <section className="relative min-h-[55vh] flex items-end pb-12 overflow-hidden bg-[#1c1917]">
-          {/* Top Yellow Bar */}
+        <section className="relative min-h-[50vh] flex items-end pb-12 overflow-hidden bg-[#1c1917]">
+          {/* Top Yellow Accent Bar */}
           <div className="absolute top-0 inset-x-0 h-1.5 bg-[#FACC15] z-10" />
 
           <div className="absolute inset-0 z-0">
@@ -81,7 +81,7 @@ export default function DestinationPage({ params }: Props) {
               src={destination.heroImage}
               alt={destination.name}
               fill
-              className="object-cover brightness-75"
+              className="object-cover brightness-[0.4]"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917] via-[#1c1917]/40 to-transparent" />
@@ -89,63 +89,63 @@ export default function DestinationPage({ params }: Props) {
 
           <div className="relative z-10 section-padding w-full font-sans">
             <div className="container-wide">
-              <nav className="mb-3 text-xs text-[#e6ded1]/80 flex items-center gap-2 font-medium">
+              <nav aria-label="Breadcrumb" className="mb-3 text-xs text-[#e6ded1] flex items-center gap-2 font-medium">
                 <Link href="/destinations" className="hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FACC15]">
                   Destinations
                 </Link>
                 <span>/</span>
-                <span className="text-[#FACC15] font-bold">{destination.name}</span>
+                <span className="text-[#FACC15] font-extrabold">{destination.name}</span>
               </nav>
-              <h1 className="font-serif text-4xl sm:text-6xl text-[#faf7f2] font-bold tracking-tight mb-3">
+              <h1 className="font-serif text-4xl sm:text-6xl text-[#faf7f2] font-extrabold tracking-tight mb-3">
                 {destination.name}
               </h1>
-              <p className="font-serif text-xl sm:text-2xl text-[#FACC15] max-w-2xl">
+              <p className="font-sans text-lg sm:text-xl text-[#FACC15] max-w-2xl font-semibold">
                 &ldquo;{destination.emotionalHook}&rdquo;
               </p>
             </div>
           </div>
         </section>
 
-        {/* 2. QUICK FACTS */}
+        {/* 2. QUICK FACTS (INTELLIGENT 5-COLUMN RESPONSIVE LAYOUT) */}
         <section className="section-padding py-8 bg-white border-b border-[#e6ded1]">
           <div className="container-wide">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 font-sans text-xs">
-              <div className="p-3.5 bg-[#faf7f2] rounded-sm border border-[#e6ded1]">
-                <span className="text-[#8c4a2f] block text-[10px] uppercase font-bold">Best Time</span>
-                <span className="font-semibold text-[#1c1917]">{destination.bestTime}</span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 font-sans text-xs">
+              <div className="p-3.5 bg-[#faf7f2] rounded-xs border border-[#e6ded1]">
+                <span className="text-[#8c4a2f] block text-[10px] uppercase font-extrabold">Best Time</span>
+                <span className="font-extrabold text-[#1c1917]">{destination.bestTime}</span>
               </div>
-              <div className="p-3.5 bg-[#faf7f2] rounded-sm border border-[#e6ded1]">
-                <span className="text-[#8c4a2f] block text-[10px] uppercase font-bold">Ideal Duration</span>
-                <span className="font-semibold text-[#1c1917]">{destination.duration}</span>
+              <div className="p-3.5 bg-[#faf7f2] rounded-xs border border-[#e6ded1]">
+                <span className="text-[#8c4a2f] block text-[10px] uppercase font-extrabold">Ideal Duration</span>
+                <span className="font-extrabold text-[#1c1917]">{destination.duration}</span>
               </div>
-              <div className="p-3.5 bg-[#faf7f2] rounded-sm border border-[#e6ded1]">
-                <span className="text-[#8c4a2f] block text-[10px] uppercase font-bold">Difficulty</span>
-                <span className="font-semibold text-[#8c4a2f]">{destination.difficulty}</span>
+              <div className="p-3.5 bg-[#faf7f2] rounded-xs border border-[#e6ded1]">
+                <span className="text-[#8c4a2f] block text-[10px] uppercase font-extrabold">Difficulty</span>
+                <span className="font-extrabold text-[#8c4a2f]">{destination.difficulty}</span>
               </div>
-              <div className="p-3.5 bg-[#faf7f2] rounded-sm border border-[#e6ded1]">
-                <span className="text-[#8c4a2f] block text-[10px] uppercase font-bold">Ideal For</span>
-                <span className="font-semibold text-[#1c1917]">{destination.idealFor.slice(0, 2).join(", ")}</span>
+              <div className="p-3.5 bg-[#faf7f2] rounded-xs border border-[#e6ded1]">
+                <span className="text-[#8c4a2f] block text-[10px] uppercase font-extrabold">Ideal For</span>
+                <span className="font-extrabold text-[#1c1917]">{destination.idealFor.slice(0, 2).join(", ")}</span>
               </div>
-              <div className="p-3.5 bg-[#faf7f2] rounded-sm border border-[#e6ded1]">
-                <span className="text-[#8c4a2f] block text-[10px] uppercase font-bold">Starting Point</span>
-                <span className="font-semibold text-[#1c1917]">{destination.startingPoint}</span>
+              <div className="p-3.5 bg-[#faf7f2] rounded-xs border border-[#e6ded1] col-span-2 sm:col-span-1">
+                <span className="text-[#8c4a2f] block text-[10px] uppercase font-extrabold">Starting Point</span>
+                <span className="font-extrabold text-[#1c1917]">{destination.startingPoint}</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 3. UPCOMING TRIPS TO THIS DESTINATION */}
+        {/* 3. UPCOMING TRIPS TO THIS DESTINATION (STACKS NATURALLY ON MOBILE) */}
         {destinationTrips.length > 0 && (
           <section className="section-padding py-16 bg-[#faf7f2] border-b border-[#e6ded1]">
             <div className="container-wide">
-              <div className="flex items-center justify-between mb-8">
+              <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 gap-2">
                 <div>
-                  <EditorialMarker number="01" label="UPCOMING EXPEDITIONS" />
-                  <h2 className="font-serif text-3xl text-[#1c1917] font-bold">
+                  <EditorialMarker label="UPCOMING EXPEDITIONS" />
+                  <h2 className="font-sans text-2xl sm:text-3xl text-[#1c1917] font-extrabold">
                     Upcoming Trips to {destination.name}
                   </h2>
                 </div>
-                <span className="font-sans text-xs text-[#8c4a2f] font-bold">
+                <span className="font-sans text-xs text-[#8c4a2f] font-extrabold">
                   Experienced Travel Captains
                 </span>
               </div>
@@ -158,54 +158,54 @@ export default function DestinationPage({ params }: Props) {
           </section>
         )}
 
-        {/* 4. OR PLAN IT AS A PRIVATE TRIP */}
-        <section className="section-padding py-12 bg-[#1c1917] text-[#faf7f2]">
-          <div className="container-wide flex flex-col md:flex-row items-center justify-between gap-6 font-sans">
-            <div>
-              <span className="text-xs text-[#FACC15] uppercase tracking-wider block mb-1 font-bold">
+        {/* 4. REFINED PRIVATE TRIP CTA PANEL */}
+        <section className="section-padding py-12 bg-[#1c1917] text-[#faf7f2] border-t-2 border-[#FACC15]">
+          <div className="container-wide flex flex-col md:flex-row items-start md:items-center justify-between gap-6 font-sans">
+            <div className="space-y-1">
+              <span className="text-xs text-[#FACC15] uppercase tracking-wider block font-extrabold">
                 Custom Dates & Group Sizes
               </span>
-              <h3 className="font-serif text-2xl text-[#faf7f2]">
+              <h3 className="font-sans text-2xl text-[#faf7f2] font-extrabold">
                 Want to do {destination.name} with your own group of friends?
               </h3>
-              <p className="text-[#e6ded1]/75 text-sm mt-1">
+              <p className="text-[#e6ded1] text-sm font-normal">
                 We&apos;ll build the itinerary around your dates, pace, and stay preferences.
               </p>
             </div>
-            <Button href="/private-trips" variant="primary" size="md" className="bg-[#FACC15] text-[#1c1917] shrink-0 font-bold border-none">
-              Plan a Private Trip &rarr;
+            <Button href="/private-trips" variant="primary" size="md" className="bg-[#FACC15] text-[#1c1917] shrink-0 font-extrabold border-none">
+              Plan a Private Trip
             </Button>
           </div>
         </section>
 
-        {/* 5. FOUNDER GUIDE WITH REAL ANCHOR SUBHEADS */}
+        {/* 5. TRAVEL CAPTAIN GUIDE */}
         <section className="section-padding py-16 md:py-24 bg-white border-b border-[#e6ded1]">
           <div className="container-narrow space-y-8 font-sans">
             <div className="border-b border-[#e6ded1] pb-6">
-              <EditorialMarker number="02" label="TRAVEL CAPTAIN GUIDE" />
-              <h2 className="font-serif text-3xl sm:text-4xl text-[#1c1917] font-bold">
+              <EditorialMarker label="TRAVEL CAPTAIN GUIDE" />
+              <h2 className="font-sans text-3xl sm:text-4xl text-[#1c1917] font-extrabold">
                 Everything you actually need to know about {destination.name}
               </h2>
-              <p className="text-xs text-gray-500 mt-2 font-medium">
+              <p className="text-xs text-[#4e473e] mt-2 font-semibold">
                 By Aryan & Kashshish &middot; Updated 2026
               </p>
             </div>
 
-            <div className="prose prose-lg max-w-none text-[#1c1917] leading-relaxed space-y-6">
+            <div className="space-y-6 text-[#1c1917] leading-relaxed font-sans">
               {destination.guideContent.split("\n\n").map((paragraph, i) => {
                 if (paragraph.startsWith("## ")) {
                   return (
                     <h3
                       key={i}
                       id={paragraph.replace("## ", "").toLowerCase().replace(/\s+/g, "-")}
-                      className="font-serif text-2xl sm:text-3xl text-[#1c1917] font-bold pt-6 border-t border-[#e6ded1]"
+                      className="font-sans text-2xl sm:text-3xl text-[#1c1917] font-extrabold pt-6 border-t border-[#e6ded1]"
                     >
                       {paragraph.replace("## ", "")}
                     </h3>
                   );
                 }
                 return (
-                  <p key={i} className="text-base text-[#1c1917]/90 leading-relaxed font-sans">
+                  <p key={i} className="text-base text-[#4e473e] leading-relaxed font-normal">
                     {paragraph}
                   </p>
                 );
@@ -219,8 +219,8 @@ export default function DestinationPage({ params }: Props) {
           <section className="section-padding py-16 bg-[#faf7f2] border-b border-[#e6ded1]">
             <div className="container-narrow space-y-8 font-sans">
               <div>
-                <EditorialMarker number="03" label="COMMON QUESTIONS" />
-                <h2 className="font-serif text-3xl text-[#1c1917] font-bold">
+                <EditorialMarker label="COMMON QUESTIONS" />
+                <h2 className="font-sans text-3xl text-[#1c1917] font-extrabold">
                   {destination.name} FAQs
                 </h2>
               </div>
@@ -230,11 +230,11 @@ export default function DestinationPage({ params }: Props) {
                     key={i}
                     className="group bg-white border border-[#e6ded1] rounded-sm focus-within:ring-2 focus-within:ring-[#FACC15]"
                   >
-                    <summary className="cursor-pointer p-4 sm:p-5 font-serif text-lg text-[#1c1917] list-none flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FACC15]">
+                    <summary className="cursor-pointer p-4 sm:p-5 font-sans text-base sm:text-lg text-[#1c1917] font-extrabold list-none flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FACC15]">
                       {faq.question}
                       <span className="font-sans text-sm text-[#8c4a2f] font-bold">↓</span>
                     </summary>
-                    <div className="px-4 sm:px-5 pb-4 text-sm text-[#6b6257] leading-relaxed border-t border-[#e6ded1]/50 pt-3 font-sans">
+                    <div className="px-4 sm:px-5 pb-4 text-xs sm:text-sm text-[#4e473e] leading-relaxed border-t border-[#e6ded1]/50 pt-3 font-sans font-normal">
                       {faq.answer}
                     </div>
                   </details>
@@ -244,13 +244,13 @@ export default function DestinationPage({ params }: Props) {
           </section>
         )}
 
-        {/* 7. REVIEWS */}
+        {/* 7. VERIFIED REVIEWS */}
         {destinationReviews.length > 0 && (
           <section className="section-padding py-16 bg-white font-sans">
             <div className="container-wide space-y-8">
               <div>
-                <EditorialMarker number="04" label="VERIFIED FEEDBACK" />
-                <h2 className="font-serif text-3xl text-[#1c1917] font-bold">
+                <EditorialMarker label="VERIFIED FEEDBACK" />
+                <h2 className="font-sans text-3xl text-[#1c1917] font-extrabold">
                   What travellers say about our {destination.name} runs
                 </h2>
               </div>
@@ -259,13 +259,13 @@ export default function DestinationPage({ params }: Props) {
                 {destinationReviews.map((rev) => (
                   <div key={rev.id} className="bg-[#faf7f2] border border-[#e6ded1] p-5 rounded-sm space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="font-semibold text-sm text-[#1c1917]">{rev.name}</span>
+                      <span className="font-extrabold text-sm text-[#1c1917]">{rev.name}</span>
                       <span className="text-[#FACC15] text-xs font-bold">★★★★★</span>
                     </div>
-                    <p className="text-xs text-[#6b6257] leading-relaxed font-serif italic">
+                    <p className="text-xs text-[#4e473e] leading-relaxed font-serif italic">
                       &ldquo;{rev.review}&rdquo;
                     </p>
-                    <div className="pt-2 border-t border-[#e6ded1] flex items-center justify-between text-[10px] text-gray-500 font-medium">
+                    <div className="pt-2 border-t border-[#e6ded1] flex items-center justify-between text-[10px] text-[#8c4a2f] font-extrabold">
                       <span>{rev.tripName}</span>
                       <span>{rev.date}</span>
                     </div>

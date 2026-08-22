@@ -1,72 +1,104 @@
 import Image from "next/image";
 import { founders } from "@/data/founders";
+import { testimonials } from "@/data/testimonials";
 import { EditorialMarker } from "@/components/ui/EditorialMarker";
 
 export function FounderStrip() {
+  const featuredReviews = testimonials.slice(0, 3);
+
   return (
-    <section className="py-16 md:py-24 bg-[#faf7f2] border-b border-[#e6ded1] font-sans text-[#1c1917]">
+    <section className="py-20 md:py-28 bg-[#faf7f2] border-b border-[#e6ded1] font-sans text-[#1c1917]">
       <div className="section-padding">
-        <div className="container-wide">
-          {/* Section Editorial Header */}
-          <div className="max-w-2xl mb-12 space-y-2">
-            <EditorialMarker number="03" label="WHO YOU'RE TRAVELLING WITH" />
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1c1917] font-extrabold leading-tight">
-              The people on the ground.
+        <div className="container-wide space-y-16">
+          {/* Editorial Section Header */}
+          <div className="max-w-3xl space-y-3">
+            <EditorialMarker label="WHO YOU'RE TRAVELLING WITH" />
+            <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl text-[#1c1917] font-extrabold leading-tight">
+              Led on-ground by founders. Driven by real joiners.
             </h2>
-            <p className="text-[#4e473e] text-base md:text-lg font-normal">
-              Aryan & Kashshish design the routes, direct on-ground safety, and travel with every community group.
+            <p className="text-[#4e473e] text-base md:text-lg font-normal leading-relaxed">
+              Aryan & Kashshish design every route, handle on-ground safety, and travel with every community group. Here is who leads and who comes along.
             </p>
           </div>
 
-          {/* Founder Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-            {founders.map((founder) => (
-              <div
-                key={founder.id}
-                className="bg-white border border-[#e6ded1] p-6 sm:p-8 rounded-sm shadow-xs flex flex-col md:flex-row gap-6 items-start hover:border-[#1c1917] transition-all duration-300"
-              >
-                {/* Photo */}
-                <div className="relative w-full md:w-48 aspect-[4/5] rounded-sm overflow-hidden flex-shrink-0 bg-gray-100 shadow-xs">
-                  <Image
-                    src={founder.photo}
-                    alt={founder.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 200px"
-                  />
-                  <div className="absolute top-2 left-2 px-2.5 py-1 bg-black/85 text-[#FACC15] text-[10px] font-extrabold rounded-xs uppercase tracking-wider shadow-md">
-                    {founder.experience} EXPERIENCE
-                  </div>
-                </div>
-
-                {/* Info */}
-                <div className="flex-1 space-y-3">
-                  <div>
-                    <span className="text-xs text-[#8c4a2f] uppercase tracking-wider block mb-1 font-extrabold">
-                      {founder.role}
-                    </span>
-                    <h3 className="font-serif text-2xl text-[#1c1917] font-extrabold">
-                      {founder.name}
-                    </h3>
-                  </div>
-
-                  {/* Regional Focus Badge */}
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#faf7f2] border border-[#d6ceb8] rounded-xs text-xs font-bold text-[#1c1917]">
-                    <span className="w-2 h-2 rounded-full bg-[#FACC15] shrink-0" />
-                    <span>{founder.region}</span>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-[#4e473e] leading-relaxed font-normal">
-                    {founder.bio}
-                  </p>
-
-                  {/* Founder Personal Quote */}
-                  <blockquote className="p-3.5 bg-[#faf7f2] border-l-3 border-[#FACC15] text-xs text-[#1c1917] italic font-serif leading-relaxed rounded-r-xs">
-                    &ldquo;{founder.statement}&rdquo;
-                  </blockquote>
-                </div>
+          {/* Editorial Magazine Spread: 2-Column Split */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left Column: Founders Feature */}
+            <div className="lg:col-span-6 space-y-10">
+              <div className="border-b border-[#e6ded1] pb-3">
+                <span className="text-xs uppercase tracking-wider text-[#8c4a2f] font-extrabold block">
+                  EXPEDITION LEADERSHIP
+                </span>
               </div>
-            ))}
+
+              <div className="space-y-8">
+                {founders.map((founder) => (
+                  <div key={founder.id} className="flex flex-col sm:flex-row gap-6 items-start">
+                    <div className="relative w-full sm:w-44 aspect-[4/5] rounded-xs overflow-hidden bg-gray-200 shrink-0 shadow-xs">
+                      <Image
+                        src={founder.photo}
+                        alt={founder.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 176px"
+                      />
+                      <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-black/85 text-[#FACC15] text-[10px] font-extrabold rounded-xs uppercase">
+                        {founder.experience} EXP
+                      </div>
+                    </div>
+
+                    <div className="space-y-2.5 flex-1">
+                      <div>
+                        <span className="text-xs text-[#8c4a2f] uppercase tracking-wider font-extrabold block">
+                          {founder.role}
+                        </span>
+                        <h3 className="font-sans text-2xl font-extrabold text-[#1c1917]">
+                          {founder.name}
+                        </h3>
+                      </div>
+
+                      <p className="text-xs sm:text-sm text-[#4e473e] leading-relaxed font-normal">
+                        {founder.bio}
+                      </p>
+
+                      <blockquote className="p-3 bg-white border-l-2 border-[#FACC15] text-xs text-[#1c1917] italic font-serif leading-relaxed">
+                        &ldquo;{founder.statement}&rdquo;
+                      </blockquote>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Verified Joiner Excerpts */}
+            <div className="lg:col-span-6 space-y-8">
+              <div className="border-b border-[#e6ded1] pb-3 flex items-center justify-between">
+                <span className="text-xs uppercase tracking-wider text-[#8c4a2f] font-extrabold block">
+                  REAL TRAVELLER STORIES
+                </span>
+                <span className="text-xs font-extrabold text-[#1c1917]">5.0 ★ Community Rating</span>
+              </div>
+
+              <div className="space-y-6">
+                {featuredReviews.map((item) => (
+                  <div key={item.id} className="p-6 bg-white border-l-3 border-[#1c1917] rounded-r-xs space-y-3 shadow-xs">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-extrabold text-[#1c1917]">{item.name}</span>
+                      <span className="text-xs font-semibold text-[#8c4a2f]">{item.destinationName}</span>
+                    </div>
+
+                    <p className="text-sm sm:text-base text-[#1c1917] leading-relaxed font-serif italic">
+                      &ldquo;{item.review}&rdquo;
+                    </p>
+
+                    <div className="text-[11px] text-[#4e473e] font-medium flex items-center gap-2 pt-1 border-t border-[#e6ded1]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]" />
+                      <span>Verified Joiner &middot; {item.date}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
