@@ -32,14 +32,15 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Muted Travel Photography Feature */}
-            <div className="lg:col-span-4 relative aspect-[4/3] rounded-sm overflow-hidden border border-white/15 bg-white/5">
+            {/* Muted Travel Community Group Photography Feature */}
+            <div className="lg:col-span-4 relative aspect-[4/3] rounded-sm overflow-hidden border border-white/15 bg-white/5 shadow-2xl">
               <Image
-                src="/images/brand_hero_founders.jpg"
-                alt="Founders Aryan & Kashshish on a mountain road trip"
+                src="/images/brand_group_mountains.jpg"
+                alt="TheBucketList.co community joiners on a mountain road expedition"
                 fill
-                className="object-cover brightness-90"
+                className="object-cover brightness-95"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917]/70 via-transparent to-transparent" />
               <div className="absolute bottom-3 left-3 px-3 py-1 bg-[#1c1917]/90 text-[#FACC15] text-[10px] font-sans font-extrabold uppercase rounded-xs">
                 Founded 2021 &middot; On Ground
               </div>
