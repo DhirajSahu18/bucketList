@@ -50,7 +50,7 @@ export default function PrivateTripsPage() {
                 Tell us your dates, group size, and the kind of trip you want. We&apos;ll help you figure out the rest.
               </p>
 
-              {/* Responsive CTAs */}
+              {/* Refined Brand CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4 font-sans">
                 <Button
                   href="#consultation-form"
@@ -58,7 +58,7 @@ export default function PrivateTripsPage() {
                   size="lg"
                   className="bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] border-none font-extrabold py-3.5 px-6 text-sm shadow-xl"
                 >
-                  Tell us about your group
+                  Plan Your Private Trip
                 </Button>
 
                 <a
@@ -67,7 +67,7 @@ export default function PrivateTripsPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-[#128c7e] hover:bg-[#0e6c61] text-white px-6 py-3.5 rounded-xs text-sm font-extrabold transition-all shadow-md"
                 >
-                  <span>WhatsApp Aryan & Kashshish</span>
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
 
@@ -249,7 +249,7 @@ export default function PrivateTripsPage() {
                   <span className="text-xs font-extrabold text-[#8c4a2f] uppercase tracking-wider block">
                     02 &mdash; We understand your crew
                   </span>
-                  <h3 className="font-sans text-base font-extrabold text-[#1c1917]">Direct founder alignment</h3>
+                  <h3 className="font-sans text-base font-extrabold text-[#1c1917]">Direct team alignment</h3>
                   <p className="text-xs text-[#4e473e] leading-relaxed font-normal">
                     We connect on WhatsApp to understand your pace, stay preferences, celebratory plans, and route requirements.
                   </p>
@@ -266,13 +266,18 @@ export default function PrivateTripsPage() {
                 </div>
               </div>
 
+              {/* Brand Quick Response Reassurance Card */}
               <div className="p-5 bg-[#1c1917] text-white rounded-sm space-y-2 text-xs font-sans border-l-4 border-[#FACC15]">
                 <span className="text-[#FACC15] font-extrabold block uppercase tracking-wider text-[11px]">
-                  ⚡ Direct Founder Contact
+                  ⚡ QUICK RESPONSE
                 </span>
+                <h3 className="font-sans text-sm font-extrabold text-white">Planning a trip? Let&apos;s talk.</h3>
                 <p className="text-[#e6ded1] font-medium leading-relaxed">
-                  We reply on WhatsApp within 2 hours — personally handled by Aryan &amp; Kashshish.
+                  Tell us what you&apos;re planning and we&apos;ll help you shape the right trip. We usually reply on WhatsApp within 2 hours.
                 </p>
+                <span className="text-[11px] text-[#FACC15] block pt-1 font-semibold">
+                  Founder-led team. Personal planning. No automated travel desks.
+                </span>
               </div>
             </div>
 

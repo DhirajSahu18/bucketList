@@ -22,7 +22,7 @@ export function PrivateTripForm() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const whatsappMessage = `Hi Aryan & Kashshish, I'd like to plan a private trip!
+  const whatsappMessage = `Hi BucketList team, I'd like to plan a private trip!
 Name: ${formData.name || "Traveller"}
 Phone: ${formData.phone || "N/A"}
 Destination: ${formData.destination}
@@ -79,7 +79,7 @@ Notes: ${formData.additionalNotes || "None"}`;
         </div>
         <h3 className="font-sans text-2xl font-extrabold">Consultation Request Received</h3>
         <p className="text-sm text-[#4e473e] max-w-md mx-auto font-sans leading-relaxed">
-          Thanks {formData.name}! Aryan or Kashshish will review your preferences and message your WhatsApp at {formData.phone} within 2 hours.
+          Thanks {formData.name}! Our team will review your preferences and message your WhatsApp at {formData.phone} within 2 hours.
         </p>
         <div className="pt-4 border-t border-[#e6ded1] flex flex-col items-center gap-3 font-sans">
           <a
@@ -88,10 +88,10 @@ Notes: ${formData.additionalNotes || "None"}`;
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#128c7e] hover:bg-[#0e6c61] text-white text-xs font-extrabold rounded-xs shadow-sm transition-all"
           >
-            <span>Chat on WhatsApp Right Away</span>
+            <span>Start Planning on WhatsApp</span>
           </a>
           <span className="text-[11px] text-[#4e473e] font-medium">
-            ⚡ Direct founder chat pre-filled with your details
+            ⚡ Direct chat pre-filled with your details
           </span>
         </div>
       </div>
@@ -255,16 +255,16 @@ Notes: ${formData.additionalNotes || "None"}`;
           className="w-full sm:w-auto bg-[#1c1917] text-[#FAF7F2] hover:bg-[#8c4a2f] text-xs px-8 py-3.5 font-extrabold"
           disabled={loading}
         >
-          {loading ? "Sending Request..." : "Request Private Itinerary Proposal"}
+          {loading ? "Sending Request..." : "Plan My Private Trip →"}
         </Button>
 
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs font-extrabold text-[#128c7e] underline"
+          className="text-xs font-extrabold text-[#128c7e] underline hover:text-[#0e6c61] transition-colors"
         >
-          Or message Aryan & Kashshish on WhatsApp directly
+          Prefer WhatsApp? Chat with us directly &rarr;
         </a>
       </div>
     </form>

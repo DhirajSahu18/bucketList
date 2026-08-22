@@ -4,7 +4,7 @@ import { siteSettings } from "@/data/site-settings";
 import { getWhatsAppLink } from "@/lib/utils";
 
 export function Footer() {
-  const whatsappUrl = getWhatsAppLink("Hi Aryan & Kashshish, I'm reaching out from the website footer.");
+  const whatsappUrl = getWhatsAppLink("Hi BucketList team, I'd like to plan a trip!");
 
   return (
     <footer className="bg-[#1c1917] text-[#faf7f2] border-t border-[#FACC15]/30 pt-16 pb-12">
@@ -58,20 +58,25 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Direct Founder Contact */}
+            {/* Plan Your Trip */}
             <div className="col-span-2 md:col-span-3 space-y-3 font-sans text-xs">
-              <span className="text-[#FACC15] uppercase tracking-wider block font-extrabold border-b border-[#FAF7F2]/10 pb-1">Direct Founder Contact</span>
-              <p className="text-gray-300 font-extrabold">Aryan & Kashshish</p>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] rounded-xs text-xs font-extrabold transition-all shadow-md"
-              >
-                <span className="w-2 h-2 rounded-full bg-[#1c1917]" />
-                <span>Chat on WhatsApp</span>
-              </a>
-              <p className="text-[11px] text-gray-400 font-medium">Email: {siteSettings.email}</p>
+              <span className="text-[#FACC15] uppercase tracking-wider block font-extrabold border-b border-[#FAF7F2]/10 pb-1">PLAN YOUR TRIP</span>
+              <p className="text-gray-300 font-extrabold">Talk to the BucketList team</p>
+              <p className="text-[11px] text-[#e6ded1]/80 leading-relaxed font-normal">
+                Have a destination in mind? Tell us your dates, group size, and what you&apos;re looking for.
+              </p>
+              <div className="pt-1">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] rounded-xs text-xs font-extrabold transition-all shadow-md"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#1c1917]" />
+                  <span>Start Planning on WhatsApp</span>
+                </a>
+              </div>
+              <p className="text-[11px] text-gray-400 font-medium pt-1">Email: {siteSettings.email}</p>
             </div>
           </div>
 
