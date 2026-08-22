@@ -13,80 +13,154 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="pt-20 md:pt-24 bg-[#faf7f2] min-h-screen text-[#1c1917] font-sans">
-      {/* Hero Header */}
-      <section className="relative bg-[#1c1917] text-[#faf7f2] section-padding py-20 md:py-28 overflow-hidden">
-        {/* Ambient Top Yellow Bar */}
-        <div className="absolute top-0 inset-x-0 h-1.5 bg-[#FACC15]" />
+    <div className="bg-[#1c1917] min-h-screen font-sans">
+      {/* 1. HERO — Seamless Dark Transition (ZERO White Gap Below Navbar) */}
+      <section className="relative bg-[#1c1917] text-[#faf7f2] pt-28 sm:pt-32 md:pt-36 pb-16 md:pb-24 overflow-hidden border-b border-white/10">
+        <div className="absolute top-0 inset-x-0 h-1 bg-[#FACC15] z-10" />
 
-        <div className="container-wide">
-          <div className="max-w-3xl space-y-4">
-            <EditorialMarker label="OUR STORY" className="text-[#FACC15]" />
-            <h1 className="font-serif text-4xl sm:text-6xl font-extrabold tracking-tight text-[#faf7f2]">
-              Two founders.
-              <br />
-              <span className="text-[#FACC15]">Hundreds of mountain miles.</span>
-            </h1>
-            <p className="text-[#e6ded1] text-lg sm:text-xl leading-relaxed font-normal">
-              We&apos;re Aryan and Kashshish. We started leading mountain runs in 2021 because we loved taking group road trips up Himalayan passes — and wanted to build trips where everything is planned properly.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Narrative Section */}
-      <section className="section-padding py-16 md:py-24 border-b border-[#e6ded1] bg-white">
-        <div className="container-narrow space-y-8">
-          <div className="space-y-6 leading-relaxed font-sans text-[#1c1917]">
-            <blockquote className="font-serif text-xl sm:text-2xl text-[#1c1917] font-extrabold border-l-4 border-[#FACC15] pl-4 max-w-2xl leading-snug">
-              &ldquo;Before we had a website — we were already driving group trips up mountain passes.&rdquo;
-            </blockquote>
-
-            <p className="text-base sm:text-lg text-[#4e473e] font-normal leading-relaxed">
-              We started back in 2021 with a single mountain vehicle heading up toward Himachal. Over 5 years and 80+ trips later, we&apos;ve expanded from Himalayan pass road trips to flagship New Year runs like Himachal Unplugged and tropical coastal journeys in Kerala.
-            </p>
-
-            <EditorialMarker label="HOW WE WORK" />
-            <h2 className="font-sans text-2xl sm:text-3xl text-[#1c1917] font-extrabold">
-              Good People. Great Places.
-            </h2>
-            <p className="text-base sm:text-lg text-[#4e473e] font-normal leading-relaxed">
-              Whether it&apos;s a small trek or an 80-person community trip, our goal stays simple: zero group chaos, clear timing, pre-tested homestays, and making sure solo joiners feel part of the crew within their first hour.
-            </p>
-
-            <EditorialMarker label="FOUNDER COMMITMENT" />
-            <h2 className="font-sans text-2xl sm:text-3xl text-[#1c1917] font-extrabold">
-              What We Guarantee
-            </h2>
-            
-            <div className="bg-[#1c1917] text-[#faf7f2] p-6 sm:p-8 rounded-sm border-l-4 border-[#FACC15] space-y-3 text-xs sm:text-sm shadow-md">
-              <span className="text-[#FACC15] font-extrabold uppercase block tracking-wider">Direct Founder Promise:</span>
-              <p className="leading-relaxed font-medium">
-                We scout every route, stay in every homestay first, and travel on ground with our groups. You will never be handed off to an anonymous line-item reseller agency. We maintain direct WhatsApp contact from your first inquiry through post-trip reunions.
+        <div className="container-wide section-padding">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-8 space-y-6">
+              <EditorialMarker label="OUR STORY" className="text-[#FACC15]" />
+              <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#faf7f2] leading-[1.1]">
+                Two founders.
+                <br />
+                <span className="text-[#FACC15]">Hundreds of mountain miles.</span>
+              </h1>
+              <p className="text-[#e6ded1] text-base sm:text-xl max-w-2xl leading-relaxed font-normal">
+                We started by leading trips through the mountains we knew best. Five years later, we&apos;re still building the kind of journeys we&apos;d want to take ourselves.
               </p>
             </div>
 
-            <p className="text-base sm:text-lg text-[#4e473e] font-normal leading-relaxed">
-              That&apos;s why our trip group chats stay active for years, why joiners return for their second and third trips, and why we reply on WhatsApp within 2 hours.
-            </p>
+            {/* Muted Travel Photography Feature */}
+            <div className="lg:col-span-4 relative aspect-[4/3] rounded-sm overflow-hidden border border-white/15 bg-white/5">
+              <Image
+                src="/images/brand_hero_founders.jpg"
+                alt="Founders Aryan & Kashshish on a mountain road trip"
+                fill
+                className="object-cover brightness-90"
+              />
+              <div className="absolute bottom-3 left-3 px-3 py-1 bg-[#1c1917]/90 text-[#FACC15] text-[10px] font-sans font-extrabold uppercase rounded-xs">
+                Founded 2021 &middot; On Ground
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Open Editorial Founder Profiles (Zero Profile Card Box Borders) */}
-      <section className="section-padding py-20 bg-[#faf7f2] border-b border-[#e6ded1]">
+      {/* 2. HOW IT STARTED — Editorial Two-Column Visual Storytelling */}
+      <section className="section-padding py-16 md:py-24 bg-white border-b border-[#e6ded1] text-[#1c1917]">
+        <div className="container-wide">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            {/* Left: Large Editorial Quote */}
+            <div className="lg:col-span-5 space-y-3">
+              <EditorialMarker label="HOW IT STARTED" />
+              <blockquote className="font-serif text-2xl sm:text-4xl text-[#1c1917] font-extrabold border-l-4 border-[#FACC15] pl-5 leading-tight">
+                &ldquo;Before we had a website, we were already driving group trips up mountain passes.&rdquo;
+              </blockquote>
+            </div>
+
+            {/* Right: Short Concise Story */}
+            <div className="lg:col-span-7 space-y-4 text-base sm:text-lg text-[#4e473e] font-normal leading-relaxed">
+              <p>
+                Back in 2021, it started with one mountain vehicle and a few people who wanted to go further than the usual itinerary.
+              </p>
+              <p>
+                The routes grew. The groups got bigger. And somewhere between Himalayan passes and Kerala backwaters, TheBucketList became more than a weekend plan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. WHY WE DO THIS — Brand Principles */}
+      <section className="section-padding py-16 md:py-24 bg-[#faf7f2] border-b border-[#e6ded1] text-[#1c1917]">
         <div className="container-wide space-y-12">
-          <div className="max-w-xl space-y-2">
-            <EditorialMarker label="THE FOUNDERS" />
-            <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#1c1917]">
-              Aryan & Kashshish
+          <div className="max-w-2xl mx-auto text-center space-y-3">
+            <EditorialMarker label="WHY WE DO THIS" className="justify-center" />
+            <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#1c1917] leading-tight">
+              Good trips aren&apos;t just about where you go.
+            </h2>
+            <p className="text-[#4e473e] text-base sm:text-lg font-normal leading-relaxed">
+              They&apos;re about who you travel with, how well everything is planned, and whether you come back with stories worth keeping.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans">
+            <div className="p-6 bg-white border border-[#e6ded1] rounded-sm space-y-2">
+              <span className="text-xs font-extrabold text-[#8c4a2f] uppercase tracking-wider block">
+                01 &mdash; PEOPLE FIRST
+              </span>
+              <h3 className="font-sans text-xl font-extrabold text-[#1c1917]">Solo joiners feel welcome</h3>
+              <p className="text-xs sm:text-sm text-[#4e473e] leading-relaxed font-normal">
+                Solo joiners should feel part of the crew quickly. Everyone connects within their first hour on ground.
+              </p>
+            </div>
+
+            <div className="p-6 bg-white border border-[#e6ded1] rounded-sm space-y-2">
+              <span className="text-xs font-extrabold text-[#8c4a2f] uppercase tracking-wider block">
+                02 &mdash; PLANNED PROPERLY
+              </span>
+              <h3 className="font-sans text-xl font-extrabold text-[#1c1917]">Pre-tested logistics</h3>
+              <p className="text-xs sm:text-sm text-[#4e473e] leading-relaxed font-normal">
+                Routes, stays, vehicle transit, and timing are tested personally by our founders before the trip begins.
+              </p>
+            </div>
+
+            <div className="p-6 bg-white border border-[#e6ded1] rounded-sm space-y-2">
+              <span className="text-xs font-extrabold text-[#8c4a2f] uppercase tracking-wider block">
+                03 &mdash; GO FURTHER
+              </span>
+              <h3 className="font-sans text-xl font-extrabold text-[#1c1917]">Unforgettable experiences</h3>
+              <p className="text-xs sm:text-sm text-[#4e473e] leading-relaxed font-normal">
+                We build journeys around authentic local experiences you can&apos;t get from a standard travel agency package.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. FOUNDER COMMITMENT — Dark Full-Width Brand Promise */}
+      <section className="section-padding py-16 md:py-24 bg-[#1c1917] text-[#faf7f2] border-b border-white/10 font-sans">
+        <div className="container-wide">
+          <div className="max-w-3xl space-y-6">
+            <EditorialMarker label="FOUNDER COMMITMENT" className="text-[#FACC15]" />
+            <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#faf7f2] leading-tight">
+              We don&apos;t hand you off to a travel agency.
+            </h2>
+            <p className="text-[#e6ded1] text-base sm:text-xl font-normal leading-relaxed">
+              From your first message to the last day of the trip, you stay connected with the people who actually build and lead these journeys.
+            </p>
+
+            <div className="pt-4 flex flex-wrap gap-4 text-xs sm:text-sm text-[#FACC15] font-extrabold">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 rounded-xs">
+                &bull; Routes personally scouted
+              </span>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 rounded-xs">
+                &bull; Stays tested before the trip
+              </span>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 rounded-xs">
+                &bull; Direct founder contact
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. THE PEOPLE BEHIND THE MILES — Founder Profiles */}
+      <section className="section-padding py-20 bg-white border-b border-[#e6ded1] text-[#1c1917]">
+        <div className="container-wide space-y-12">
+          <div className="max-w-2xl space-y-2">
+            <EditorialMarker label="THE PEOPLE BEHIND THE MILES" />
+            <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#1c1917]">
+              Aryan &amp; Kashshish
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {founders.map((founder) => (
-              <div key={founder.id} className="flex flex-col sm:flex-row gap-6 items-start">
-                <div className="relative w-full sm:w-48 aspect-[4/5] bg-[#1c1917] rounded-xs overflow-hidden shrink-0 shadow-xs">
+              <div key={founder.id} className="bg-[#faf7f2] border border-[#e6ded1] p-6 sm:p-8 rounded-sm flex flex-col sm:flex-row gap-6 items-start">
+                <div className="relative w-full sm:w-44 aspect-[4/5] bg-[#1c1917] rounded-xs overflow-hidden shrink-0 shadow-xs">
                   <Image
                     src={founder.photo}
                     alt={founder.name}
@@ -97,16 +171,19 @@ export default function AboutPage() {
                     {founder.experience} EXP
                   </div>
                 </div>
+
                 <div className="space-y-3 flex-1 font-sans">
                   <div>
                     <span className="text-xs text-[#8c4a2f] uppercase block font-extrabold tracking-wider">
                       {founder.role} &middot; {founder.region}
                     </span>
-                    <h3 className="font-sans text-2xl text-[#1c1917] font-extrabold">{founder.name}</h3>
+                    <h3 className="font-serif text-2xl text-[#1c1917] font-extrabold">{founder.name}</h3>
                   </div>
+
                   <p className="text-xs sm:text-sm text-[#4e473e] leading-relaxed font-normal">
                     {founder.bio}
                   </p>
+
                   <blockquote className="p-3 bg-white border-l-2 border-[#FACC15] text-xs text-[#1c1917] italic font-serif leading-relaxed">
                     &ldquo;{founder.statement}&rdquo;
                   </blockquote>
@@ -117,38 +194,47 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="section-padding py-12 bg-[#FACC15] text-[#1c1917]">
+      {/* 6. MILESTONE STATS STRIP — Gold Section */}
+      <section className="section-padding py-14 md:py-16 bg-[#FACC15] text-[#1c1917]">
         <div className="container-wide">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center font-sans">
-            <div>
-              <p className="text-4xl sm:text-5xl font-bold font-mono">{siteSettings.homepageStats.years}</p>
-              <p className="text-xs uppercase font-extrabold text-[#1c1917] mt-1">Years Running Trips</p>
+            <div className="space-y-1">
+              <p className="text-4xl sm:text-5xl font-extrabold font-mono text-[#1c1917]">{siteSettings.homepageStats.years}</p>
+              <p className="text-xs uppercase font-extrabold text-[#1c1917]">Years Running Trips</p>
             </div>
-            <div>
-              <p className="text-4xl sm:text-5xl font-bold font-mono">{siteSettings.homepageStats.trips}</p>
-              <p className="text-xs uppercase font-extrabold text-[#1c1917] mt-1">Trips Led</p>
+            <div className="space-y-1 border-l border-[#1c1917]/20 pl-4">
+              <p className="text-4xl sm:text-5xl font-extrabold font-mono text-[#1c1917]">{siteSettings.homepageStats.trips}</p>
+              <p className="text-xs uppercase font-extrabold text-[#1c1917]">Trips Led</p>
             </div>
-            <div>
-              <p className="text-4xl sm:text-5xl font-bold font-mono">{siteSettings.homepageStats.travellers}</p>
-              <p className="text-xs uppercase font-extrabold text-[#1c1917] mt-1">Happy Joiners</p>
+            <div className="space-y-1 border-l border-[#1c1917]/20 pl-4">
+              <p className="text-4xl sm:text-5xl font-extrabold font-mono text-[#1c1917]">{siteSettings.homepageStats.travellers}</p>
+              <p className="text-xs uppercase font-extrabold text-[#1c1917]">Happy Joiners</p>
             </div>
-            <div>
-              <p className="text-4xl sm:text-5xl font-bold font-mono">{siteSettings.homepageStats.destinations}</p>
-              <p className="text-xs uppercase font-extrabold text-[#1c1917] mt-1">Focus Regions</p>
+            <div className="space-y-1 border-l border-[#1c1917]/20 pl-4">
+              <p className="text-4xl sm:text-5xl font-extrabold font-mono text-[#1c1917]">{siteSettings.homepageStats.destinations}</p>
+              <p className="text-xs uppercase font-extrabold text-[#1c1917]">Focus Regions</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTAs */}
-      <section className="section-padding py-16 text-center space-y-6 bg-white">
-        <h2 className="font-sans text-3xl text-[#1c1917] font-extrabold">Ready to join our next community run?</h2>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Button href="/trips" variant="primary" size="lg" className="bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] border-none font-extrabold">
+      {/* 7. FINAL CTA — WHAT'S NEXT */}
+      <section className="section-padding py-20 bg-[#faf7f2] text-center space-y-6 font-sans text-[#1c1917]">
+        <div className="max-w-2xl mx-auto space-y-3">
+          <EditorialMarker label="WHAT'S NEXT?" className="justify-center" />
+          <h2 className="font-serif text-3xl sm:text-5xl text-[#1c1917] font-extrabold leading-tight">
+            The next story could be yours.
+          </h2>
+          <p className="text-[#4e473e] text-base sm:text-lg font-normal leading-relaxed">
+            Join an upcoming community trip or let us build something around your own crew.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-4 pt-2">
+          <Button href="/trips" variant="primary" size="lg" className="bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] border-none font-extrabold py-3.5 px-6">
             See Upcoming Trips
           </Button>
-          <Button href="/private-trips" variant="outline" size="lg" className="border-[#1c1917] text-[#1c1917] font-bold">
+          <Button href="/private-trips" variant="outline" size="lg" className="border-[#1c1917] text-[#1c1917] font-extrabold py-3.5 px-6">
             Plan a Private Trip
           </Button>
         </div>

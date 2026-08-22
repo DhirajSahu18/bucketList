@@ -32,7 +32,7 @@ export const privateTripExamples: PrivateTripExample[] = [
     indicativePrice: "From ₹14,500 / person",
     description:
       "Old Manali cafe exploration, Sissu waterfall drives, and Sethan pine forest hikes with boutique stay accommodation curated by Kashshish.",
-    image: "/images/brand_hero_founders.jpg",
+    image: "/images/trips/manali-escape.jpg",
   },
   {
     id: "pvt-4",
@@ -54,6 +54,6 @@ export const privateTripExamples: PrivateTripExample[] = [
     indicativePrice: "From ₹18,000 / person",
     description:
       "Tell us what your crew wants from the mountains — highway road trips, Kasol riverside bonfires, or festive events — and we'll execute it from scratch.",
-    image: "/images/brand_group_stadium.jpg",
+    image: "/images/brand_group_mountains.jpg",
   },
 ];
