@@ -2,7 +2,7 @@
 /node_modules
 /.pnp
 .pnp.js
-.yarn/install-state.gz 
+.yarn/install-state.gz
 
 # testing
 /coverage
@@ -36,3 +36,12 @@ next-env.d.ts
 
 # enquiry data (stored locally)
 /data/
+
+# temporary scratch & build artifacts
+/scratch/
+
+# large raw source video files (>100 MB not for git tracking)
+src/assets/*.MP4
+src/assets/*.mp4
+src/assets/*.mov
+src/assets/*.MOV
