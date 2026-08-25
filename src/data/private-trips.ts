@@ -9,8 +9,8 @@ export const privateTripExamples: PrivateTripExample[] = [
     idealGroup: "8–25 friends / alumni",
     indicativePrice: "From ₹16,500 / person",
     description:
-      "A custom Himachal road trip on your dates. Choose your pace across Manali, Kasol, and Solang Valley. Aryan & Kashshish handle private transit, stays, and campfire events.",
-    image: "/images/brand_group_mountains.jpg",
+      "A custom Himachal road trip on your dates. Choose your pace across Manali, Kasol, and Solang Valley. Bucketlist team handles private transit, stays, and campfire events.",
+    image: "/images/trips/himachal-hero.jpg",
   },
   {
     id: "pvt-2",
@@ -20,8 +20,8 @@ export const privateTripExamples: PrivateTripExample[] = [
     idealGroup: "Family / 6–15 people",
     indicativePrice: "From ₹22,500 / person",
     description:
-      "A private Kerala journey — Fort Kochi heritage walks, Munnar tea plantation stays, and floating on an authentic private deluxe houseboat in Alleppey. Managed by Kashshish.",
-    image: "/images/brand_group_stadium.jpg",
+      "A private Kerala journey — Fort Kochi heritage walks, Munnar tea plantation stays, and floating on an authentic private deluxe houseboat in Alleppey.",
+    image: "/images/trips/private-roadtrip-convoy.jpg",
   },
   {
     id: "pvt-3",
@@ -31,8 +31,8 @@ export const privateTripExamples: PrivateTripExample[] = [
     idealGroup: "6–20 friends",
     indicativePrice: "From ₹14,500 / person",
     description:
-      "Old Manali cafe exploration, Sissu waterfall drives, and Sethan pine forest hikes with boutique stay accommodation curated by Kashshish.",
-    image: "/images/trips/manali-escape.jpg",
+      "Old Manali cafe exploration, Sissu waterfall drives, and Sethan pine forest hikes with boutique stay accommodation curated by the Bucketlist team.",
+    image: "/images/trips/private-sethan-forest.jpg",
   },
   {
     id: "pvt-4",
@@ -42,8 +42,8 @@ export const privateTripExamples: PrivateTripExample[] = [
     idealGroup: "6–20 people",
     indicativePrice: "From ₹14,500 / person",
     description:
-      "A structured private trek to Kedarnath (11,755 ft) with dedicated support, pre-booked clean temple stays, and Rishikesh Ganga Aarti. Led by Aryan.",
-    image: "/images/brand_group_amritsar.jpg",
+      "A structured private trek to Kedarnath (11,755 ft) with dedicated support, pre-booked clean temple stays, and Rishikesh Ganga Aarti.",
+    image: "/images/trips/kedarnath-trek.jpg",
   },
   {
     id: "pvt-5",
@@ -54,6 +54,6 @@ export const privateTripExamples: PrivateTripExample[] = [
     indicativePrice: "From ₹18,000 / person",
     description:
       "Tell us what your crew wants from the mountains — highway road trips, Kasol riverside bonfires, or festive events — and we'll execute it from scratch.",
-    image: "/images/brand_group_mountains.jpg",
+    image: "/images/trips/himachal-group-snow.jpg",
   },
 ];

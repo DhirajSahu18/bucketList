@@ -155,6 +155,7 @@ export interface Enquiry {
 export interface SiteSettings {
   siteUrl?: string;
   whatsappNumber: string;
+  phone?: string;
   email: string;
   instagram: string;
   responseTime: string;

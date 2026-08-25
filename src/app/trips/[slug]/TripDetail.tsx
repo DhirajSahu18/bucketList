@@ -363,7 +363,7 @@ export function TripDetail({ trip }: TripDetailProps) {
       </div>
 
       {/* Compact Sticky Mobile Booking Bar */}
-      <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#1c1917] text-white p-3 pb-safe pb-4 border-t border-[#FACC15]/30 flex items-center justify-between shadow-lg">
+      <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#1c1917] text-white p-3 pb-[max(1rem,env(safe-area-inset-bottom))] border-t border-[#FACC15]/30 flex items-center justify-between shadow-lg">
         <div className="space-y-0.5">
           <span className="text-[10px] font-sans text-[#FACC15] block uppercase font-extrabold">
             {status === "sold-out" ? "Sold Out" : status === "past" ? "Completed" : `⚡ ${trip.seatsRemaining} seats left`}

@@ -8,7 +8,7 @@ import { trackEvent } from "@/lib/analytics";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const whatsappUrl = getWhatsAppLink("Hi! I'd like to know more about upcoming trips with TheBucketList.");
+  const whatsappUrl = getWhatsAppLink("Hi! I'd like to know more about upcoming trips with Bucketlist.");
 
   return (
     <header className="fixed top-0 inset-x-0 z-40 bg-[#1c1917]/95 backdrop-blur-md border-b border-[#FAF7F2]/15 text-[#faf7f2]">
@@ -22,7 +22,7 @@ export function Navbar() {
             <div className="relative h-8 sm:h-12 w-40 sm:w-60 transition-transform duration-300 group-hover:scale-[1.02]">
               <Image
                 src="/images/logo_header_clean.png"
-                alt="TheBucketList.co Logo"
+                alt="Bucketlist Logo"
                 fill
                 className="object-contain object-left"
                 priority

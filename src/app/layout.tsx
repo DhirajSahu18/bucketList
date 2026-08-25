@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | TheBucketList.co",
   },
   description:
-    "Community travel expeditions across Himachal, Uttarakhand, and Kerala — led on ground by founders Aryan & Kashshish.",
+    "Community travel expeditions across Himachal, Uttarakhand, Kerala, Goa, and Gokarna. Well-planned trips with zero on-ground hassle.",
   metadataBase: new URL("https://thebucketlist.co"),
   openGraph: {
     type: "website",
@@ -41,13 +41,22 @@ export const metadata: Metadata = {
     siteName: "TheBucketList.co",
     title: "TheBucketList.co — Good People. Great Places. Trips Planned Properly.",
     description:
-      "Community travel expeditions across Himachal, Uttarakhand, and Kerala — led on ground by founders Aryan & Kashshish.",
+      "Community travel expeditions across Himachal, Uttarakhand, Kerala, Goa, and Gokarna. Well-planned trips with zero on-ground hassle.",
+    images: [
+      {
+        url: "/images/trips/himachal-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "TheBucketList.co community travellers on a mountain expedition",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "TheBucketList.co — Community Trips Across India",
     description:
-      "Well-planned community trips led on ground by founders Aryan & Kashshish.",
+      "Well-planned community trips across Himachal, Uttarakhand, Kerala, Goa, and Gokarna.",
+    images: ["/images/trips/himachal-hero.jpg"],
   },
   robots: {
     index: true,

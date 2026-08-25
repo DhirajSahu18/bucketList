@@ -7,77 +7,239 @@ export const destinations: Destination[] = [
     slug: "manali",
     heroImage: "/images/destinations/manali/hero.jpg",
     description:
-      "From Old Manali cedar forests and Solang mountain valleys to Kasol, Dharamshala, and Amritsar. The ultimate Himachal highway and community travel hub.",
+      "A flagship 9-day Himalayan journey from Kasol, Manikaran, and river rafting in Kullu to Manali, Solang Valley, Dalai Lama Temple in Dharamshala, and the Golden Temple in Amritsar.",
     emotionalHook:
-      "Pine-scented mountain air, river campfires, highway tunes, and epic Himachal views with your crew.",
-    bestTime: "Year-Round (Oct–Jan Peak Season)",
-    duration: "5–8 days",
+      "Pine-scented mountain air, Kullu river rafting, Solang snow trails, McLeod Ganj monasteries, and golden evening lights in Amritsar.",
+    bestTime: "Year-Round (Dec & Jan Flagship Batches)",
+    duration: "9 days",
     difficulty: "Easy",
-    idealFor: ["Friends groups", "Solo travellers", "Community travel joiners", "New Year celebrators"],
-    startingPoint: "Delhi / Chandigarh / Manali",
+    idealFor: ["Friends groups", "Solo travellers", "Community travel joiners", "Winter expedioners"],
+    startingPoint: "Mumbai LTT / Ambala / Kasol",
     guideContent: `## When to Visit Month by Month
 
-October to November: Autumn crisp air in Old Manali. Clear blue mountain skies, snow-dusted peaks in Solang, and perfect campfire evenings in Kasol.
+December to January: Official Himachal Unplugged departure batches! Snowfall across Solang Valley, river rafting in Kullu, McLeod Ganj town walks, and Wagah Border ceremony energy.
 
-December to January: The festive New Year season! Snowfall across Sethan and Solang, vibrant music energy, and Himachal Unplugged flagship runs.
+February to April: Sun-lit Himalayan peaks, Atal Tunnel road drives, blooming apple orchards in Kullu Valley, and pleasant Dharamshala spring weather.
 
-February to April: Late winter snow walls at Atal Tunnel, blooming apple orchards in Kullu Valley, and sunny mountain trail hikes.
-
-May to September: Green summer escapes from city heat into Parvati Valley, Dharamshala cafes, and mountain viewpoints.
+May to November: Green summer mountain escapes, Parvati Valley cafe hopping, and cultural exploration in Amritsar.
 
 ## What to Pack
 
-Heavy woolens, thermal base layers, a fleece hoodie, waterproof winter jacket, comfortable walking boots, beanie, gloves, and sunglasses. For New Year runs, bring your favourite party outfit alongside warm mountain layers.
-
-## What Makes Himachal Unplugged Different
-
-Himachal Unplugged is an energetic community trip led by founders Aryan & Kashshish. We combine curated mountain stays, Solang snow excursions, Kasol riverside campfires, and vibrant music gatherings with smooth stay allocations and vehicle convoy coordination.
+Heavy woolens, thermal base layers, a fleece hoodie, waterproof winter jacket, comfortable walking boots, beanie, gloves, sunglasses, and a change of dry clothes for river rafting in Kullu.
 
 ## Essential Himachal Travel Tips
 
-1. Dress in warm layers: Mountain temperatures in Manali and Kasol drop rapidly after sunset.
-2. Carry power banks: Cold weather drains phone batteries faster during long mountain road days.
-3. Stay hydrated: Mountain altitude and cold air require consistent water intake.`,
+1. Dress in warm layers: Mountain temperatures in Kasol, Manali, and Dharamshala drop rapidly after sunset.
+2. Pro Tip for Kullu Rafting: Keep a small backpack with dry clothes handy in the bus, as your main luggage stays onboard until Manali check-in.
+3. Carry valid Govt Photo ID: Required for hotel check-ins and Rohtang/Solang transit.`,
     faqs: [
       {
         question: "Is Himachal Unplugged suitable for solo travellers?",
         answer:
-          "Over 60% of our joiners come solo. Our founders (Aryan & Kashshish) facilitate group introductions from Day 1 so everyone feels part of the crew within hours.",
+          "Over 60% of our joiners come solo. Our team facilitates group introductions and icebreakers from Day 1 so everyone feels part of the crew within hours.",
       },
       {
         question: "What is included in the Himachal Unplugged package?",
         answer:
-          "Sanitized group transport from Delhi/Chandigarh, hotel & campsite stays, daily breakfasts & dinners, festive New Year events, and on-ground founder leadership throughout.",
-      },
-      {
-        question: "How are safety and group coordination managed?",
-        answer:
-          "Our team monitors road weather 24/7, maintains direct vehicle convoy communication, and enforces strict safety standards across all activities.",
+          "Mumbai-Mumbai train tickets, 3-star hotel & riverside campsite stays (MAP plan daily breakfasts & dinners), Tempo Traveller transport, complimentary Kullu river rafting, and Manali bike ride.",
       },
     ],
     images: [
       "/images/destinations/manali/hero.jpg",
-      "/images/brand_group_mountains.jpg",
-      "/images/trips/manali-escape.jpg",
+      "/images/trips/himachal-solang-snow.jpg",
+      "/images/trips/himachal-dharamshala.jpg",
+      "/images/trips/himachal-amritsar.jpg",
+      "/images/trips/himachal-group-snow.jpg",
     ],
     galleryMeta: [
       {
         src: "/images/destinations/manali/hero.jpg",
-        type: "internet",
-        source: "Unsplash",
-        alt: "Old Manali cedar forest and mountain valley view",
-      },
-      {
-        src: "/images/brand_group_mountains.jpg",
         type: "brand",
-        source: "TheBucketList.co Real Client Trip",
-        alt: "Traveller group on Himachal mountain scenic road",
+        source: "Official Himachal PDF Itinerary Cover",
+        alt: "Himalayan snow peaks and pine valley landscape",
       },
       {
-        src: "/images/trips/manali-escape.jpg",
+        src: "/images/trips/himachal-solang-snow.jpg",
+        type: "brand",
+        source: "Official Himachal PDF Itinerary",
+        alt: "Solang Valley snow trails and pine forest",
+      },
+      {
+        src: "/images/trips/himachal-dharamshala.jpg",
+        type: "brand",
+        source: "Official Himachal PDF Itinerary",
+        alt: "Dalai Lama Temple & monastery in Dharamshala McLeod Ganj",
+      },
+      {
+        src: "/images/trips/himachal-amritsar.jpg",
+        type: "brand",
+        source: "Official Himachal PDF Itinerary",
+        alt: "Golden Temple illuminated at evening in Amritsar",
+      },
+      {
+        src: "/images/trips/himachal-group-snow.jpg",
+        type: "brand",
+        source: "Bucketlist Real Client Trip",
+        alt: "Bucketlist community group joiners posing in Solang snow",
+      },
+    ],
+  },
+  {
+    id: "dest-goa",
+    name: "Goa Coastal Circuit",
+    slug: "goa",
+    heroImage: "/images/destinations/goa.jpg",
+    description:
+      "From North Goa's beach parties, Chapora Fort views, and Vagator sunsets to South Goa's historic Latin Quarter, Se Cathedral, and quiet palm beaches.",
+    emotionalHook:
+      "Salty sea breeze, Portuguese heritage alleys, sunset beach vibes, and late-night community music under the stars.",
+    bestTime: "Year-Round (July Monsoon & Oct–Feb Peak)",
+    duration: "4–5 days",
+    difficulty: "Easy",
+    idealFor: ["Friends groups", "Solo joiners", "Villa getaway lovers", "Nightlife explorers"],
+    startingPoint: "Goa / Thivim / Mumbai",
+    guideContent: `## When to Visit Month by Month
+
+July to September: Lush monsoon magic! Green coconut palm groves, dramatic rain clouds over Chapora Fort, and cozy villa gatherings.
+
+October to February: Peak sunshine and vibrant beach nightlife season. Clear blue waters at Anjuna, Vagator, and Colva.
+
+March to May: Relaxed spring coastal vibes, quiet heritage walks in Fontainhas, and sunset beach cafes.
+
+## What to Pack
+
+Light cotton casual wear, swimwear, sunblock, sunglasses, comfortable sandals, beach slippers, and rain gear for monsoon runs.
+
+## Essential Goa Travel Tips
+
+1. Carry valid Govt Photo ID (Aadhar / Driving License) for scooty rentals and hotel check-in.
+2. Keep hydrated and practice sun protection during afternoon beach exploring.`,
+    faqs: [
+      {
+        question: "Is Goa Unfiltered suitable for solo travellers?",
+        answer:
+          "Yes! Our villa setup and group scooty/traveller tours make it easy for solo travellers to connect with the crew from Day 1.",
+      },
+      {
+        question: "What accommodation is provided?",
+        answer:
+          "3 nights stay in a private villa on a group-sharing basis with swimming pool access.",
+      },
+    ],
+    images: [
+      "/images/destinations/goa.jpg",
+      "/images/trips/goa-street.jpg",
+      "/images/trips/goa-villa-pool.jpg",
+      "/images/trips/goa-nightlife.jpg",
+      "/images/trips/goa-church.jpg",
+    ],
+    galleryMeta: [
+      {
+        src: "/images/destinations/goa.jpg",
         type: "internet",
-        source: "Unsplash",
-        alt: "Solang Valley pine forests and mountain trails",
+        source: "Unsplash Location Archive",
+        alt: "Chapora Fort and Vagator Beach coastline in North Goa",
+      },
+      {
+        src: "/images/trips/goa-street.jpg",
+        type: "internet",
+        source: "Unsplash Location Archive",
+        alt: "Fontainhas heritage street walk in Panaji with colorful Portuguese architecture",
+      },
+      {
+        src: "/images/trips/goa-villa-pool.jpg",
+        type: "brand",
+        source: "Official Goa PDF Itinerary",
+        alt: "Private villa swimming pool stay",
+      },
+      {
+        src: "/images/trips/goa-nightlife.jpg",
+        type: "brand",
+        source: "Official Goa PDF Itinerary",
+        alt: "Anjuna and Vagator beach party & nightlife",
+      },
+      {
+        src: "/images/trips/goa-church.jpg",
+        type: "brand",
+        source: "Official Goa PDF Itinerary",
+        alt: "Basilica of Bom Jesus in Old Goa",
+      },
+    ],
+  },
+  {
+    id: "dest-gokarna",
+    name: "Gokarna & Honnavar Coast",
+    slug: "gokarna",
+    heroImage: "/images/destinations/gokarna.jpg",
+    description:
+      "Pristine coastal cliff trekking along Om Beach and Kudle Beach, Mahabaleshwar sacred shrine, ancient Yana limestone caves, and serene Honnavar backwater boat rides.",
+    emotionalHook:
+      "Trekking cliff trails above the ocean, floating down quiet mangrove backwaters, and watching golden Arabian Sea sunsets.",
+    bestTime: "August to March",
+    duration: "5 days",
+    difficulty: "Easy",
+    idealFor: ["Beach trekkers", "Nature lovers", "Spiritual explorers", "Friends groups"],
+    startingPoint: "Thane / Gokarna",
+    guideContent: `## When to Visit Month by Month
+
+August to October: Post-monsoon coastal freshness! Lush green cliff trails, full backwaters in Honnavar, and pleasant beach weather.
+
+November to February: Sunny coastal trek days, cool ocean breeze, and clear sunset skies across Om Beach & Kudle Beach.
+
+March to April: Relaxed beach cafe season and quiet temple visits.
+
+## What to Pack
+
+Comfortable trekking shoes with good grip, lightweight breathable clothes, rainwear/poncho for monsoon runs, sun cap, sunglasses, and personal water bottle.`,
+    faqs: [
+      {
+        question: "What is included in the Gokarna trip?",
+        answer:
+          "3 AC train tickets (Matsyagandha Express), 3 nights hotel accommodation in Gokarna, daily breakfasts & dinners, station transfers, and private vehicle for all sightseeing.",
+      },
+      {
+        question: "Is the beach trek difficult?",
+        answer:
+          "The Gokarna beach trek is an easy-to-moderate coastal walk along cliff trails with scenic ocean views.",
+      },
+    ],
+    images: [
+      "/images/destinations/gokarna.jpg",
+      "/images/trips/gokarna-cliff-trail.jpg",
+      "/images/trips/gokarna-yana-caves.jpg",
+      "/images/trips/gokarna-murudeshwar.jpg",
+      "/images/trips/gokarna-honnavar.jpg",
+    ],
+    galleryMeta: [
+      {
+        src: "/images/destinations/gokarna.jpg",
+        type: "brand",
+        source: "Official Gokarna PDF Itinerary",
+        alt: "Gokarna cliffside beach trek trail overlooking ocean",
+      },
+      {
+        src: "/images/trips/gokarna-cliff-trail.jpg",
+        type: "brand",
+        source: "Official Gokarna PDF Itinerary",
+        alt: "Gokarna cliffside beach trek trail overlooking ocean",
+      },
+      {
+        src: "/images/trips/gokarna-yana-caves.jpg",
+        type: "brand",
+        source: "Official Gokarna PDF Itinerary",
+        alt: "Yana Caves black limestone rock monoliths",
+      },
+      {
+        src: "/images/trips/gokarna-murudeshwar.jpg",
+        type: "brand",
+        source: "Official Gokarna PDF Itinerary",
+        alt: "Murudeshwar Temple giant Shiva statue overlooking Arabian Sea",
+      },
+      {
+        src: "/images/trips/gokarna-honnavar.jpg",
+        type: "brand",
+        source: "Official Gokarna PDF Itinerary",
+        alt: "Honnavar backwater boat ride through mangroves",
       },
     ],
   },
@@ -115,7 +277,7 @@ Light breathable cotton clothes, sunglasses, sun hat, swimwear, light cardigan f
       {
         question: "Is Kerala suitable for friends and community groups?",
         answer:
-          "Yes! Kashshish leads our Kerala runs with a mix of relaxed backwater floating, tea estate walks, and vibrant beach sunsets.",
+          "Yes! Our Kerala runs combine relaxed backwater floating, tea estate walks, and vibrant beach sunsets.",
       },
     ],
     images: [
@@ -153,7 +315,7 @@ Light breathable cotton clothes, sunglasses, sun hat, swimwear, light cardigan f
     startingPoint: "Rishikesh / Haridwar",
     guideContent: `## Trekking Kedarnath Responsibly
 
-Kedarnath requires fitness and pace discipline. Led personally by Aryan, our Garhwal mountain trekking teams maintain steady acclimatization steps from Rishikesh to Sonprayag and Gaurikund.`,
+Kedarnath requires fitness and pace discipline. Our Garhwal mountain trekking teams maintain steady acclimatization steps from Rishikesh to Sonprayag and Gaurikund.`,
     faqs: [
       {
         question: "How difficult is the Kedarnath trek?",

@@ -52,12 +52,21 @@ export function getWhatsAppLink(message?: string): string {
   return baseUrl;
 }
 
+export function getPhoneLink(): string {
+  const clean = (siteSettings.phone || siteSettings.whatsappNumber).replace(/[^0-9+]/g, "");
+  return `tel:${clean}`;
+}
+
+export function getEmailLink(): string {
+  return `mailto:${siteSettings.email}`;
+}
+
 export function getWhatsAppTripMessage(tripName: string, dates: string): string {
-  return `Hi Aryan & Kashshish, I'm interested in the ${tripName} trip (${dates}). I'd like to check seat availability!`;
+  return `Hi Bucketlist team, I'm interested in the ${tripName} trip (${dates}). I'd like to check seat availability!`;
 }
 
 export function getWhatsAppPrivateMessage(): string {
-  return "Hi Aryan & Kashshish, I'd like to discuss planning a private trip for our group.";
+  return "Hi Bucketlist team, I'd like to discuss planning a private trip for our group.";
 }
 
 export function slugify(text: string): string {

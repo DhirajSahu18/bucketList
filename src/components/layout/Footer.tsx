@@ -61,7 +61,7 @@ export function Footer() {
             {/* Plan Your Trip */}
             <div className="col-span-2 md:col-span-3 space-y-3 font-sans text-xs">
               <span className="text-[#FACC15] uppercase tracking-wider block font-extrabold border-b border-[#FAF7F2]/10 pb-1">PLAN YOUR TRIP</span>
-              <p className="text-gray-300 font-extrabold">Talk to the BucketList team</p>
+              <p className="text-gray-300 font-extrabold">Talk to the Bucketlist team</p>
               <p className="text-[11px] text-[#e6ded1]/80 leading-relaxed font-normal">
                 Have a destination in mind? Tell us your dates, group size, and what you&apos;re looking for.
               </p>

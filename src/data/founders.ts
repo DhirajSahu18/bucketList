@@ -5,7 +5,7 @@ export const founders: Founder[] = [
     id: "founder-1",
     name: "Aryan",
     role: "Co-Founder & Expedition Lead",
-    photo: "/images/brand_group_mountains.jpg",
+    photo: "/images/trips/himachal-hero.jpg",
     bio: "5 years of experience covering the wider India travel circuit — including Himachal, Spiti, Uttarakhand, Kerala, Sikkim, and Nepal. Aryan leads high-altitude mountain routes, vehicle convoy coordination, and on-ground safety.",
     shortBio: "5 years experience leading expeditions across Himachal, Spiti, Uttarakhand, Kerala, Sikkim & Nepal.",
     experience: "5 years",

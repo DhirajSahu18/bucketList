@@ -45,7 +45,7 @@ export const testimonials: Testimonial[] = [
     source: "instagram",
     sourceLabel: "Instagram Story",
     type: "instagram_story",
-    image: "/images/brand_group_mountains.jpg",
+    image: "/images/trips/himachal-group-snow.jpg",
     featured: true,
   },
   {
@@ -85,12 +85,12 @@ export const testimonials: Testimonial[] = [
     tripName: "Himachal Community Run",
     destinationName: "Manali",
     date: "December 2025",
-    review: "Dharamshala stadium group moment with our entire community crew! Best organized group experience hands down.",
+    review: "Dharamshala temple group moment with our entire community crew! Best organized group experience hands down.",
     rating: 5,
     source: "instagram",
     sourceLabel: "Photo Post",
     type: "photo_post",
-    image: "/images/brand_group_stadium.jpg",
+    image: "/images/trips/himachal-dharamshala.jpg",
     featured: true,
   },
   {
