@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { EditorialMarker } from "@/components/ui/EditorialMarker";
 
 export const metadata: Metadata = {
-  title: "Our Story — Two Founders, Real Journeys | Bucketlist",
+  title: "Our Story : Two Founders, Real Journeys | Bucketlist",
   description:
     "From school friends to co-founders: learn how Aryan & Kashshish built Bucketlist to help people turn travel dreams into experiences worth ticking off.",
 };
