@@ -35,7 +35,7 @@ export default function AboutPage() {
             {/* Visual Photography Feature */}
             <div className="lg:col-span-4 relative aspect-[4/3] rounded-sm overflow-hidden border border-white/15 bg-white/5 shadow-2xl">
               <Image
-                src="/images/trips/himachal-hero.jpg"
+                src="/images/IMG_5050.jpg.jpeg"
                 alt="Bucketlist community travellers on an expedition"
                 fill
                 className="object-cover brightness-95"

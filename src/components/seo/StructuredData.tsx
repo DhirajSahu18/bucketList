@@ -22,7 +22,7 @@ export function OrganizationSchema() {
     url: "https://thebucketlist.co",
     description:
       "Responsible community expeditions across Himachal, Uttarakhand, Kerala, and international destinations. Led by experienced travel captains.",
-    foundingDate: "2021",
+    foundingDate: "2026",
     areaServed: {
       "@type": "Country",
       name: "India",

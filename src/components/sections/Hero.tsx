@@ -29,10 +29,10 @@ export function Hero() {
         <div className="container-wide">
           <div className="max-w-3xl space-y-6">
             {/* Flagship Campaign Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FACC15] text-[#1c1917] text-xs font-sans font-extrabold uppercase tracking-wider rounded-xs">
+            {/* <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FACC15] text-[#1c1917] text-xs font-sans font-extrabold uppercase tracking-wider rounded-xs">
               <span className="w-2 h-2 rounded-full bg-[#1c1917] animate-pulse" />
               <span>Flagship Run &middot; Himachal Unplugged Expedition</span>
-            </div>
+            </div> */}
 
             {/* Campaign Headline */}
             <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#faf7f2] leading-[1.1]">

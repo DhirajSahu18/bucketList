@@ -8,7 +8,7 @@ export const siteSettings: SiteSettings = {
   instagram: "https://instagram.com/thebucketlist.co",
   responseTime: "within 2 hours",
   footerDescription:
-    "Good people, great places, and trips that are planned properly. Founded in 2021 to build genuine community travel across India's best mountain & coastal routes.",
+    "Good people, great places, and trips that are planned properly. Founded in 2026 to build genuine community travel across India's best mountain & coastal routes.",
   homepageStats: {
     years: "5",
     trips: "80+",
