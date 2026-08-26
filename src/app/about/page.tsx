@@ -28,7 +28,7 @@ export default function AboutPage() {
                 <span className="text-[#FACC15]">came to life.</span>
               </h1>
               <p className="text-[#e6ded1] text-base sm:text-xl max-w-2xl leading-relaxed font-normal pt-1">
-                From signing each other&apos;s attendance in school to signing a partnership deed — we&apos;ve definitely come a long way.
+                From signing each other&apos;s attendance in school to signing a partnership deed, we&apos;ve definitely come a long way.
               </p>
             </div>
 
@@ -67,7 +67,7 @@ export default function AboutPage() {
                 After school, life took us in different directions. We chose different streams, worked with different companies, and explored completely different fields.
               </p>
               <p>
-                Along the way, we both spent years working across the travel industry. We gained hands-on experience in almost every aspect of group trips — learning firsthand what works on ground and what truly makes a journey memorable.
+                Along the way, we both spent years working across the travel industry. We gained hands-on experience in almost every aspect of group trips, learning firsthand what works on ground and what truly makes a journey memorable.
               </p>
               <p>
                 One day while catching up, we realized something: between the two of us, we had already ticked quite a few things off our own bucket lists. But so many people around us were still waiting to experience theirs.
@@ -81,7 +81,7 @@ export default function AboutPage() {
               </div>
 
               <p>
-                With everything we had learned, experienced, and loved about travel, we decided to build something of our own — a simple, honest way to help people turn their travel dreams into experiences worth ticking off.
+                With everything we had learned, experienced, and loved about travel, we decided to build something of our own : a simple, honest way to help people turn their travel dreams into experiences worth ticking off.
               </p>
 
               <p className="font-semibold text-[#1c1917] text-lg sm:text-xl pt-2">
