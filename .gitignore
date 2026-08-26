@@ -40,8 +40,7 @@ next-env.d.ts
 # temporary scratch & build artifacts
 /scratch/
 
-# large raw source video files (>100 MB not for git tracking)
-src/assets/*.MP4
-src/assets/*.mp4
-src/assets/*.mov
-src/assets/*.MOV
+# large raw video files (>100 MB not for git tracking)
+public/videos/raw/
+*.MP4
+*.MOV
