@@ -15,7 +15,7 @@ export function Footer() {
             <div className="col-span-2 md:col-span-5 space-y-4">
               <div className="relative h-12 sm:h-14 w-52 sm:w-64">
                 <Image
-                  src="/images/logo_header_clean.png"
+                  src="/images/logos/logo_header_clean.png"
                   alt="TheBucketList.co Logo"
                   fill
                   className="object-contain object-left"

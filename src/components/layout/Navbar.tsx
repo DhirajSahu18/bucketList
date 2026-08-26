@@ -21,7 +21,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-3 group shrink-0">
             <div className="relative h-8 sm:h-12 w-40 sm:w-60 transition-transform duration-300 group-hover:scale-[1.02]">
               <Image
-                src="/images/logo_header_clean.png"
+                src="/images/logos/logo_header_clean.png"
                 alt="Bucketlist Logo"
                 fill
                 className="object-contain object-left"

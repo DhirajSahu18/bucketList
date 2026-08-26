@@ -27,7 +27,7 @@ export default function PrivateTripsPage() {
         {/* Integrated Background Group Photo Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/brand_group_mountains.jpg"
+            src="/images/branding/brand_group_mountains.jpg"
             alt="Custom private group trip travellers on a mountain road expedition"
             fill
             className="object-cover object-center brightness-[0.25] scale-105"
@@ -79,7 +79,7 @@ export default function PrivateTripsPage() {
             {/* Layered Visual Framing Feature */}
             <div className="hidden lg:block lg:col-span-4 relative aspect-[4/3] rounded-sm overflow-hidden border border-white/20 bg-[#1c1917] shadow-2xl">
               <Image
-                src="/images/brand_group_mountains.jpg"
+                src="/images/branding/brand_group_mountains.jpg"
                 alt="TheBucketList.co private group expedition travellers"
                 fill
                 className="object-cover brightness-[0.9]"

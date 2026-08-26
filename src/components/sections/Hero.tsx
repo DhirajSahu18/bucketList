@@ -17,7 +17,7 @@ export function Hero() {
           loop
           playsInline
           preload="metadata"
-          poster="/images/brand_group_mountains.jpg"
+          poster="/images/branding/brand_group_mountains.jpg"
           className="absolute inset-0 w-full h-full object-cover brightness-[0.35] scale-105"
         >
           <source src="/videos/hero_bg.mp4" type="video/mp4" />
