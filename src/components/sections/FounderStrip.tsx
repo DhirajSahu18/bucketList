@@ -14,10 +14,10 @@ export function FounderStrip() {
           <div className="max-w-3xl space-y-3">
             <EditorialMarker label="WHO YOU'RE TRAVELLING WITH" />
             <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl text-[#1c1917] font-extrabold leading-tight">
-              Led on-ground by founders. Driven by real joiners.
+              Led on ground by founders. Driven by real joiners.
             </h2>
             <p className="text-[#4e473e] text-base md:text-lg font-normal leading-relaxed">
-              Aryan & Kashshish design every route, handle on-ground safety, and travel with every community group. Here is who leads and who comes along.
+              Aryan and Kashshish design every route, handle on-ground safety, and travel with every community group.
             </p>
           </div>
 
@@ -39,7 +39,7 @@ export function FounderStrip() {
                         src={founder.photo}
                         alt={founder.name}
                         fill
-                        className="object-cover"
+                        className="object-cover object-top"
                         sizes="(max-width: 640px) 100vw, 176px"
                       />
                       <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-black/85 text-[#FACC15] text-[10px] font-extrabold rounded-xs uppercase">
@@ -47,21 +47,24 @@ export function FounderStrip() {
                       </div>
                     </div>
 
-                    <div className="space-y-2.5 flex-1">
+                    <div className="space-y-2 flex-1">
                       <div>
-                        <span className="text-xs text-[#8c4a2f] uppercase tracking-wider font-extrabold block">
-                          {founder.role}
-                        </span>
-                        <h3 className="font-sans text-2xl font-extrabold text-[#1c1917]">
+                        <h3 className="font-serif text-2xl font-extrabold text-[#1c1917]">
                           {founder.name}
                         </h3>
+                        <p className="text-xs font-semibold text-[#8c4a2f] mt-0.5">
+                          {founder.role}
+                        </p>
+                        <p className="text-[11px] text-[#4e473e] font-medium">
+                          {founder.region}
+                        </p>
                       </div>
 
-                      <p className="text-xs sm:text-sm text-[#4e473e] leading-relaxed font-normal">
+                      <p className="text-xs sm:text-sm text-[#4e473e] leading-relaxed font-normal pt-1">
                         {founder.bio}
                       </p>
 
-                      <blockquote className="p-3 bg-white border-l-2 border-[#FACC15] text-xs text-[#1c1917] italic font-serif leading-relaxed">
+                      <blockquote className="pt-1.5 text-xs text-[#1c1917] italic font-serif leading-relaxed border-l-2 border-[#FACC15] pl-3 py-0.5">
                         &ldquo;{founder.statement}&rdquo;
                       </blockquote>
                     </div>

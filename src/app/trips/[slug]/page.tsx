@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${trip.name} | TheBucketList.co`,
+      title: `${trip.name} | Bucketlist`,
       description: trip.summary,
       url: canonicalUrl,
       images: [trip.heroImage],

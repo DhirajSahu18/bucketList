@@ -31,7 +31,7 @@ export const privateTripExamples: PrivateTripExample[] = [
     idealGroup: "6–20 friends",
     indicativePrice: "From ₹14,500 / person",
     description:
-      "Old Manali cafe exploration, Sissu waterfall drives, and Sethan pine forest hikes with boutique stay accommodation curated by the Bucketlist team.",
+      "Old Manali cafe exploration, Sissu waterfall drives, and Sethan pine forest hikes with boutique stay accommodation planned by the Bucketlist team.",
     image: "/images/trips/private-sethan-forest.jpg",
   },
   {

@@ -84,7 +84,7 @@ export function Hero() {
                   {siteSettings.homepageStats.years} Years
                 </span>
                 <span className="text-[11px] text-[#e6ded1] font-semibold block leading-tight">
-                  Running Trips
+                  Years of Experience
                 </span>
               </div>
 

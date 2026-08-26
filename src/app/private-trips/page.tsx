@@ -7,7 +7,7 @@ import { getWhatsAppLink, getWhatsAppPrivateMessage } from "@/lib/utils";
 import { PrivateTripForm } from "./PrivateTripForm";
 
 export const metadata: Metadata = {
-  title: "Private Trips & Custom Groups | TheBucketList.co",
+  title: "Private Trips & Custom Groups | Bucketlist",
   description:
     "Custom private trips designed around your group, dates, and budget. Pre-qualifying sample itineraries with indicative pricing.",
 };

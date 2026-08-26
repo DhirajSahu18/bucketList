@@ -28,8 +28,8 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "TheBucketList.co — Good People. Great Places. Trips Planned Properly.",
-    template: "%s | TheBucketList.co",
+    default: "Bucketlist — Good People. Great Places. Trips Planned Properly.",
+    template: "%s | Bucketlist",
   },
   description:
     "Community travel expeditions across Himachal, Uttarakhand, Kerala, Goa, and Gokarna. Well-planned trips with zero on-ground hassle.",
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://thebucketlist.co",
-    siteName: "TheBucketList.co",
-    title: "TheBucketList.co — Good People. Great Places. Trips Planned Properly.",
+    siteName: "Bucketlist",
+    title: "Bucketlist — Good People. Great Places. Trips Planned Properly.",
     description:
       "Community travel expeditions across Himachal, Uttarakhand, Kerala, Goa, and Gokarna. Well-planned trips with zero on-ground hassle.",
     images: [
@@ -47,13 +47,13 @@ export const metadata: Metadata = {
         url: "/images/trips/himachal-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "TheBucketList.co community travellers on a mountain expedition",
+        alt: "Bucketlist community travellers on a mountain expedition",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TheBucketList.co — Community Trips Across India",
+    title: "Bucketlist — Community Trips Across India",
     description:
       "Well-planned community trips across Himachal, Uttarakhand, Kerala, Goa, and Gokarna.",
     images: ["/images/trips/himachal-hero.jpg"],

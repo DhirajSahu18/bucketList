@@ -55,7 +55,7 @@ export function TripsIndex() {
               Upcoming Community Departures
             </h1>
             <p className="text-[#4e473e] text-base sm:text-lg font-sans font-normal">
-              Managed & led personally by founders Aryan & Kashshish. Zero white-label reseller itineraries.
+              Trips built from the ground up and led on ground by founders Aryan &amp; Kashshish.
             </p>
           </div>
 

@@ -29,13 +29,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `${siteUrl}/destinations/${destination.slug}`;
 
   return {
-    title: `${destination.name} Travel Captain Guide & Trips | TheBucketList.co`,
+    title: `${destination.name} Travel Captain Guide & Trips | Bucketlist`,
     description: `${destination.emotionalHook} — Travel captain guide, weather, packing list, and upcoming community trips to ${destination.name}.`,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${destination.name} | TheBucketList.co`,
+      title: `${destination.name} | Bucketlist`,
       description: destination.emotionalHook,
       url: canonicalUrl,
       images: [destination.heroImage],

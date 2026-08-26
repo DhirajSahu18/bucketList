@@ -5,9 +5,9 @@ import { destinations } from "@/data/destinations";
 import { EditorialMarker } from "@/components/ui/EditorialMarker";
 
 export const metadata: Metadata = {
-  title: "Destinations — Manali, Kedarnath, Kerala | TheBucketList.co",
+  title: "Destinations — Himachal, Goa, Gokarna, Kerala & Kedarnath | Bucketlist",
   description:
-    "Explore our curated destinations across India — from the Himalayas to the coast. Manali, Kedarnath, Kerala and more.",
+    "Explore our community travel destinations across India — Himachal, Uttarakhand, Kerala, Goa, and Gokarna. Well-planned trips with zero on-ground hassle.",
 };
 
 export default function DestinationsPage() {
