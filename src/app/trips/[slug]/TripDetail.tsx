@@ -39,13 +39,17 @@ export function TripDetail({ trip }: TripDetailProps) {
 
   const isAllExpanded = openDays.length === trip.itinerary.length;
 
-  const whatsappMessage = status === "sold-out"
-    ? `Hi! I see that ${trip.name} (${formatDateRange(trip.dates.start, trip.dates.end)}) is sold out. Could you add me to the waitlist or let me know about the next run?`
-    : status === "past"
-    ? `Hi! I'd like to enquire about future departures for ${trip.name}!`
-    : `Hi! I want to check details for ${trip.name} (${formatDateRange(trip.dates.start, trip.dates.end)}). Could you help me hold a seat deposit?`;
-
-  const whatsappUrl = getWhatsAppLink(whatsappMessage);
+  const whatsappUrl =
+    trip.tripType === "private"
+      ? getWhatsAppLink(
+          `Hi Bucketlist Team, I would like to plan a private trip for ${trip.name} for my group. Please share details and custom quotes!`
+        )
+      : getWhatsAppLink(
+          `Hi Bucketlist Team, I am interested in joining the ${trip.name} (${trip.duration}) on ${formatDateRange(
+            trip.dates.start,
+            trip.dates.end
+          )}. Please share booking details!`
+        );
 
   return (
     <div className="pt-24 md:pt-32 pb-24 bg-[#faf7f2] min-h-screen text-[#1c1917] font-sans">
@@ -94,7 +98,9 @@ export function TripDetail({ trip }: TripDetailProps) {
             </div>
             <div>
               <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">WHEN</span>
-              <span className="font-extrabold">{formatDateRange(trip.dates.start, trip.dates.end)}</span>
+              <span className="font-extrabold">
+                {trip.tripType === "private" ? "Custom Dates" : formatDateRange(trip.dates.start, trip.dates.end)}
+              </span>
             </div>
             <div>
               <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">DURATION</span>
@@ -109,14 +115,24 @@ export function TripDetail({ trip }: TripDetailProps) {
               </span>
             </div>
             <div>
-              <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">SEATS</span>
+              <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">
+                {trip.tripType === "private" ? "TYPE" : "SEATS"}
+              </span>
               <span className="font-extrabold text-[#8c4a2f]">
-                {status === "sold-out" ? "Sold Out" : status === "past" ? "Completed" : `${trip.seatsRemaining} of ${trip.maxGroupSize} left`}
+                {trip.tripType === "private"
+                  ? "Private Group"
+                  : status === "sold-out"
+                  ? "Sold Out"
+                  : status === "past"
+                  ? "Completed"
+                  : `${trip.seatsRemaining} of ${trip.maxGroupSize} left`}
               </span>
             </div>
             <div>
               <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">PRICE</span>
-              <span className="font-extrabold text-base font-mono">{formatPrice(trip.price)}</span>
+              <span className="font-extrabold text-sm sm:text-base font-sans">
+                {trip.tripType === "private" ? "Price on Request" : formatPrice(trip.price)}
+              </span>
             </div>
           </div>
 
@@ -318,22 +334,35 @@ export function TripDetail({ trip }: TripDetailProps) {
               <div className="sticky top-28 bg-[#1c1917] text-white p-6 sm:p-7 rounded-sm space-y-6 shadow-md border-t-2 border-[#FACC15]">
                 <div>
                   <span className="text-xs text-[#FACC15] uppercase tracking-wider block mb-1 font-extrabold">
-                    Fixed Group Pricing
+                    {trip.tripType === "private" ? "Private Experience" : "Fixed Group Pricing"}
                   </span>
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-mono text-3xl font-bold text-[#FACC15]">
-                      {formatPrice(trip.price)}
-                    </span>
-                    <span className="text-xs text-[#e6ded1] font-medium">/ person</span>
-                  </div>
-                  {trip.priceNote && (
-                    <span className="text-xs font-sans text-[#FACC15] block mt-1 font-bold">
-                      ⚡ {trip.priceNote}
-                    </span>
+                  {trip.tripType === "private" ? (
+                    <div className="space-y-1">
+                      <span className="font-sans text-2xl sm:text-3xl font-extrabold text-[#FACC15]">
+                        Pricing on Request
+                      </span>
+                      <span className="text-xs font-sans text-[#e6ded1] block font-medium">
+                        Plan this trip on your preferred dates for your group.
+                      </span>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-mono text-3xl font-bold text-[#FACC15]">
+                          {formatPrice(trip.price)}
+                        </span>
+                        <span className="text-xs text-[#e6ded1] font-medium">/ person</span>
+                      </div>
+                      {trip.priceNote && (
+                        <span className="text-xs font-sans text-[#FACC15] block mt-1 font-bold">
+                          ⚡ {trip.priceNote}
+                        </span>
+                      )}
+                      <span className="text-xs font-sans text-white/80 block mt-1 font-medium">
+                        Hold seat deposit: ₹{trip.bookingAmount}
+                      </span>
+                    </>
                   )}
-                  <span className="text-xs font-sans text-white/80 block mt-1 font-medium">
-                    Hold seat deposit: ₹{trip.bookingAmount}
-                  </span>
                 </div>
 
                 {/* Founder Leader Badge */}
@@ -373,7 +402,9 @@ export function TripDetail({ trip }: TripDetailProps) {
                   className="w-full justify-center bg-[#FACC15] text-[#1c1917] hover:bg-[#eab308] font-extrabold py-3.5 border-none shadow-md"
                   onClick={() => trackEvent("click_trip_whatsapp", { tripSlug: trip.slug })}
                 >
-                  {status === "sold-out"
+                  {trip.tripType === "private"
+                    ? "Plan This Trip for Your Group"
+                    : status === "sold-out"
                     ? "Join Waitlist on WhatsApp"
                     : status === "past"
                     ? "Enquire for Next Run"

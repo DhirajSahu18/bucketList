@@ -16,8 +16,18 @@ export default function DestinationsPage() {
   const featured = destinations[0]; // Himachal Circuit
   const secondary = destinations.slice(1); // Goa, Gokarna, Kerala, Rajasthan
 
-  const getPackageCount = (destId: string) => {
-    return trips.filter((t) => t.destinationId === destId && t.status !== "completed").length;
+  const getPackageLabel = (destId: string) => {
+    const destTrips = trips.filter((t) => t.destinationId === destId && t.status !== "completed");
+    const hasPrivate = destTrips.some((t) => t.tripType === "private");
+    const hasScheduled = destTrips.some((t) => t.tripType === "scheduled");
+
+    if (hasScheduled && !hasPrivate) {
+      return `${destTrips.length} scheduled ${destTrips.length === 1 ? "trip" : "batches"}`;
+    }
+    if (hasPrivate && !hasScheduled) {
+      return "Private trip available";
+    }
+    return `${destTrips.length} packages available`;
   };
 
   return (
@@ -80,7 +90,7 @@ export default function DestinationsPage() {
                           Duration: {featured.duration}
                         </span>
                         <span className="px-2.5 py-1 bg-[#faf7f2] border border-[#e6ded1] rounded-xs text-[#8c4a2f]">
-                          {getPackageCount(featured.id)} {getPackageCount(featured.id) === 1 ? "package available" : "packages available"}
+                          {getPackageLabel(featured.id)}
                         </span>
                       </div>
 
@@ -140,7 +150,7 @@ export default function DestinationsPage() {
                   {/* Responsive Footer */}
                   <div className="pt-4 border-t border-[#e6ded1] flex items-center justify-between gap-2 text-xs font-sans mt-auto">
                     <span className="text-[#8c4a2f] font-extrabold">
-                      {getPackageCount(dest.id)} {getPackageCount(dest.id) === 1 ? "package available" : "packages available"}
+                      {getPackageLabel(dest.id)}
                     </span>
 
                     <span className="text-[#1c1917] group-hover:text-[#8c4a2f] transition-colors font-extrabold shrink-0 flex items-center gap-1">

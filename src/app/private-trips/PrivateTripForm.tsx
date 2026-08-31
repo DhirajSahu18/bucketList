@@ -185,10 +185,10 @@ Notes: ${formData.additionalNotes || "None"}`;
               className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-xs focus:outline-none focus:ring-2 focus:ring-[#FACC15]"
             >
               <option value="Himachal & Manali">Himachal & Manali Circuit</option>
-              <option value="Kasol & Parvati">Kasol & Parvati Valley</option>
+              <option value="Goa Coastal">Goa Villa & Beach Expedition</option>
+              <option value="Gokarna Coast">Gokarna & Honnavar Coast</option>
               <option value="Kerala Backwaters">Kerala Backwaters & Hills</option>
-              <option value="Kedarnath Trek">Kedarnath Valley Trek</option>
-              <option value="Custom Himalayan">Custom Himalayan Community Journey</option>
+              <option value="Rajasthan Circuit">Royal Rajasthan Forts & Desert</option>
             </select>
           </div>
 

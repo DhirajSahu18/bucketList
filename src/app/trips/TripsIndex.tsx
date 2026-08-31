@@ -50,12 +50,12 @@ export function TripsIndex() {
         <div className="container-wide">
           {/* Header */}
           <div className="max-w-3xl mb-10 space-y-2">
-            <EditorialMarker label="UPCOMING DEPARTURES" />
+            <EditorialMarker label="OFFICIAL EXPEDITIONS" />
             <h1 className="font-sans text-3xl sm:text-5xl text-[#1c1917] font-extrabold leading-tight">
-              Upcoming Community Departures
+              Official Departures &amp; Private Expeditions
             </h1>
             <p className="text-[#4e473e] text-base sm:text-lg font-sans font-normal">
-              Trips built from the ground up and led on ground by founders Aryan &amp; Kashshish.
+              Fixed community group departures and custom private group offerings across India.
             </p>
           </div>
 
@@ -154,12 +154,20 @@ export function TripsIndex() {
 
                     <div className="pt-4 border-t border-[#e6ded1] flex items-center justify-between gap-3 font-sans">
                       <div>
-                        <span className="text-[10px] uppercase text-[#8c4a2f] block font-extrabold tracking-wider">Fixed Price</span>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-xl font-extrabold text-[#1c1917] font-mono">
-                            {formatPrice(featuredTrip.price)}
+                        <span className="text-[10px] uppercase text-[#8c4a2f] block font-extrabold tracking-wider">
+                          {featuredTrip.tripType === "private" ? "Private Experience" : "Fixed Price"}
+                        </span>
+                        {featuredTrip.tripType === "private" ? (
+                          <span className="text-base font-extrabold text-[#1c1917] font-sans">
+                            Pricing on Request
                           </span>
-                        </div>
+                        ) : (
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-xl font-extrabold text-[#1c1917] font-mono">
+                              {formatPrice(featuredTrip.price)}
+                            </span>
+                          </div>
+                        )}
                         {featuredTrip.priceNote && (
                           <span className="text-[10px] text-[#8c4a2f] font-bold block">
                             {featuredTrip.priceNote}
@@ -168,7 +176,7 @@ export function TripsIndex() {
                       </div>
 
                       <span className="px-4 py-2 bg-[#1c1917] text-white text-xs font-extrabold rounded-xs group-hover:bg-[#8c4a2f] transition-colors shrink-0">
-                        Explore Trip
+                        {featuredTrip.tripType === "private" ? "Plan This Trip" : "Explore Trip"}
                       </span>
                     </div>
                   </div>

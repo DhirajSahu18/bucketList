@@ -15,16 +15,16 @@ export function UpcomingTrips() {
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div className="max-w-2xl space-y-1">
-              <EditorialMarker label="UPCOMING DEPARTURES" />
+              <EditorialMarker label="OFFICIAL TRIPS & EXPEDITIONS" />
               <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl text-[#1c1917] font-extrabold leading-tight">
-                Upcoming Community Runs
+                Featured Trips &amp; Custom Offerings
               </h2>
             </div>
             <Link
               href="/trips"
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-extrabold text-[#1c1917] hover:text-[#8c4a2f] transition-colors"
             >
-              <span>See all departures</span>
+              <span>See all trips</span>
             </Link>
           </div>
 

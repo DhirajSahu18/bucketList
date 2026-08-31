@@ -6,6 +6,7 @@ export const trips: Trip[] = [
   {
     id: "trip-1",
     name: "Himachal Unplugged — New Year Batch",
+    tripType: "scheduled",
     batchTag: "New Year Batch",
     priceNote: "+ AC Add-on Available",
     includedHighlights: ["Kullu River Rafting", "Manali Bike Ride", "New Year Party & DJ", "Atal Tunnel Ride"],
@@ -246,6 +247,7 @@ export const trips: Trip[] = [
   {
     id: "trip-1-regular",
     name: "Himachal Unplugged — Regular Batch",
+    tripType: "scheduled",
     batchTag: "Regular Batch",
     priceNote: "₹16,499 Non-AC / ₹17,999 3 Tier AC",
     includedHighlights: ["Kullu River Rafting", "Manali Bike Ride"],
@@ -476,9 +478,10 @@ export const trips: Trip[] = [
   },
   {
     id: "trip-goa",
-    name: "Goa Unfiltered Package",
-    batchTag: "Backpacking",
-    priceNote: "₹7,999 Land Package (+ ₹2,199 Round Train)",
+    name: "Goa Private Trip — Villa & Beach Expedition",
+    batchTag: "Private Trip",
+    priceNote: "Pricing on Request",
+    tripType: "private",
     includedHighlights: ["Private Villa with Pool", "Rental Scooty / Traveller", "North & South Goa Tours", "Beach Party & Nightlife"],
     slug: "goa-unfiltered",
     destination: destinations[1], // Goa
@@ -532,7 +535,7 @@ export const trips: Trip[] = [
     dates: { start: "2026-07-14", end: "2026-07-17" },
     duration: "3 Nights / 4 Days",
     durationDays: 4,
-    price: 7999,
+    price: 0,
     bookingAmount: 5000,
     maxGroupSize: 15,
     seatsBooked: 9,
@@ -665,9 +668,10 @@ export const trips: Trip[] = [
   },
   {
     id: "trip-gokarna",
-    name: "Gokarna Community Trip",
-    batchTag: "Community Trip",
-    priceNote: "₹9,999 per person (3 AC Train Included)",
+    name: "Gokarna Private Trip — Beach & Cliff Excursion",
+    batchTag: "Private Trip",
+    priceNote: "Pricing on Request",
+    tripType: "private",
     includedHighlights: ["3 AC Train Included", "Yana Caves Trek", "Honnavar Backwaters", "Murudeshwar Shiva Statue"],
     slug: "gokarna-community-trip",
     destination: destinations[2], // Gokarna
@@ -721,7 +725,7 @@ export const trips: Trip[] = [
     dates: { start: "2026-08-28", end: "2026-08-31" },
     duration: "5 Days / 4 Nights",
     durationDays: 5,
-    price: 9999,
+    price: 0,
     bookingAmount: 5000,
     maxGroupSize: 20,
     seatsBooked: 14,
@@ -843,6 +847,7 @@ export const trips: Trip[] = [
   {
     id: "trip-2",
     name: "Kerala — God's Own Country Package",
+    tripType: "scheduled",
     batchTag: "Scenic Kerala Escape",
     priceNote: "₹16,999 Non-AC / ₹18,999 3 Tier AC",
     includedHighlights: ["1-Hour Backwater Cruise", "Jatayu Earth Center", "Varkala Beach Sunset", "Padmanabhaswamy Temple"],
@@ -1026,9 +1031,10 @@ export const trips: Trip[] = [
   },
   {
     id: "trip-rajasthan",
-    name: "Royal Rajasthan – Community Trip",
-    batchTag: "Community Trip",
-    priceNote: "Pricing Pending Client Confirmation",
+    name: "Royal Rajasthan Private Trip — Forts & Desert Excursion",
+    batchTag: "Private Trip",
+    priceNote: "Pricing on Request",
+    tripType: "private",
     includedHighlights: ["City Palace Udaipur", "Lake Pichola Boat Ride", "Jaisalmer Fort & Haveli", "Thar Desert Safari"],
     slug: "royal-rajasthan-community-trip",
     destination: destinations[4], // Rajasthan

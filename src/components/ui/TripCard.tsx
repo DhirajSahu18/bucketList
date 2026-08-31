@@ -23,7 +23,11 @@ export function TripCard({ trip }: TripCardProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917]/70 via-[#1c1917]/10 to-transparent" />
         
         {/* Batch Tag / Priority Badge */}
-        {trip.batchTag ? (
+        {trip.tripType === "private" ? (
+          <div className="absolute top-3 right-3 px-2.5 py-1 bg-[#1c1917] text-[#FACC15] text-[11px] font-extrabold tracking-tight rounded-xs shadow-md border border-[#FACC15]/30">
+            PRIVATE TRIP
+          </div>
+        ) : trip.batchTag ? (
           <div className="absolute top-3 right-3 px-2.5 py-1 bg-[#FACC15] text-[#1c1917] text-[11px] font-extrabold tracking-tight rounded-xs shadow-md">
             ⚡ {trip.batchTag}
           </div>
@@ -52,10 +56,16 @@ export function TripCard({ trip }: TripCardProps) {
             {trip.name}
           </h3>
 
-          {/* Dates */}
-          <p className="text-xs text-[#4e473e] font-semibold">
-            📅 {formatDateRange(trip.dates.start, trip.dates.end)}
-          </p>
+          {/* Dates / Trip Type Indicator */}
+          {trip.tripType === "private" ? (
+            <p className="text-xs text-[#8c4a2f] font-extrabold">
+              ✨ Custom Dates for Your Group
+            </p>
+          ) : (
+            <p className="text-xs text-[#4e473e] font-semibold">
+              📅 {formatDateRange(trip.dates.start, trip.dates.end)}
+            </p>
+          )}
 
           {/* Summary Description */}
           <p className="text-xs text-[#4e473e] line-clamp-2 leading-relaxed font-sans font-normal">
@@ -77,22 +87,25 @@ export function TripCard({ trip }: TripCardProps) {
         {/* Structured Price & Action Footer */}
         <div className="pt-3.5 border-t border-[#e6ded1] flex items-center justify-between gap-3 text-xs">
           <div>
-            <span className="text-[10px] uppercase text-[#8c4a2f] block font-extrabold tracking-wider">Fixed Price</span>
-            <div className="flex items-baseline gap-1">
-              <span className="text-lg sm:text-xl font-extrabold text-[#1c1917] font-mono">
-                {formatPrice(trip.price)}
+            <span className="text-[10px] uppercase text-[#8c4a2f] block font-extrabold tracking-wider">
+              {trip.tripType === "private" ? "Private Experience" : "Fixed Price"}
+            </span>
+            {trip.tripType === "private" ? (
+              <span className="text-base sm:text-lg font-extrabold text-[#1c1917] font-sans">
+                Pricing on Request
               </span>
-              <span className="text-xs text-[#4e473e] font-medium"> / head</span>
-            </div>
-            {trip.priceNote && (
-              <span className="text-[10px] text-[#8c4a2f] font-bold block mt-0.5">
-                {trip.priceNote}
-              </span>
+            ) : (
+              <div className="flex items-baseline gap-1">
+                <span className="text-lg sm:text-xl font-extrabold text-[#1c1917] font-mono">
+                  {formatPrice(trip.price)}
+                </span>
+                <span className="text-xs text-[#4e473e] font-medium"> / head</span>
+              </div>
             )}
           </div>
 
           <span className="inline-flex items-center px-3 py-1.5 bg-[#1c1917] text-[#FAF7F2] text-xs font-extrabold rounded-xs group-hover:bg-[#8c4a2f] transition-colors shrink-0">
-            {status === "sold-out" ? "Join Waitlist" : "Explore trip"}
+            {trip.tripType === "private" ? "Plan This Trip" : status === "sold-out" ? "Join Waitlist" : "Explore trip"}
           </span>
         </div>
       </div>

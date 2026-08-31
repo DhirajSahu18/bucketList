@@ -48,6 +48,7 @@ export interface Trip {
   id: string;
   name: string;
   slug: string;
+  tripType: "scheduled" | "private";
   destination: Destination;
   destinationId: string;
   heroImage: string;

@@ -51,7 +51,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "test-4",
     name: "Dr. Kavita Nair",
-    tripName: "Gokarna Community Trip",
+    tripName: "Gokarna Private Trip",
     tripSlug: "gokarna-community-trip",
     destinationName: "Gokarna",
     date: "September 2025",
@@ -67,7 +67,7 @@ export const testimonials: Testimonial[] = [
     id: "test-5",
     name: "Siddharth Mehta",
     handle: "@sid_mehta",
-    tripName: "Royal Rajasthan – Community Trip",
+    tripName: "Royal Rajasthan Private Trip",
     tripSlug: "royal-rajasthan-community-trip",
     destinationName: "Rajasthan",
     date: "October 2025",
