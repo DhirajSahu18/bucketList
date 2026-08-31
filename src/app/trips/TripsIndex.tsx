@@ -129,7 +129,7 @@ export function TripsIndex() {
                           {featuredTrip.destination.name} &middot; {featuredTrip.duration}
                         </span>
                         <span className="px-2.5 py-1 bg-[#FACC15] text-[#1c1917] font-extrabold rounded-xs shrink-0 self-start sm:self-auto shadow-xs">
-                          ⚡ {featuredTrip.seatsRemaining} seats left
+                          ⚡ {featuredTrip.batchTag || "Flagship Expedition"}
                         </span>
                       </div>
 
@@ -140,14 +140,31 @@ export function TripsIndex() {
                       <p className="text-xs text-[#4e473e] leading-relaxed line-clamp-3 font-normal">
                         {featuredTrip.summary}
                       </p>
+
+                      {featuredTrip.includedHighlights && featuredTrip.includedHighlights.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5 pt-1">
+                          {featuredTrip.includedHighlights.map((hl, i) => (
+                            <span key={i} className="px-2 py-0.5 bg-[#FAF7F2] border border-[#e6ded1] text-[10px] font-bold text-[#1c1917] rounded-xs">
+                              ✓ {hl}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     <div className="pt-4 border-t border-[#e6ded1] flex items-center justify-between gap-3 font-sans">
                       <div>
                         <span className="text-[10px] uppercase text-[#8c4a2f] block font-extrabold tracking-wider">Fixed Price</span>
-                        <span className="text-xl font-extrabold text-[#1c1917] font-mono">
-                          {formatPrice(featuredTrip.price)}
-                        </span>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-xl font-extrabold text-[#1c1917] font-mono">
+                            {formatPrice(featuredTrip.price)}
+                          </span>
+                        </div>
+                        {featuredTrip.priceNote && (
+                          <span className="text-[10px] text-[#8c4a2f] font-bold block">
+                            {featuredTrip.priceNote}
+                          </span>
+                        )}
                       </div>
 
                       <span className="px-4 py-2 bg-[#1c1917] text-white text-xs font-extrabold rounded-xs group-hover:bg-[#8c4a2f] transition-colors shrink-0">

@@ -4,15 +4,21 @@ import Image from "next/image";
 import { destinations } from "@/data/destinations";
 import { EditorialMarker } from "@/components/ui/EditorialMarker";
 
+import { trips } from "@/data/trips";
+
 export const metadata: Metadata = {
-  title: "Destinations — Himachal, Goa, Gokarna, Kerala & Kedarnath | Bucketlist",
+  title: "Destinations — Himachal, Goa, Gokarna, Kerala & Rajasthan | Bucketlist",
   description:
-    "Explore our community travel destinations across India — Himachal, Uttarakhand, Kerala, Goa, and Gokarna. Well-planned trips with zero on-ground hassle.",
+    "Explore our community travel destinations across India — Himachal, Goa, Gokarna, Kerala, and Rajasthan. Well-planned trips with zero on-ground hassle.",
 };
 
 export default function DestinationsPage() {
-  const featured = destinations[0]; // Himachal & Manali Circuit
-  const secondary = destinations.slice(1); // Kerala & Kedarnath
+  const featured = destinations[0]; // Himachal Circuit
+  const secondary = destinations.slice(1); // Goa, Gokarna, Kerala, Rajasthan
+
+  const getPackageCount = (destId: string) => {
+    return trips.filter((t) => t.destinationId === destId && t.status !== "completed").length;
+  };
 
   return (
     <div className="pt-28 sm:pt-32 md:pt-36 pb-12 md:pb-16 bg-[#faf7f2] min-h-screen text-[#1c1917] font-sans">
@@ -74,7 +80,7 @@ export default function DestinationsPage() {
                           Duration: {featured.duration}
                         </span>
                         <span className="px-2.5 py-1 bg-[#faf7f2] border border-[#e6ded1] rounded-xs text-[#8c4a2f]">
-                          Difficulty: {featured.difficulty}
+                          {getPackageCount(featured.id)} {getPackageCount(featured.id) === 1 ? "package available" : "packages available"}
                         </span>
                       </div>
 
@@ -134,7 +140,7 @@ export default function DestinationsPage() {
                   {/* Responsive Footer */}
                   <div className="pt-4 border-t border-[#e6ded1] flex items-center justify-between gap-2 text-xs font-sans mt-auto">
                     <span className="text-[#8c4a2f] font-extrabold">
-                      {dest.duration} &middot; {dest.startingPoint}
+                      {getPackageCount(dest.id)} {getPackageCount(dest.id) === 1 ? "package available" : "packages available"}
                     </span>
 
                     <span className="text-[#1c1917] group-hover:text-[#8c4a2f] transition-colors font-extrabold shrink-0 flex items-center gap-1">

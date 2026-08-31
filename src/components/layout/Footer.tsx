@@ -32,7 +32,7 @@ export function Footer() {
 
               <div className="inline-flex items-center gap-2 pt-1 text-xs font-sans text-[#FAF7F2] font-semibold">
                 <span className="w-2 h-2 rounded-full bg-[#FACC15] animate-pulse" />
-                <span>80+ journeys &middot; 1,200+ travellers &middot; Founder-Led</span>
+                <span>50+ journeys &middot; 1,000+ travellers &middot; Founder-Led</span>
               </div>
             </div>
 

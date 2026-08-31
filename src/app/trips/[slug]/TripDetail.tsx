@@ -102,7 +102,11 @@ export function TripDetail({ trip }: TripDetailProps) {
             </div>
             <div>
               <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">LEADER</span>
-              <span className="font-extrabold">{trip.founder.name}</span>
+              <span className="font-extrabold">
+                {trip.foundersList && trip.foundersList.length > 1
+                  ? trip.foundersList.map((f) => f.name.split(" ")[0]).join(" & ")
+                  : trip.founder.name}
+              </span>
             </div>
             <div>
               <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">SEATS</span>
@@ -163,6 +167,22 @@ export function TripDetail({ trip }: TripDetailProps) {
                   </div>
                 </div>
               </div>
+
+              {/* Confirmed Highlights Callout */}
+              {trip.includedHighlights && trip.includedHighlights.length > 0 && (
+                <div className="p-5 bg-[#FACC15]/15 border border-[#FACC15]/40 rounded-sm space-y-2">
+                  <span className="text-xs font-sans font-extrabold text-[#8c4a2f] uppercase tracking-wider block">
+                    ⚡ CONFIRMED PACKAGE INCLUSIONS
+                  </span>
+                  <div className="flex flex-wrap gap-3 text-xs font-extrabold text-[#1c1917]">
+                    {trip.includedHighlights.map((hl, i) => (
+                      <span key={i} className="px-3 py-1.5 bg-white border border-[#e6ded1] rounded-xs shadow-2xs flex items-center gap-1.5">
+                        <span className="text-[#8c4a2f]">✓</span> {hl} Included
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Day by Day Itinerary Accordion with Expand/Collapse All Control */}
               <div className="space-y-6">
@@ -306,23 +326,42 @@ export function TripDetail({ trip }: TripDetailProps) {
                     </span>
                     <span className="text-xs text-[#e6ded1] font-medium">/ person</span>
                   </div>
-                  <span className="text-xs font-sans text-[#FACC15] block mt-1 font-extrabold">
+                  {trip.priceNote && (
+                    <span className="text-xs font-sans text-[#FACC15] block mt-1 font-bold">
+                      ⚡ {trip.priceNote}
+                    </span>
+                  )}
+                  <span className="text-xs font-sans text-white/80 block mt-1 font-medium">
                     Hold seat deposit: ₹{trip.bookingAmount}
                   </span>
                 </div>
 
                 {/* Founder Leader Badge */}
-                <div className="p-4 bg-white/10 border border-white/15 rounded-xs space-y-1.5">
+                <div className="p-4 bg-white/10 border border-white/15 rounded-xs space-y-2">
                   <span className="text-[10px] font-sans uppercase text-[#FACC15] block font-extrabold">
-                    Expedition Leader
+                    {trip.foundersList && trip.foundersList.length > 1 ? "Expedition Leads" : "Expedition Leader"}
                   </span>
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#FACC15] shrink-0" />
-                    <div>
-                      <span className="font-sans font-extrabold text-sm text-white block">{trip.founder.name}</span>
-                      <span className="text-xs text-white/70 font-medium">{trip.founder.role}</span>
+                  {trip.foundersList && trip.foundersList.length > 1 ? (
+                    <div className="space-y-2">
+                      {trip.foundersList.map((f) => (
+                        <div key={f.id} className="flex items-center gap-2.5">
+                          <span className="w-2 h-2 rounded-full bg-[#FACC15] shrink-0" />
+                          <div>
+                            <span className="font-sans font-extrabold text-sm text-white block">{f.name}</span>
+                            <span className="text-xs text-white/70 font-medium">{f.role}</span>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  </div>
+                  ) : (
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-2 h-2 rounded-full bg-[#FACC15] shrink-0" />
+                      <div>
+                        <span className="font-sans font-extrabold text-sm text-white block">{trip.founder.name}</span>
+                        <span className="text-xs text-white/70 font-medium">{trip.founder.role}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Primary High-Contrast Yellow WhatsApp CTA */}
@@ -338,7 +377,7 @@ export function TripDetail({ trip }: TripDetailProps) {
                     ? "Join Waitlist on WhatsApp"
                     : status === "past"
                     ? "Enquire for Next Run"
-                    : `Book on WhatsApp (${trip.seatsRemaining} seats left)`}
+                    : "Book on WhatsApp"}
                 </Button>
 
                 <div className="text-center">
@@ -366,7 +405,7 @@ export function TripDetail({ trip }: TripDetailProps) {
       <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#1c1917] text-white p-3 pb-[max(1rem,env(safe-area-inset-bottom))] border-t border-[#FACC15]/30 flex items-center justify-between shadow-lg">
         <div className="space-y-0.5">
           <span className="text-[10px] font-sans text-[#FACC15] block uppercase font-extrabold">
-            {status === "sold-out" ? "Sold Out" : status === "past" ? "Completed" : `⚡ ${trip.seatsRemaining} seats left`}
+            {status === "sold-out" ? "Sold Out" : status === "past" ? "Completed" : `⚡ ${trip.batchTag || "Upcoming Departure"}`}
           </span>
           <span className="font-mono text-sm font-bold text-white">
             {formatPrice(trip.price)}

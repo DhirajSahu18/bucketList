@@ -6,6 +6,9 @@ export function cn(...classes: (string | undefined | null | false)[]): string {
 }
 
 export function formatPrice(price: number): string {
+  if (!price || price === 0) {
+    return "Pricing Pending Client Confirmation";
+  }
   return new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",

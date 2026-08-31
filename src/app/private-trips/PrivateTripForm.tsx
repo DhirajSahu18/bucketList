@@ -200,10 +200,12 @@ Notes: ${formData.additionalNotes || "None"}`;
               onChange={(e) => setFormData({ ...formData, numberOfTravellers: e.target.value })}
               className="w-full bg-[#faf7f2] border border-[#e6ded1] p-3 text-sm rounded-xs focus:outline-none focus:ring-2 focus:ring-[#FACC15]"
             >
-              <option value="4-8">4 to 8 people</option>
+              <option value="2 (Couple / Duo)">Couple / Duo (2 joiners)</option>
+              <option value="3-4">Small Group (3 to 4 people)</option>
+              <option value="5-8">5 to 8 people</option>
               <option value="9-15">9 to 15 people</option>
-              <option value="16-30">16 to 30 people (College / Friends)</option>
-              <option value="30+">30+ (Alumni / Large Community Run)</option>
+              <option value="16-30">16 to 30 people (Friends / Crew)</option>
+              <option value="30+">30+ (Alumni / Large Departure)</option>
             </select>
           </div>
 

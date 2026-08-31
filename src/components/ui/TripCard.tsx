@@ -22,25 +22,23 @@ export function TripCard({ trip }: TripCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917]/70 via-[#1c1917]/10 to-transparent" />
         
-        {/* Restrained Availability Badge */}
-        {status === "filling" && (
+        {/* Batch Tag / Priority Badge */}
+        {trip.batchTag ? (
           <div className="absolute top-3 right-3 px-2.5 py-1 bg-[#FACC15] text-[#1c1917] text-[11px] font-extrabold tracking-tight rounded-xs shadow-md">
-            ⚡ {trip.seatsRemaining} seats left
+            ⚡ {trip.batchTag}
           </div>
-        )}
-        {status === "sold-out" && (
+        ) : status === "sold-out" ? (
           <div className="absolute top-3 right-3 px-2.5 py-1 bg-red-900 text-white text-[11px] font-extrabold rounded-xs">
             Sold Out
           </div>
-        )}
-        {status === "past" && (
+        ) : status === "past" ? (
           <div className="absolute top-3 right-3 px-2.5 py-1 bg-gray-900 text-gray-200 text-[11px] font-bold rounded-xs">
             Completed
           </div>
-        )}
+        ) : null}
       </div>
 
-      {/* Card Content & Footer (Flex-1 for uniform height) */}
+      {/* Card Content & Footer */}
       <div className="p-5 sm:p-6 flex flex-col justify-between flex-1 space-y-4">
         {/* Upper Card Info */}
         <div className="space-y-2.5">
@@ -63,16 +61,34 @@ export function TripCard({ trip }: TripCardProps) {
           <p className="text-xs text-[#4e473e] line-clamp-2 leading-relaxed font-sans font-normal">
             {trip.summary}
           </p>
+
+          {/* Included Highlights */}
+          {trip.includedHighlights && trip.includedHighlights.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {trip.includedHighlights.map((hl, i) => (
+                <span key={i} className="px-2 py-0.5 bg-[#FAF7F2] border border-[#e6ded1] text-[10px] font-bold text-[#1c1917] rounded-xs">
+                  ✓ {hl}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Structured Responsive Price & Action Footer */}
+        {/* Structured Price & Action Footer */}
         <div className="pt-3.5 border-t border-[#e6ded1] flex items-center justify-between gap-3 text-xs">
           <div>
             <span className="text-[10px] uppercase text-[#8c4a2f] block font-extrabold tracking-wider">Fixed Price</span>
-            <span className="text-lg sm:text-xl font-extrabold text-[#1c1917] font-mono">
-              {formatPrice(trip.price)}
-            </span>
-            <span className="text-xs text-[#4e473e] font-medium"> / head</span>
+            <div className="flex items-baseline gap-1">
+              <span className="text-lg sm:text-xl font-extrabold text-[#1c1917] font-mono">
+                {formatPrice(trip.price)}
+              </span>
+              <span className="text-xs text-[#4e473e] font-medium"> / head</span>
+            </div>
+            {trip.priceNote && (
+              <span className="text-[10px] text-[#8c4a2f] font-bold block mt-0.5">
+                {trip.priceNote}
+              </span>
+            )}
           </div>
 
           <span className="inline-flex items-center px-3 py-1.5 bg-[#1c1917] text-[#FAF7F2] text-xs font-extrabold rounded-xs group-hover:bg-[#8c4a2f] transition-colors shrink-0">

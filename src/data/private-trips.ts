@@ -36,14 +36,14 @@ export const privateTripExamples: PrivateTripExample[] = [
   },
   {
     id: "pvt-4",
-    destination: "Kedarnath & Valley",
-    title: "Kedarnath Custom Group Trek",
-    duration: "6 days",
+    destination: "Rajasthan",
+    title: "Royal Rajasthan Custom Heritage & Desert Journey",
+    duration: "5–7 days",
     idealGroup: "6–20 people",
-    indicativePrice: "From ₹14,500 / person",
+    indicativePrice: "Pricing on request",
     description:
-      "A structured private trek to Kedarnath (11,755 ft) with dedicated support, pre-booked clean temple stays, and Rishikesh Ganga Aarti.",
-    image: "/images/trips/kedarnath-trek.jpg",
+      "A custom Rajasthan desert and palace journey — City Palace Udaipur boat rides, Sajjangarh sunsets, Jaisalmer Fort, Patwon Ki Haveli, and Thar desert camping.",
+    image: "/images/trips/rajasthan-hero.jpg",
   },
   {
     id: "pvt-5",

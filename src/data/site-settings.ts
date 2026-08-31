@@ -11,8 +11,8 @@ export const siteSettings: SiteSettings = {
     "Good people, great places, and trips that are planned properly. Founded in 2026 to build genuine community travel across India's best mountain & coastal routes.",
   homepageStats: {
     years: "5",
-    trips: "80+",
-    travellers: "1,200+",
+    trips: "50+",
+    travellers: "1,000+",
     destinations: "6",
   },
   brandCopy: {

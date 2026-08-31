@@ -10,7 +10,7 @@ export const founders: Founder[] = [
     shortBio: "Hands-on expedition lead specializing in mountain routes, convoy logistics, and on-ground safety.",
     experience: "5 years",
     groupsLedCount: 45,
-    region: "Himachal, Uttarakhand, Kerala & mountain circuits",
+    region: "Himachal, Uttarakhand, Goa, Gokarna, mountain circuits & international runs",
     statement:
       "We've travelled these routes ourselves. We handle the planning on ground so you can focus on enjoying the trip.",
     socialLinks: {
@@ -26,7 +26,7 @@ export const founders: Founder[] = [
     shortBio: "Experience lead managing boutique stay partnerships, group dynamics, and journey details.",
     experience: "4 years",
     groupsLedCount: 38,
-    region: "Himachal, Kerala, coast & international runs",
+    region: "Himachal, Goa, Gokarna & coastal runs",
     statement:
       "I make sure our stays, local food spots, and group coordination are sorted before you arrive.",
     socialLinks: {

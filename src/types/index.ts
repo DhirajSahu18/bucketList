@@ -67,6 +67,7 @@ export interface Trip {
   seatsRemaining: number;
   founder: Founder;
   founderId: string;
+  foundersList?: Founder[];
   founderNote?: {
     author: string;
     text: string;
@@ -88,6 +89,9 @@ export interface Trip {
   faqs: FAQ[];
   status: "upcoming" | "filling" | "almost-full" | "full" | "completed";
   featured: boolean;
+  priceNote?: string;
+  batchTag?: string;
+  includedHighlights?: string[];
 }
 
 export interface ItineraryDay {

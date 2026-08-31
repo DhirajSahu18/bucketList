@@ -22,7 +22,7 @@ export function PrivateTripsCTA() {
               Your dates. Your group. We&apos;ll help plan it.
             </h2>
             <p className="text-[#4e473e] text-base md:text-lg font-normal">
-              Want to travel with just your friends, family, or alumni crew? Tell us where you&apos;re thinking of going and we&apos;ll build the trip.
+              Want to travel as a couple, with your friends, family, or alumni crew? Tell us where you&apos;re thinking of going and we&apos;ll build the trip.
             </p>
           </div>
 

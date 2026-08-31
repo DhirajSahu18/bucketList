@@ -300,39 +300,46 @@ Light breathable cotton clothes, sunglasses, sun hat, swimwear, light cardigan f
     ],
   },
   {
-    id: "dest-kedarnath",
-    name: "Kedarnath Valley",
-    slug: "kedarnath",
-    heroImage: "/images/destinations/kedarnath/hero.jpg",
+    id: "dest-rajasthan",
+    name: "Rajasthan Circuit",
+    slug: "rajasthan",
+    heroImage: "/images/trips/rajasthan-hero.jpg",
     description:
-      "An inspiring Himalayan trek to the ancient shrine of Kedarnath (11,755 ft), surrounded by snow-capped peaks and Garhwal mountain wilderness.",
+      "From Udaipur's romantic City Palace and Lake Pichola boat rides to Jaisalmer's golden fort, Patwon Ki Haveli, and Thar desert camel safaris.",
     emotionalHook:
-      "Walking through Garhwal valleys under towering snow peaks to reach one of India's most sacred mountain temples.",
-    bestTime: "May to June & September to October",
-    duration: "6 days",
-    difficulty: "Moderate",
-    idealFor: ["Trekkers", "Mountain lovers", "Spiritual explorers"],
-    startingPoint: "Rishikesh / Haridwar",
-    guideContent: `## Trekking Kedarnath Responsibly
+      "Golden sandstone forts rising above the desert, quiet evening boat rides on Lake Pichola, and starry nights in Thar sand dunes.",
+    bestTime: "August to March",
+    duration: "5 days",
+    difficulty: "Easy",
+    idealFor: ["Culture explorers", "Friends groups", "Solo joiners", "History lovers"],
+    startingPoint: "Udaipur",
+    guideContent: `## When to Visit Month by Month
 
-Kedarnath requires fitness and pace discipline. Our Garhwal mountain trekking teams maintain steady acclimatization steps from Rishikesh to Sonprayag and Gaurikund.`,
+August to October: Monsoon and post-monsoon freshness! Pleasant temperatures across Udaipur's lakes and refreshing breeze across Jaisalmer desert.
+
+November to February: Peak winter royal season. Clear blue skies, comfortable palace sightseeing, and memorable desert camping.
+
+March to April: Warm spring days ideal for evening lake rides and fort walks.
+
+## What to Pack
+
+Light breathable cotton wear, sunglasses, sun hat, comfortable walking shoes, light jacket for desert evenings, and camera gear.`,
     faqs: [
       {
-        question: "How difficult is the Kedarnath trek?",
+        question: "What cities are covered in the Rajasthan trip?",
         answer:
-          "The 16 km trail from Gaurikund is paved but steep. A basic level of walking fitness is recommended.",
+          "The 5-day itinerary covers Udaipur (City Palace, Lake Pichola, Sajjangarh, Fateh Sagar) and Jaisalmer (Gadisar Lake, Patwon Ki Haveli, Thar Desert, Bada Bagh).",
       },
     ],
     images: [
-      "/images/destinations/kedarnath/hero.jpg",
-      "/images/trips/kedarnath-trek.jpg",
+      "/images/trips/rajasthan-hero.jpg",
     ],
     galleryMeta: [
       {
-        src: "/images/destinations/kedarnath/hero.jpg",
-        type: "internet",
-        source: "Unsplash",
-        alt: "Kedarnath temple behind snow peaks",
+        src: "/images/trips/rajasthan-hero.jpg",
+        type: "brand",
+        source: "Bucketlist Real Client Trip Photo",
+        alt: "Traveller posing in traditional pink palace archway in Rajasthan",
       },
     ],
   },
