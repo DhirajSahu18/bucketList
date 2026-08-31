@@ -77,8 +77,6 @@ export function TripDetail({ trip }: TripDetailProps) {
             <div className="flex flex-wrap items-center gap-2 font-sans text-xs text-[#8c4a2f] font-extrabold uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-[#FACC15] shrink-0" />
               <span>{trip.destination.name} Circuit</span>
-              <span className="text-[#1c1917]/30">&middot;</span>
-              <span>Max {trip.maxGroupSize} Group</span>
             </div>
 
             <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#1c1917] leading-tight">
@@ -90,8 +88,8 @@ export function TripDetail({ trip }: TripDetailProps) {
             </p>
           </div>
 
-          {/* 6 Quick Questions Spec Bar */}
-          <div className="mb-10 p-5 bg-white border border-[#e6ded1] rounded-sm grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-xs text-[#1c1917]">
+          {/* 5 Quick Questions Spec Bar */}
+          <div className="mb-10 p-5 bg-white border border-[#e6ded1] rounded-sm grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-xs text-[#1c1917]">
             <div>
               <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">WHERE</span>
               <span className="font-extrabold">{trip.destination.name}</span>
@@ -112,12 +110,6 @@ export function TripDetail({ trip }: TripDetailProps) {
                 {trip.foundersList && trip.foundersList.length > 1
                   ? trip.foundersList.map((f) => f.name.split(" ")[0]).join(" & ")
                   : trip.founder.name}
-              </span>
-            </div>
-            <div>
-              <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">GROUP SIZE</span>
-              <span className="font-extrabold text-[#1c1917]">
-                {trip.tripType === "private" ? "Private Group" : `Up to ${trip.maxGroupSize} pax`}
               </span>
             </div>
             <div>
@@ -154,18 +146,14 @@ export function TripDetail({ trip }: TripDetailProps) {
                 <span className="text-xs text-[#FACC15] uppercase tracking-widest block font-bold">
                   THE TRIP IN NUMBERS
                 </span>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
-                  <div className="border-r border-white/10 pr-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                  <div className="border-b sm:border-b-0 sm:border-r border-white/10 pb-2 sm:pb-0 pr-2">
                     <span className="text-2xl font-bold text-[#FACC15] block font-mono">{trip.durationDays}</span>
                     <span className="text-[11px] text-[#e6ded1] font-bold uppercase">DAYS</span>
                   </div>
-                  <div className="border-r border-white/10 pr-2">
-                    <span className="text-2xl font-bold text-[#FACC15] block font-mono">{trip.maxGroupSize}</span>
-                    <span className="text-[11px] text-[#e6ded1] font-bold uppercase">MAX CAP</span>
-                  </div>
-                  <div className="border-r border-white/10 pr-2">
+                  <div className="border-b sm:border-b-0 sm:border-r border-white/10 pb-2 sm:pb-0 pr-2">
                     <span className="text-2xl font-bold text-[#FACC15] block font-mono">₹{trip.bookingAmount}</span>
-                    <span className="text-[11px] text-[#e6ded1] font-bold uppercase">DEPOSIT</span>
+                    <span className="text-[11px] text-[#e6ded1] font-bold uppercase">HOLD DEPOSIT</span>
                   </div>
                   <div>
                     <span className="text-2xl font-bold text-[#FACC15] block font-sans uppercase">
