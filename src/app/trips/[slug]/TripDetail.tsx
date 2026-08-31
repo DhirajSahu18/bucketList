@@ -115,17 +115,9 @@ export function TripDetail({ trip }: TripDetailProps) {
               </span>
             </div>
             <div>
-              <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">
-                {trip.tripType === "private" ? "TYPE" : "SEATS"}
-              </span>
-              <span className="font-extrabold text-[#8c4a2f]">
-                {trip.tripType === "private"
-                  ? "Private Group"
-                  : status === "sold-out"
-                  ? "Sold Out"
-                  : status === "past"
-                  ? "Completed"
-                  : `${trip.seatsRemaining} of ${trip.maxGroupSize} left`}
+              <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">GROUP SIZE</span>
+              <span className="font-extrabold text-[#1c1917]">
+                {trip.tripType === "private" ? "Private Group" : `Up to ${trip.maxGroupSize} pax`}
               </span>
             </div>
             <div>
@@ -176,10 +168,10 @@ export function TripDetail({ trip }: TripDetailProps) {
                     <span className="text-[11px] text-[#e6ded1] font-bold uppercase">DEPOSIT</span>
                   </div>
                   <div>
-                    <span className="text-2xl font-bold text-[#FACC15] block font-mono">
-                      {status === "sold-out" ? "0" : status === "past" ? "0" : trip.seatsRemaining}
+                    <span className="text-2xl font-bold text-[#FACC15] block font-sans uppercase">
+                      {trip.tripType === "private" ? "Private" : "Community"}
                     </span>
-                    <span className="text-[11px] text-[#e6ded1] font-bold uppercase">SEATS LEFT</span>
+                    <span className="text-[11px] text-[#e6ded1] font-bold uppercase">TRIP STYLE</span>
                   </div>
                 </div>
               </div>

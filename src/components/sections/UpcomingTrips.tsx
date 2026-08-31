@@ -83,7 +83,14 @@ export function UpcomingTrips() {
                     <div className="pt-5 border-t border-[#e6ded1] space-y-4 font-sans">
                       <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#4e473e] font-semibold">
                         <span>Dates: {formatDateRange(featuredTrip.dates.start, featuredTrip.dates.end)}</span>
-                        <span>Leader: <strong className="text-[#1c1917]">{featuredTrip.founder.name}</strong></span>
+                        <span>
+                          Leader:{" "}
+                          <strong className="text-[#1c1917]">
+                            {featuredTrip.foundersList && featuredTrip.foundersList.length > 1
+                              ? featuredTrip.foundersList.map((f) => f.name.split(" ")[0]).join(" & ")
+                              : featuredTrip.founder.name}
+                          </strong>
+                        </span>
                       </div>
 
                       <div className="flex items-center justify-between gap-3">

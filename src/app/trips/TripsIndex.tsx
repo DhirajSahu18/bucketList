@@ -137,6 +137,16 @@ export function TripsIndex() {
                         {featuredTrip.name}
                       </h2>
 
+                      {/* Leaders Indicator */}
+                      <p className="text-[11px] text-[#4e473e] font-semibold flex items-center gap-1.5">
+                        <span>👤 Leaders:</span>
+                        <strong className="text-[#1c1917]">
+                          {featuredTrip.foundersList && featuredTrip.foundersList.length > 1
+                            ? featuredTrip.foundersList.map((f) => f.name.split(" ")[0]).join(" & ")
+                            : featuredTrip.founder.name}
+                        </strong>
+                      </p>
+
                       <p className="text-xs text-[#4e473e] leading-relaxed line-clamp-3 font-normal">
                         {featuredTrip.summary}
                       </p>

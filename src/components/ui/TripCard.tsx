@@ -67,6 +67,16 @@ export function TripCard({ trip }: TripCardProps) {
             </p>
           )}
 
+          {/* Leaders Indicator */}
+          <p className="text-[11px] text-[#4e473e] font-semibold flex items-center gap-1.5">
+            <span>👤 Leaders:</span>
+            <strong className="text-[#1c1917]">
+              {trip.foundersList && trip.foundersList.length > 1
+                ? trip.foundersList.map((f) => f.name.split(" ")[0]).join(" & ")
+                : trip.founder.name}
+            </strong>
+          </p>
+
           {/* Summary Description */}
           <p className="text-xs text-[#4e473e] line-clamp-2 leading-relaxed font-sans font-normal">
             {trip.summary}
