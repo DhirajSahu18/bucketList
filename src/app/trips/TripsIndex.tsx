@@ -112,16 +112,31 @@ export function TripsIndex() {
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
                   <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto min-h-[300px] bg-[#faf7f2]">
-                    <div
-                      className={`absolute inset-0 transition-transform duration-700 group-hover:scale-105 ${
-                        featuredTrip.heroImage.includes("himachal-new-year/Cover")
-                          ? "bg-[length:100%_auto] bg-[position:center_78%] bg-no-repeat lg:bg-cover lg:bg-[position:center_78%]"
-                          : "bg-cover bg-center"
-                      }`}
-                      style={{
-                        backgroundImage: `url('${featuredTrip.heroImage}')`,
-                      }}
-                    />
+                    {featuredTrip.heroImage.includes("himachal-new-year") ? (
+                      <>
+                        {/* Mobile: 16:9 cover_mobile */}
+                        <div
+                          className="lg:hidden absolute inset-0 bg-[length:100%_auto] bg-no-repeat bg-[position:center_85%] transition-transform duration-700 group-hover:scale-105"
+                          style={{
+                            backgroundImage: `url('/images/himachal-new-year/cover_mobile.png')`,
+                          }}
+                        />
+                        {/* Desktop: Cover.jpg */}
+                        <div
+                          className="hidden lg:block absolute inset-0 bg-cover bg-[position:center_78%] transition-transform duration-700 group-hover:scale-105"
+                          style={{
+                            backgroundImage: `url('${featuredTrip.heroImage}')`,
+                          }}
+                        />
+                      </>
+                    ) : (
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                        style={{
+                          backgroundImage: `url('${featuredTrip.heroImage}')`,
+                        }}
+                      />
+                    )}
                     <div className="absolute top-4 left-4 px-3 py-1 bg-[#1c1917] text-[#FACC15] text-xs font-sans font-extrabold uppercase rounded-xs">
                       Flagship Expedition
                     </div>

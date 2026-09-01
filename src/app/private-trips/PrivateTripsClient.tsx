@@ -145,14 +145,29 @@ export function PrivateTripsClient({ privateTripExamples, whatsappUrl }: Private
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
                   <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto min-h-[340px] bg-[#1c1917]">
-                    <Image
-                      src={featuredRoute.image}
-                      alt={featuredRoute.title}
-                      fill
-                      className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
-                        featuredRoute.image.includes("himachal") ? "object-[center_78%]" : "object-center"
-                      }`}
-                    />
+                    {featuredRoute.image.includes("himachal") ? (
+                      <>
+                        <Image
+                          src="/images/himachal-new-year/cover_mobile.png"
+                          alt={featuredRoute.title}
+                          fill
+                          className="lg:hidden object-cover object-[68%_85%] transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <Image
+                          src={featuredRoute.image}
+                          alt={featuredRoute.title}
+                          fill
+                          className="hidden lg:block object-cover object-[center_78%] transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </>
+                    ) : (
+                      <Image
+                        src={featuredRoute.image}
+                        alt={featuredRoute.title}
+                        fill
+                        className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      />
+                    )}
                     <div className="absolute top-4 left-4 px-3 py-1 bg-[#1c1917] text-[#FACC15] text-xs font-sans font-extrabold uppercase rounded-xs shadow-md">
                       Featured Custom Route
                     </div>
@@ -220,14 +235,29 @@ export function PrivateTripsClient({ privateTripExamples, whatsappUrl }: Private
               >
                 <div className="space-y-4">
                   <div className="relative aspect-[16/10] bg-[#1c1917] w-full overflow-hidden shrink-0">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
-                        item.image.includes("himachal") ? "object-[center_78%]" : "object-center"
-                      }`}
-                    />
+                    {item.image.includes("himachal") ? (
+                      <>
+                        <Image
+                          src="/images/himachal-new-year/cover_mobile.png"
+                          alt={item.title}
+                          fill
+                          className="md:hidden object-cover object-[68%_85%] transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className="hidden md:block object-cover object-[center_78%] transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </>
+                    ) : (
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      />
+                    )}
                     <div className="absolute bottom-2 left-2 bg-[#1c1917]/90 text-[#FAF7F2] text-[11px] px-2.5 py-1 rounded-xs font-extrabold">
                       {item.duration} &middot; {item.idealGroup}
                     </div>

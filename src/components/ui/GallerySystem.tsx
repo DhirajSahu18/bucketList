@@ -59,6 +59,9 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
   };
 
   const getImagePositionClass = (src: string) => {
+    if (src.includes("himachal-new-year/cover_mobile")) {
+      return "object-cover object-[68%_85%]";
+    }
     if (src.includes("himachal-new-year/Cover")) {
       return "object-cover object-[center_78%]";
     }
@@ -113,24 +116,28 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
       {/* Mobile Intentional Single-Hero Image Carousel */}
       <div className="block md:hidden">
         <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-2">
-          {images.map((img, idx) => (
-            <div
-              key={idx}
-              onClick={() => openLightbox(idx)}
-              className="snap-center shrink-0 w-full relative aspect-[16/10] rounded-sm overflow-hidden bg-[#1c1917] cursor-pointer"
-            >
-              <Image
-                src={img}
-                alt={`${tripName} photo ${idx + 1}`}
-                fill
-                className={getImagePositionClass(img)}
-                priority={idx === 0}
-              />
-              <div className="absolute bottom-2 right-2 px-2.5 py-1 bg-black/80 text-white font-sans text-[10px] rounded-xs font-semibold z-10">
-                {idx + 1} / {images.length}
+          {images.map((img, idx) => {
+            const isHimachalNYCover = img.includes("himachal-new-year/Cover");
+            const mobileSrc = (idx === 0 && isHimachalNYCover) ? "/images/himachal-new-year/cover_mobile.png" : img;
+            return (
+              <div
+                key={idx}
+                onClick={() => openLightbox(idx)}
+                className="snap-center shrink-0 w-full relative aspect-[16/10] rounded-sm overflow-hidden bg-[#1c1917] cursor-pointer"
+              >
+                <Image
+                  src={mobileSrc}
+                  alt={`${tripName} photo ${idx + 1}`}
+                  fill
+                  className={getImagePositionClass(mobileSrc)}
+                  priority={idx === 0}
+                />
+                <div className="absolute bottom-2 right-2 px-2.5 py-1 bg-black/80 text-white font-sans text-[10px] rounded-xs font-semibold z-10">
+                  {idx + 1} / {images.length}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

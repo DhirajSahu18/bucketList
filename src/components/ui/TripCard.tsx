@@ -16,16 +16,31 @@ export function TripCard({ trip }: TripCardProps) {
     >
       {/* Editorial Cover Image */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#faf7f2] shrink-0">
-        <div
-          className={`absolute inset-0 transition-transform duration-700 group-hover:scale-105 ${
-            trip.heroImage.includes("himachal-new-year/Cover")
-              ? "bg-[length:100%_auto] bg-[position:center_78%] bg-no-repeat md:bg-cover md:bg-[position:center_78%]"
-              : "bg-cover bg-center"
-          }`}
-          style={{
-            backgroundImage: `url('${trip.heroImage}')`,
-          }}
-        />
+        {trip.heroImage.includes("himachal-new-year") ? (
+          <>
+            {/* Mobile: 16:9 cover_mobile */}
+            <div
+              className="md:hidden absolute inset-0 bg-[length:100%_auto] bg-no-repeat bg-[position:center_85%] transition-transform duration-700 group-hover:scale-105"
+              style={{
+                backgroundImage: `url('/images/himachal-new-year/cover_mobile.png')`,
+              }}
+            />
+            {/* Desktop: Cover.jpg */}
+            <div
+              className="hidden md:block absolute inset-0 bg-cover bg-[position:center_78%] transition-transform duration-700 group-hover:scale-105"
+              style={{
+                backgroundImage: `url('${trip.heroImage}')`,
+              }}
+            />
+          </>
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+            style={{
+              backgroundImage: `url('${trip.heroImage}')`,
+            }}
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917]/70 via-[#1c1917]/10 to-transparent" />
         
         {/* Batch Tag / Priority Badge */}
