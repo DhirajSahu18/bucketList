@@ -150,7 +150,7 @@ export function PrivateTripsClient({ privateTripExamples, whatsappUrl }: Private
                       alt={featuredRoute.title}
                       fill
                       className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
-                        featuredRoute.image.includes("himachal") ? "object-[center_78%]" : "object-center"
+                        featuredRoute.image.includes("himachal") ? "object-[center_75%] md:object-[center_78%]" : "object-center"
                       }`}
                     />
                     <div className="absolute top-4 left-4 px-3 py-1 bg-[#1c1917] text-[#FACC15] text-xs font-sans font-extrabold uppercase rounded-xs shadow-md">
@@ -225,7 +225,7 @@ export function PrivateTripsClient({ privateTripExamples, whatsappUrl }: Private
                       alt={item.title}
                       fill
                       className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
-                        item.image.includes("himachal") ? "object-[center_78%]" : "object-center"
+                        item.image.includes("himachal") ? "object-[center_75%] md:object-[center_78%]" : "object-center"
                       }`}
                     />
                     <div className="absolute bottom-2 left-2 bg-[#1c1917]/90 text-[#FAF7F2] text-[11px] px-2.5 py-1 rounded-xs font-extrabold">
