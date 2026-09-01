@@ -17,10 +17,10 @@ export function TripCard({ trip }: TripCardProps) {
       {/* Editorial Cover Image */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#faf7f2] shrink-0">
         <div
-          className={`absolute inset-0 bg-cover transition-transform duration-700 group-hover:scale-105 ${
+          className={`absolute inset-0 transition-transform duration-700 group-hover:scale-105 ${
             trip.heroImage.includes("himachal-new-year/Cover")
-              ? "bg-[position:center_78%]"
-              : "bg-center"
+              ? "bg-[length:100%_auto] bg-[position:center_78%] bg-no-repeat md:bg-cover md:bg-[position:center_78%]"
+              : "bg-cover bg-center"
           }`}
           style={{
             backgroundImage: `url('${trip.heroImage}')`,
