@@ -844,8 +844,8 @@ export const trips: Trip[] = [
     maxGroupSize: 25,
     seatsBooked: 14,
     seatsRemaining: 11,
-    founder: founders[1],
-    founderId: "founder-2",
+    founder: founders[0],
+    founderId: "founder-1",
     founderNote: {
       author: "Bucketlist Team",
       text: "Explore the beauty of Kerala, 'God's Own Country,' on an unforgettable 7-day journey filled with hills, backwaters, beaches, culture, and fun. From scenic train rides and Munnar tea gardens to private Alleppey houseboat cruising, Jatayu Earth Center, Varkala sunset, and Padmanabhaswamy Temple Darshan.",

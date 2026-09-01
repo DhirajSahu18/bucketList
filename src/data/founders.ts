@@ -30,10 +30,10 @@ export const founders: Founder[] = [
     shortBio: "Experience lead managing boutique stay partnerships, group dynamics, and journey details.",
     experience: "4 years",
     groupsLedCount: 38,
-    region: "India (Himachal, Uttarakhand, Goa) · International (Bali, Hong Kong, Vietnam, Singapore, Malaysia)",
+    region: "India (Himachal, Uttarakhand, Goa) · International (Bali, Hong Kong, Vietnam, Singapore, Malaysia, Sri Lanka, Thailand)",
     travelExperience: {
       india: ["Himachal Pradesh", "Uttarakhand", "Goa"],
-      international: ["Bali", "Hong Kong", "Vietnam", "Singapore", "Malaysia"],
+      international: ["Bali", "Hong Kong", "Vietnam", "Singapore", "Malaysia", "Sri Lanka", "Thailand"],
     },
     statement:
       "I make sure our stays, local food spots, and group coordination are sorted before you arrive.",

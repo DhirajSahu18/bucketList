@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { siteSettings } from "@/data/site-settings";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppLink } from "@/lib/utils";
@@ -9,8 +10,21 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[85vh] flex items-center pt-24 pb-16 overflow-hidden bg-[#1c1917] text-[#faf7f2]">
-      {/* Autoplay Muted Loop Background Video with Poster Fallback */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      {/* Mobile Static Background Image (<768px): Fast, zero-lag, no video download */}
+      <div className="md:hidden absolute inset-0 z-0 overflow-hidden">
+        <Image
+          src="/images/branding/hero-mobile.jpg"
+          alt="Himalayan mountain sunset"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_55%] brightness-[0.38]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917] via-[#1c1917]/55 to-transparent" />
+      </div>
+
+      {/* Desktop Autoplay Muted Loop Background Video (>=768px) */}
+      <div className="hidden md:block absolute inset-0 z-0 overflow-hidden">
         <video
           autoPlay
           muted
@@ -20,10 +34,6 @@ export function Hero() {
           poster="/images/branding/brand_group_mountains.jpg"
           className="absolute inset-0 w-full h-full object-cover brightness-[0.35] scale-105"
         >
-          {/* Mobile Portrait Video Source */}
-          <source src="/videos/hero_mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
-          {/* Desktop Landscape Video Source */}
-          <source src="/videos/hero_bg.mp4" media="(min-width: 769px)" type="video/mp4" />
           <source src="/videos/hero_bg.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917] via-[#1c1917]/55 to-transparent" />
