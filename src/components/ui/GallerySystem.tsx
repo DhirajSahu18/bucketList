@@ -58,6 +58,16 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
     touchStartX.current = null;
   };
 
+  const getImagePositionClass = (src: string) => {
+    if (src.includes("himachal-new-year/Cover")) {
+      return "object-cover object-[center_78%]";
+    }
+    if (src.includes("goa/goa2")) {
+      return "object-cover object-[center_78%]";
+    }
+    return "object-cover object-center";
+  };
+
   return (
     <div className="space-y-4">
       {/* Desktop Grid Layout (Hero + 2 Stacked) */}
@@ -71,7 +81,7 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
             src={images[0]}
             alt={`${tripName} hero visual`}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className={`${getImagePositionClass(images[0])} transition-transform duration-500 group-hover:scale-105`}
             priority
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
@@ -92,7 +102,7 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
                 src={img}
                 alt={`${tripName} photo ${idx + 2}`}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className={`${getImagePositionClass(img)} transition-transform duration-500 group-hover:scale-105`}
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
             </div>
@@ -113,7 +123,7 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
                 src={img}
                 alt={`${tripName} photo ${idx + 1}`}
                 fill
-                className="object-cover"
+                className={getImagePositionClass(img)}
               />
               <div className="absolute bottom-2 right-2 px-2.5 py-1 bg-black/80 text-white font-sans text-[10px] rounded-xs font-semibold">
                 {idx + 1} / {images.length}

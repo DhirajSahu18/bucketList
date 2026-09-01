@@ -113,8 +113,11 @@ export function TripsIndex() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
                   <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto min-h-[300px]">
                     <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                      style={{ backgroundImage: `url('${featuredTrip.heroImage}')` }}
+                      className="absolute inset-0 bg-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{
+                        backgroundImage: `url('${featuredTrip.heroImage}')`,
+                        backgroundPosition: featuredTrip.heroImage.includes("himachal-new-year/Cover") ? "center 78%" : "center center",
+                      }}
                     />
                     <div className="absolute top-4 left-4 px-3 py-1 bg-[#1c1917] text-[#FACC15] text-xs font-sans font-extrabold uppercase rounded-xs">
                       Flagship Expedition

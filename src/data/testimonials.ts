@@ -45,7 +45,7 @@ export const testimonials: Testimonial[] = [
     source: "instagram",
     sourceLabel: "Instagram Story",
     type: "instagram_story",
-    image: "/images/trips/himachal-group-snow.jpg",
+    image: "/images/himachal-new-year/Cover.jpg",
     featured: true,
   },
   {
@@ -90,7 +90,7 @@ export const testimonials: Testimonial[] = [
     source: "instagram",
     sourceLabel: "Photo Post",
     type: "photo_post",
-    image: "/images/trips/himachal-dharamshala.jpg",
+    image: "/images/himachal-new-year/IMG_0443.jpg",
     featured: true,
   },
   {

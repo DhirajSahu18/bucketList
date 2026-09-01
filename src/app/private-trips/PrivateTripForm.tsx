@@ -1,22 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppLink } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 
-export function PrivateTripForm() {
+interface PrivateTripFormProps {
+  initialDestination?: string;
+}
+
+export function PrivateTripForm({ initialDestination }: PrivateTripFormProps = {}) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
-    destination: "Himachal & Manali",
+    destination: initialDestination || "Himachal & Manali",
     preferredDates: "",
     numberOfTravellers: "5-8",
     approximateBudget: "₹15,000 – ₹25,000 / person",
     additionalNotes: "",
     honeypot: "",
   });
+
+  useEffect(() => {
+    if (initialDestination) {
+      setFormData((prev) => ({ ...prev, destination: initialDestination }));
+    }
+  }, [initialDestination]);
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);

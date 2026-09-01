@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Community travel expeditions across Himachal, Uttarakhand, Kerala, Goa, and Gokarna. Well-planned trips with zero on-ground hassle.",
     images: [
       {
-        url: "/images/trips/himachal-hero.jpg",
+        url: "/images/himachal-new-year/Cover.jpg",
         width: 1200,
         height: 630,
         alt: "Bucketlist community travellers on a mountain expedition",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "Bucketlist — Community Trips Across India",
     description:
       "Well-planned community trips across Himachal, Uttarakhand, Kerala, Goa, and Gokarna.",
-    images: ["/images/trips/himachal-hero.jpg"],
+    images: ["/images/himachal-new-year/Cover.jpg"],
   },
   robots: {
     index: true,

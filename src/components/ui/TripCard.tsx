@@ -17,8 +17,11 @@ export function TripCard({ trip }: TripCardProps) {
       {/* Editorial Cover Image */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#faf7f2] shrink-0">
         <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-          style={{ backgroundImage: `url('${trip.heroImage}')` }}
+          className="absolute inset-0 bg-cover transition-transform duration-700 group-hover:scale-105"
+          style={{
+            backgroundImage: `url('${trip.heroImage}')`,
+            backgroundPosition: trip.heroImage.includes("himachal-new-year/Cover") ? "center 78%" : "center center",
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917]/70 via-[#1c1917]/10 to-transparent" />
         

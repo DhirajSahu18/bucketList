@@ -10,7 +10,7 @@ export const privateTripExamples: PrivateTripExample[] = [
     indicativePrice: "From ₹16,500 / person",
     description:
       "A custom Himachal road trip on your dates. Choose your pace across Manali, Kasol, and Solang Valley. Bucketlist team handles private transit, stays, and campfire events.",
-    image: "/images/trips/himachal-hero.jpg",
+    image: "/images/himachal-new-year/Cover.jpg",
   },
   {
     id: "pvt-2",
@@ -21,7 +21,7 @@ export const privateTripExamples: PrivateTripExample[] = [
     indicativePrice: "Pricing on request",
     description:
       "A private coastal journey across North & South Goa — private luxury villa stay, heritage Latin Quarter walk in Fontainhas, sunset cruises, and secluded beach hopping.",
-    image: "/images/trips/goa-hero.jpg",
+    image: "/images/goa/Cover.jpg",
   },
   {
     id: "pvt-3",
@@ -32,7 +32,7 @@ export const privateTripExamples: PrivateTripExample[] = [
     indicativePrice: "Pricing on request",
     description:
       "Cliffside beach trek connecting Kudle & Om Beach, ancient Mahabaleshwar temple darshan, and private mangrove boat ride in Honnavar backwaters.",
-    image: "/images/trips/gokarna-hero.jpg",
+    image: "/images/gokarna/Cover.jpg",
   },
   {
     id: "pvt-4",
@@ -43,7 +43,7 @@ export const privateTripExamples: PrivateTripExample[] = [
     indicativePrice: "Pricing on request",
     description:
       "A custom Rajasthan desert and palace journey — City Palace Udaipur boat rides, Sajjangarh sunsets, Jaisalmer Fort, Patwon Ki Haveli, and Thar desert camping.",
-    image: "/images/trips/rajasthan-hero.jpg",
+    image: "/images/rajasthan/Cover.jpg",
   },
   {
     id: "pvt-5",
@@ -54,6 +54,6 @@ export const privateTripExamples: PrivateTripExample[] = [
     indicativePrice: "From ₹22,500 / person",
     description:
       "A private Kerala journey — Fort Kochi heritage walks, Munnar tea plantation stays, Jatayu Earth Center, and floating on an authentic private deluxe houseboat in Alleppey.",
-    image: "/images/trips/private-roadtrip-convoy.jpg",
+    image: "/images/kerala/Cover.jpg",
   },
 ];
