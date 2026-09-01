@@ -85,7 +85,18 @@ export function UpcomingTrips() {
 
                     <div className="pt-5 border-t border-[#e6ded1] space-y-4 font-sans">
                       <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#4e473e] font-semibold">
-                        <span>Dates: {formatDateRange(featuredTrip.dates.start, featuredTrip.dates.end)}</span>
+                        {featuredTrip.departureDates && featuredTrip.departureDates.length > 1 ? (
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span>Batches:</span>
+                            {featuredTrip.departureDates.map((b, i) => (
+                              <span key={i} className="bg-[#FAF7F2] border border-[#e6ded1] px-2 py-0.5 rounded-xs text-[#1c1917] font-bold">
+                                {b.label ? `${b.label}: ` : ""}{formatDateRange(b.start, b.end)}
+                              </span>
+                            ))}
+                          </div>
+                        ) : (
+                          <span>Dates: {formatDateRange(featuredTrip.dates.start, featuredTrip.dates.end)}</span>
+                        )}
                         <span>
                           Leader:{" "}
                           <strong className="text-[#1c1917]">

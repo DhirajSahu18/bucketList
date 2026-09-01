@@ -64,6 +64,18 @@ export function TripCard({ trip }: TripCardProps) {
             <p className="text-xs text-[#8c4a2f] font-extrabold">
               ✨ Custom Dates for Your Group
             </p>
+          ) : trip.departureDates && trip.departureDates.length > 1 ? (
+            <div className="space-y-1 text-xs text-[#4e473e]">
+              {trip.departureDates.map((b, i) => (
+                <p key={i} className="font-semibold flex items-center gap-1.5">
+                  <span>📅</span>
+                  <span>
+                    <strong className="text-[#1c1917] font-extrabold">{b.label ? `${b.label}: ` : ""}</strong>
+                    {formatDateRange(b.start, b.end)}
+                  </span>
+                </p>
+              ))}
+            </div>
           ) : (
             <p className="text-xs text-[#4e473e] font-semibold">
               📅 {formatDateRange(trip.dates.start, trip.dates.end)}

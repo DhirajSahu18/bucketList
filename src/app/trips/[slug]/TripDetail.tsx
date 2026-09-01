@@ -7,9 +7,78 @@ import { formatPrice, formatDateRange, getWhatsAppLink, getTripStatus } from "@/
 import { Button } from "@/components/ui/Button";
 import { GallerySystem } from "@/components/ui/GallerySystem";
 import { trackEvent } from "@/lib/analytics";
+import { CANONICAL_CANCELLATION_POLICY } from "@/data/cancellationPolicy";
 
 interface TripDetailProps {
   trip: Trip;
+}
+
+function parseItineraryDay(dayNumber: number, rawTitle: string) {
+  // Strip "Day X — " or "DAY X — " or "Day X: "
+  const text = rawTitle.replace(/^(?:Day|DAY)\s*\d+\s*(?:—|-|:)\s*/i, "").trim();
+
+  let dateStr = "";
+  let routeTitle = text;
+
+  // Check for trailing parentheses date like "(4 DEC / 20 JAN)" or "(4 DEC)"
+  const parenMatch = text.match(/\(([^)]*(?:JAN|FEB|MAR|APR|MAY|JUN|JUL|JULY|AUG|AUGUST|SEP|SEPT|OCT|NOV|DEC)[^)]*)\)$/i);
+  if (parenMatch) {
+    dateStr = parenMatch[1].trim();
+    routeTitle = text.slice(0, parenMatch.index).trim();
+  } else {
+    // Check for leading date with colon like "29th DEC: Mumbai..." or "13 JULY: MUMBAI..." or "5 OCT: MUMBAI..."
+    const colonMatch = text.match(/^([^:]*(?:JAN|FEB|MAR|APR|MAY|JUN|JUL|JULY|AUG|AUGUST|SEP|SEPT|OCT|NOV|DEC)[^:]*):(.*)$/i);
+    if (colonMatch) {
+      dateStr = colonMatch[1].trim();
+      routeTitle = colonMatch[2].trim();
+    }
+  }
+
+  const paddedDay = dayNumber < 10 ? `DAY 0${dayNumber}` : `DAY ${dayNumber}`;
+
+  return {
+    dayLabel: paddedDay,
+    date: dateStr,
+    title: routeTitle || text,
+  };
+}
+
+function formatItineraryBullets(description: string): { type: "bullet" | "protip"; text: string }[] {
+  const lines = description.split("\n").map((l) => l.trim()).filter(Boolean);
+  const bullets: { type: "bullet" | "protip"; text: string }[] = [];
+
+  for (const line of lines) {
+    if (
+      line.startsWith("PRO TIP:") ||
+      line.startsWith("Pro Tip:") ||
+      line.startsWith("NOTE:") ||
+      line.startsWith("Note:")
+    ) {
+      bullets.push({ type: "protip", text: line });
+      continue;
+    }
+
+    // Split sentences while protecting abbreviations like "approx.", "St.", "mins.", "hrs."
+    const cleanedLine = line
+      .replace(/\bapprox\./gi, "approx")
+      .replace(/\bSt\./g, "St")
+      .replace(/\bmins\./gi, "mins")
+      .replace(/\bhrs\./gi, "hrs");
+
+    const sentences = cleanedLine
+      .split(/(?<=[.!?])\s+(?=[A-Z0-9"'([•])/g)
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    for (const s of sentences) {
+      const cleaned = s.replace(/^[•\-\*]\s*/, "");
+      if (cleaned) {
+        bullets.push({ type: "bullet", text: cleaned });
+      }
+    }
+  }
+
+  return bullets;
 }
 
 export function TripDetail({ trip }: TripDetailProps) {
@@ -95,10 +164,29 @@ export function TripDetail({ trip }: TripDetailProps) {
               <span className="font-extrabold">{trip.destination.name}</span>
             </div>
             <div>
-              <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">WHEN</span>
-              <span className="font-extrabold">
-                {trip.tripType === "private" ? "Custom Dates" : formatDateRange(trip.dates.start, trip.dates.end)}
-              </span>
+              <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold mb-1">WHEN</span>
+              {trip.tripType === "private" ? (
+                <span className="font-extrabold">Custom Dates</span>
+              ) : trip.departureDates && trip.departureDates.length > 1 ? (
+                <div className="space-y-1.5">
+                  {trip.departureDates.map((b, i) => (
+                    <div key={i} className="leading-tight">
+                      {b.label && (
+                        <span className="text-[9px] text-[#8c4a2f] font-extrabold uppercase tracking-wider block">
+                          {b.label}
+                        </span>
+                      )}
+                      <span className="font-extrabold text-[#1c1917] block">
+                        {formatDateRange(b.start, b.end)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <span className="font-extrabold">
+                  {formatDateRange(trip.dates.start, trip.dates.end)}
+                </span>
+              )}
             </div>
             <div>
               <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold">DURATION</span>
@@ -200,56 +288,132 @@ export function TripDetail({ trip }: TripDetailProps) {
                   </button>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {trip.itinerary.map((day) => {
                     const isOpen = openDays.includes(day.day);
+                    const parsed = parseItineraryDay(day.day, day.title);
+
                     return (
                       <div
                         key={day.day}
-                        className="bg-white border border-[#e6ded1] rounded-sm overflow-hidden"
+                        className="bg-white border border-[#e6ded1] rounded-sm overflow-hidden transition-all duration-200 hover:border-[#1c1917] shadow-2xs"
                       >
                         <button
                           onClick={() => toggleDay(day.day)}
                           aria-expanded={isOpen}
                           aria-controls={`itinerary-day-${day.day}`}
-                          className="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-[#faf7f2] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FACC15]"
+                          className="w-full p-5 sm:p-6 text-left hover:bg-[#faf7f2]/60 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FACC15] block"
                         >
-                          <div className="flex items-center gap-3">
-                            <span className="w-8 h-8 rounded bg-[#1c1917] text-[#FACC15] font-sans text-xs font-bold flex items-center justify-center shrink-0">
-                              D{day.day}
-                            </span>
-                            <div>
-                              <h3 className="font-sans text-base sm:text-lg font-extrabold text-[#1c1917]">
-                                {day.title}
-                              </h3>
-                              <span className="text-xs text-[#8c4a2f] font-semibold">
-                                {day.location} &middot; Stay: {day.stay}
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="space-y-2.5 flex-1 min-w-0">
+                              {/* Day Pointer & Date Milestone Header */}
+                              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-sans">
+                                <span className="text-xs sm:text-sm font-extrabold text-[#8c4a2f] uppercase tracking-wider font-mono">
+                                  {parsed.dayLabel}
+                                </span>
+                                {parsed.date && (
+                                  <>
+                                    <span className="text-xs text-[#8c4a2f]/40 font-bold hidden sm:inline">&bull;</span>
+                                    <span className="text-xs sm:text-sm font-extrabold text-[#1c1917] tracking-tight bg-[#FAF7F2] border border-[#e6ded1] px-2.5 py-0.5 rounded-xs shadow-2xs">
+                                      {parsed.date}
+                                    </span>
+                                  </>
+                                )}
+                              </div>
+
+                              {/* Yellow Accent Visual Pointer Divider */}
+                              <div className="flex items-center gap-2">
+                                <div className="h-0.5 w-12 sm:w-16 bg-[#FACC15]" />
+                                <div className="h-1.5 w-1.5 rounded-full bg-[#1c1917]" />
+                              </div>
+
+                              {/* Prominent Route / Day Title */}
+                              <div className="space-y-1 pt-0.5">
+                                <h3 className="font-sans text-base sm:text-xl font-extrabold text-[#1c1917] leading-snug tracking-tight">
+                                  {parsed.title}
+                                </h3>
+                                <p className="text-xs sm:text-sm text-[#8c4a2f] font-semibold flex flex-wrap items-center gap-x-2.5 gap-y-0.5">
+                                  <span>📍 {day.location}</span>
+                                  {day.stay && (
+                                    <>
+                                      <span className="text-[#8c4a2f]/40 hidden sm:inline">&middot;</span>
+                                      <span>🏨 Stay: <strong className="text-[#1c1917] font-bold">{day.stay}</strong></span>
+                                    </>
+                                  )}
+                                  {day.meals && (
+                                    <>
+                                      <span className="text-[#8c4a2f]/40 hidden sm:inline">&middot;</span>
+                                      <span>🍽️ Meals: <strong className="text-[#1c1917] font-bold">{day.meals}</strong></span>
+                                    </>
+                                  )}
+                                </p>
+                              </div>
+                            </div>
+
+                            {/* Expand / Collapse Indicator Button */}
+                            <div className="shrink-0 pt-1">
+                              <span
+                                className={`w-8 h-8 rounded-full border flex items-center justify-center font-mono text-sm font-bold transition-all duration-200 ${
+                                  isOpen
+                                    ? "bg-[#1c1917] text-[#FACC15] border-[#1c1917] shadow-xs"
+                                    : "bg-[#FAF7F2] text-[#1c1917] border-[#e6ded1]"
+                                }`}
+                              >
+                                {isOpen ? "−" : "+"}
                               </span>
                             </div>
                           </div>
-                          <span className="text-lg text-[#1c1917] font-bold">
-                            {isOpen ? "−" : "+"}
-                          </span>
                         </button>
 
                         {isOpen && (
                           <div
                             id={`itinerary-day-${day.day}`}
-                            className="px-5 pb-5 pt-2 border-t border-[#e6ded1] space-y-3 text-sm text-[#1c1917]"
+                            className="px-5 sm:px-6 pb-6 pt-4 border-t border-[#e6ded1] space-y-5 bg-[#faf7f2]/25"
                           >
-                            <p className="leading-relaxed text-[#4e473e] font-sans font-normal">
-                              {day.description}
-                            </p>
-                            <div className="flex flex-wrap gap-2 pt-2">
-                              {day.activities.map((act, i) => (
-                                <span
-                                  key={i}
-                                  className="px-2.5 py-1 bg-[#faf7f2] border border-[#e6ded1] rounded-xs text-xs font-sans text-[#1c1917] font-medium"
-                                >
-                                  &bull; {act}
-                                </span>
-                              ))}
+                            {/* Detailed Itinerary Bullet Points */}
+                            <div className="space-y-2.5">
+                              <span className="text-[10px] uppercase text-[#8c4a2f] font-extrabold tracking-wider block">
+                                SCHEDULE &amp; ROUTE DETAILS
+                              </span>
+                              <ul className="space-y-2 text-xs sm:text-sm text-[#1c1917]/90 font-sans">
+                                {formatItineraryBullets(day.description).map((b, i) =>
+                                  b.type === "protip" ? (
+                                    <li
+                                      key={i}
+                                      className="p-3 bg-[#FACC15]/15 border-l-3 border-[#FACC15] text-[#1c1917] font-semibold rounded-r-xs text-xs sm:text-sm"
+                                    >
+                                      💡 {b.text}
+                                    </li>
+                                  ) : (
+                                    <li key={i} className="flex items-start gap-2.5 leading-relaxed">
+                                      <span className="text-[#FACC15] text-base leading-none shrink-0 select-none font-bold">
+                                        •
+                                      </span>
+                                      <span>{b.text}</span>
+                                    </li>
+                                  )
+                                )}
+                              </ul>
                             </div>
+
+                            {/* Structured Day Highlights & Activities */}
+                            {day.activities && day.activities.length > 0 && (
+                              <div className="space-y-2 pt-2 border-t border-[#e6ded1]/70">
+                                <span className="text-[10px] uppercase text-[#8c4a2f] font-extrabold tracking-wider block">
+                                  KEY HIGHLIGHTS
+                                </span>
+                                <div className="flex flex-wrap gap-2">
+                                  {day.activities.map((act, i) => (
+                                    <span
+                                      key={i}
+                                      className="px-2.5 py-1 bg-white border border-[#e6ded1] rounded-xs text-xs font-sans text-[#1c1917] font-semibold shadow-2xs"
+                                    >
+                                      ✓ {act}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
                           </div>
                         )}
                       </div>
@@ -444,9 +608,11 @@ export function TripDetail({ trip }: TripDetailProps) {
           tabIndex={-1}
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 focus:outline-none"
         >
-          <div className="bg-white border border-[#e6ded1] max-w-lg w-full p-6 sm:p-8 rounded-sm space-y-6 text-[#1c1917]">
-            <div className="flex items-center justify-between border-b border-[#e6ded1] pb-4">
-              <h3 className="font-sans text-xl font-extrabold">Cancellation & Refund Policy</h3>
+          <div className="bg-white border border-[#e6ded1] max-w-lg w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 rounded-sm space-y-5 text-[#1c1917]">
+            <div className="flex items-center justify-between border-b border-[#e6ded1] pb-3">
+              <h3 className="font-sans text-lg sm:text-xl font-extrabold">
+                {CANONICAL_CANCELLATION_POLICY.title}
+              </h3>
               <button
                 onClick={() => setShowRefundModal(false)}
                 aria-label="Close modal"
@@ -455,14 +621,68 @@ export function TripDetail({ trip }: TripDetailProps) {
                 &times;
               </button>
             </div>
-            <div className="space-y-3 text-xs font-sans text-[#4e473e] leading-relaxed">
-              <p><strong>30+ Days Before Departure:</strong> 100% deposit refund or 100% transfer credit to any future trip.</p>
-              <p><strong>15–29 Days Before Departure:</strong> 50% deposit refund or 100% transfer credit.</p>
-              <p><strong>Under 14 Days:</strong> Deposit non-refundable unless seat is filled by replacement joiner.</p>
-              <p><strong>Mountain Pass Closures:</strong> If passes are closed due to severe weather, founder leaders re-route with zero extra leader fees.</p>
+
+            {/* Canonical Schedule */}
+            <div className="bg-[#faf7f2] border border-[#e6ded1] p-4 rounded-sm space-y-3">
+              {CANONICAL_CANCELLATION_POLICY.schedule.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="space-y-0.5 pb-2.5 border-b border-[#e6ded1] last:border-b-0 last:pb-0"
+                >
+                  <span className="font-sans text-[11px] uppercase tracking-wider font-extrabold text-[#8c4a2f] block">
+                    • {item.period}
+                  </span>
+                  <p className="text-xs text-[#1c1917] leading-relaxed">
+                    {item.detail}
+                  </p>
+                </div>
+              ))}
             </div>
-            <div className="pt-4 border-t border-[#e6ded1] flex justify-end">
-              <Button onClick={() => setShowRefundModal(false)} variant="primary" size="sm" className="bg-[#1c1917] text-white font-bold">
+
+            {/* Important Notes */}
+            <div className="space-y-2">
+              <span className="text-[10px] font-sans font-extrabold text-[#8c4a2f] uppercase tracking-wider block">
+                IMPORTANT
+              </span>
+              <ul className="space-y-1.5 text-xs text-[#1c1917]">
+                {CANONICAL_CANCELLATION_POLICY.important.map((note, idx) => (
+                  <li key={idx} className="flex items-start gap-2 leading-relaxed">
+                    <span className="text-[#FACC15] select-none font-bold">•</span>
+                    <span>{note}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Important Points */}
+            <div className="space-y-2 pt-1 border-t border-[#e6ded1]/60">
+              <span className="text-[10px] font-sans font-extrabold text-[#8c4a2f] uppercase tracking-wider block">
+                IMPORTANT POINTS
+              </span>
+              <ul className="space-y-1.5 text-xs text-[#1c1917]/90">
+                {CANONICAL_CANCELLATION_POLICY.importantPoints.map((point, idx) => (
+                  <li key={idx} className="flex items-start gap-2 leading-relaxed">
+                    <span className="text-[#FACC15] select-none font-bold">•</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pt-3 border-t border-[#e6ded1] flex items-center justify-between gap-3">
+              <Link
+                href="/cancellation-policy"
+                target="_blank"
+                className="text-xs font-sans text-[#8c4a2f] underline hover:text-[#1c1917] font-semibold"
+              >
+                Read Full Legal Policy &rarr;
+              </Link>
+              <Button
+                onClick={() => setShowRefundModal(false)}
+                variant="primary"
+                size="sm"
+                className="bg-[#1c1917] text-white font-bold"
+              >
                 Understood
               </Button>
             </div>

@@ -326,8 +326,8 @@ Light breathable cotton wear, sunglasses, sun hat, comfortable walking shoes, li
     ],
     images: [
       "/images/rajasthan/Cover.jpg",
-      "/images/rajasthan/rajasthan-udaipur-lake-pichola.jpg",
-      "/images/rajasthan/rajasthan-jaisalmer-thar-desert.jpg",
+      "/images/rajasthan/rajasthan-udaipur.jpg",
+      "/images/rajasthan/rajasthan-jaisalmer.jpg",
     ],
     galleryMeta: [
       {
@@ -337,16 +337,16 @@ Light breathable cotton wear, sunglasses, sun hat, comfortable walking shoes, li
         alt: "Traveller posing in traditional palace archway in Rajasthan",
       },
       {
-        src: "/images/rajasthan/rajasthan-udaipur-lake-pichola.jpg",
-        type: "internet",
-        source: "Unsplash (Free Commercial License)",
-        alt: "Udaipur City Palace overlooking peaceful Lake Pichola at sunset",
+        src: "/images/rajasthan/rajasthan-udaipur.jpg",
+        type: "brand",
+        source: "Bucketlist Official Rajasthan Trip Photo",
+        alt: "Udaipur City Palace overlooking peaceful Lake Pichola with illuminated boat",
       },
       {
-        src: "/images/rajasthan/rajasthan-jaisalmer-thar-desert.jpg",
-        type: "internet",
-        source: "Unsplash (Free Commercial License)",
-        alt: "Jaisalmer Thar Desert golden sand dunes and camel safari",
+        src: "/images/rajasthan/rajasthan-jaisalmer.jpg",
+        type: "brand",
+        source: "Bucketlist Official Rajasthan Trip Photo",
+        alt: "Jaisalmer Fort and Thar Desert golden sunset with camels",
       },
     ],
   },

@@ -59,6 +59,11 @@ export interface Trip {
     start: string;
     end: string;
   };
+  departureDates?: {
+    label?: string;
+    start: string;
+    end: string;
+  }[];
   duration: string;
   durationDays: number;
   price: number;
