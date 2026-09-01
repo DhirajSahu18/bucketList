@@ -60,7 +60,7 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
 
   const getImagePositionClass = (src: string) => {
     if (src.includes("himachal-new-year/Cover")) {
-      return "object-cover object-center md:object-[center_78%]";
+      return "object-cover object-[center_78%]";
     }
     if (src.includes("goa/goa2")) {
       return "object-cover object-[center_78%]";
@@ -113,29 +113,24 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
       {/* Mobile Intentional Single-Hero Image Carousel */}
       <div className="block md:hidden">
         <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-2">
-          {images.map((img, idx) => {
-            const isHimachalNYCover = img.includes("himachal-new-year/Cover");
-            return (
-              <div
-                key={idx}
-                onClick={() => openLightbox(idx)}
-                className={`snap-center shrink-0 w-full relative ${
-                  isHimachalNYCover ? "aspect-[3/4] sm:aspect-[16/10]" : "aspect-[16/10]"
-                } rounded-sm overflow-hidden bg-[#1c1917] cursor-pointer`}
-              >
-                <Image
-                  src={img}
-                  alt={`${tripName} photo ${idx + 1}`}
-                  fill
-                  className={getImagePositionClass(img)}
-                  priority={idx === 0}
-                />
-                <div className="absolute bottom-2 right-2 px-2.5 py-1 bg-black/80 text-white font-sans text-[10px] rounded-xs font-semibold z-10">
-                  {idx + 1} / {images.length}
-                </div>
+          {images.map((img, idx) => (
+            <div
+              key={idx}
+              onClick={() => openLightbox(idx)}
+              className="snap-center shrink-0 w-full relative aspect-[16/10] rounded-sm overflow-hidden bg-[#1c1917] cursor-pointer"
+            >
+              <Image
+                src={img}
+                alt={`${tripName} photo ${idx + 1}`}
+                fill
+                className={getImagePositionClass(img)}
+                priority={idx === 0}
+              />
+              <div className="absolute bottom-2 right-2 px-2.5 py-1 bg-black/80 text-white font-sans text-[10px] rounded-xs font-semibold z-10">
+                {idx + 1} / {images.length}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
 

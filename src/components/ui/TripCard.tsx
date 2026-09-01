@@ -15,22 +15,18 @@ export function TripCard({ trip }: TripCardProps) {
       className="group flex flex-col h-full w-full max-w-full min-w-0 bg-white border border-[#e6ded1] rounded-sm overflow-hidden transition-all duration-300 hover:border-[#1c1917] hover:shadow-md font-sans"
     >
       {/* Editorial Cover Image */}
-      <div className={`relative ${
-        trip.heroImage.includes("himachal-new-year/Cover") ? "aspect-[3/4] sm:aspect-[16/10]" : "aspect-[16/10]"
-      } w-full overflow-hidden bg-[#faf7f2] shrink-0`}>
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#faf7f2] shrink-0">
         <div
           className={`absolute inset-0 bg-cover transition-transform duration-700 group-hover:scale-105 ${
             trip.heroImage.includes("himachal-new-year/Cover")
-              ? "bg-center md:bg-[position:center_78%]"
+              ? "bg-[position:center_78%]"
               : "bg-center"
           }`}
           style={{
             backgroundImage: `url('${trip.heroImage}')`,
           }}
         />
-        {!trip.heroImage.includes("himachal-new-year/Cover") && (
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917]/70 via-[#1c1917]/10 to-transparent" />
-        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917]/70 via-[#1c1917]/10 to-transparent" />
         
         {/* Batch Tag / Priority Badge */}
         {trip.tripType === "private" ? (
