@@ -42,5 +42,5 @@ next-env.d.ts
 
 # large raw video files (>100 MB not for git tracking)
 public/videos/raw/
-*.MP4
+public/videos/IMG_7278.MP4
 *.MOV

@@ -20,6 +20,10 @@ export function Hero() {
           poster="/images/branding/brand_group_mountains.jpg"
           className="absolute inset-0 w-full h-full object-cover brightness-[0.35] scale-105"
         >
+          {/* Mobile Portrait Video Source */}
+          <source src="/videos/hero_mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
+          {/* Desktop Landscape Video Source */}
+          <source src="/videos/hero_bg.mp4" media="(min-width: 769px)" type="video/mp4" />
           <source src="/videos/hero_bg.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917] via-[#1c1917]/55 to-transparent" />

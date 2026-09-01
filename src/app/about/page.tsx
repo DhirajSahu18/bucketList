@@ -203,9 +203,40 @@ export default function AboutPage() {
                     <p className="text-sm font-semibold text-[#8c4a2f] mt-0.5">
                       {founder.role}
                     </p>
-                    <p className="text-xs text-[#4e473e] font-medium">
-                      {founder.region}
-                    </p>
+
+                    {/* Structured Travel Experience Tags */}
+                    {founder.travelExperience && (
+                      <div className="pt-2 space-y-1.5 text-xs">
+                        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                          <span className="font-mono text-[10px] font-extrabold text-[#8c4a2f] uppercase tracking-wider">
+                            INDIA
+                          </span>
+                          <span className="text-[#4e473e] font-medium">
+                            {founder.travelExperience.india.join(" · ")}
+                          </span>
+                        </div>
+                        {founder.travelExperience.nepal && (
+                          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                            <span className="font-mono text-[10px] font-extrabold text-[#8c4a2f] uppercase tracking-wider">
+                              NEPAL
+                            </span>
+                            <span className="text-[#4e473e] font-medium">
+                              {founder.travelExperience.nepal.join(" · ")}
+                            </span>
+                          </div>
+                        )}
+                        {founder.travelExperience.international && (
+                          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                            <span className="font-mono text-[10px] font-extrabold text-[#8c4a2f] uppercase tracking-wider">
+                              INTERNATIONAL
+                            </span>
+                            <span className="text-[#4e473e] font-medium">
+                              {founder.travelExperience.international.join(" · ")}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#4e473e] leading-relaxed font-normal">

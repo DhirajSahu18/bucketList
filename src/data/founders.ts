@@ -6,11 +6,15 @@ export const founders: Founder[] = [
     name: "Aryan",
     role: "Co-Founder & Expedition Lead",
     photo: "/images/founders/aryan.jpg",
-    bio: "Aryan has spent years working on the road and leading trips across India. At Bucketlist, he focuses on mountain routes, convoy logistics, and making sure every expedition runs smoothly on ground.",
+    bio: "Aryan has spent years working on the road and leading trips across India and Nepal. At Bucketlist, he focuses on mountain routes, convoy logistics, and making sure every expedition runs smoothly on ground.",
     shortBio: "Hands-on expedition lead specializing in mountain routes, convoy logistics, and on-ground safety.",
     experience: "5 years",
     groupsLedCount: 45,
-    region: "Himachal, Uttarakhand, Goa, Gokarna, mountain circuits & international runs",
+    region: "India (Himachal, Uttarakhand, Kerala, Goa) · Nepal (Annapurna Circuit, Pokhara, Kathmandu Valley)",
+    travelExperience: {
+      india: ["Himachal Pradesh", "Uttarakhand", "Kerala", "Goa"],
+      nepal: ["Annapurna Circuit", "Pokhara", "Kathmandu Valley"],
+    },
     statement:
       "We've travelled these routes ourselves. We handle the planning on ground so you can focus on enjoying the trip.",
     socialLinks: {
@@ -26,7 +30,11 @@ export const founders: Founder[] = [
     shortBio: "Experience lead managing boutique stay partnerships, group dynamics, and journey details.",
     experience: "4 years",
     groupsLedCount: 38,
-    region: "Himachal, Goa, Gokarna & coastal runs",
+    region: "India (Himachal, Uttarakhand, Goa) · International (Bali, Hong Kong, Vietnam, Singapore, Malaysia)",
+    travelExperience: {
+      india: ["Himachal Pradesh", "Uttarakhand", "Goa"],
+      international: ["Bali", "Hong Kong", "Vietnam", "Singapore", "Malaysia"],
+    },
     statement:
       "I make sure our stays, local food spots, and group coordination are sorted before you arrive.",
     socialLinks: {

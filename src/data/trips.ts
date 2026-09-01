@@ -48,7 +48,7 @@ export const trips: Trip[] = [
     dates: { start: "2026-12-29", end: "2027-01-07" },
     duration: "10 Days / 9 Nights",
     durationDays: 10,
-    price: 14999,
+    price: 15499,
     bookingAmount: 5000,
     maxGroupSize: 70,
     seatsBooked: 52,
@@ -63,7 +63,7 @@ export const trips: Trip[] = [
     hardTruth: {
       headline: "Points to be noted before you book:",
       bullets: [
-        "Package Price: ₹14,999 / head. + AC Add-on Available.",
+        "Package Price: ₹15,499 / head. + AC Add-on Available.",
         "Transfer of booking from one traveler to another is strictly not allowed. The name shared at confirmation is final.",
         "Payment Schedule: ₹5,000 booking amount to confirm; 2nd installment of ₹5,000 within 15 days of booking; remaining balance cleared at least 25 days prior to departure.",
         "Valid Photo IDs: Aadhar Card, Driving License, Voter ID, Ration Card & Passport. PAN Card will NOT be accepted.",
@@ -209,8 +209,8 @@ export const trips: Trip[] = [
     ],
     faqs: [
       {
-        question: "Is AC transport included in ₹14,999?",
-        answer: "The base package price is ₹14,999 / head (non-AC base). AC bus transport is available as an additional add-on charge.",
+        question: "Is AC transport included in ₹15,499?",
+        answer: "The base package price is ₹15,499 / head (non-AC base). AC bus transport is available as an additional add-on charge.",
       },
       {
         question: "What is the IRCTC train booking policy?",

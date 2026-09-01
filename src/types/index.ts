@@ -18,6 +18,11 @@ export interface Founder {
   experience: string;
   groupsLedCount: number;
   region: string;
+  travelExperience?: {
+    india: string[];
+    nepal?: string[];
+    international?: string[];
+  };
   statement: string;
   socialLinks: {
     instagram?: string;
