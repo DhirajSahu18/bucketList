@@ -56,4 +56,15 @@ export const privateTripExamples: PrivateTripExample[] = [
       "A private Kerala journey — Fort Kochi heritage walks, Munnar tea plantation stays, Jatayu Earth Center, and floating on an authentic private deluxe houseboat in Alleppey.",
     image: "/images/kerala/Cover.jpg",
   },
+  {
+    id: "pvt-6",
+    destination: "Kashmir",
+    title: "Kashmir & Dal Lake Private Expedition",
+    duration: "5–7 days",
+    idealGroup: "Couples / 6–15 people",
+    indicativePrice: "From ₹15,999 / person",
+    description:
+      "A custom private Kashmir winter getaway — traditional houseboat stay on Dal Lake, Shikara rides, Gulmarg snow meadows & Gondola, and scenic Pahalgam valley.",
+    image: "/images/kashmir/Cover.jpg",
+  },
 ];

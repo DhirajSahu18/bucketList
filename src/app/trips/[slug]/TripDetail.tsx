@@ -167,7 +167,7 @@ export function TripDetail({ trip }: TripDetailProps) {
               <span className="text-[#8c4a2f] block uppercase text-[10px] font-extrabold mb-1">WHEN</span>
               {trip.tripType === "private" ? (
                 <span className="font-extrabold">Custom Dates</span>
-              ) : trip.departureDates && trip.departureDates.length > 1 ? (
+              ) : trip.departureDates && trip.departureDates.length > 0 ? (
                 <div className="space-y-1.5">
                   {trip.departureDates.map((b, i) => (
                     <div key={i} className="leading-tight">

@@ -68,6 +68,9 @@ export function GallerySystem({ images, metadata, tripName }: GallerySystemProps
     if (src.includes("goa/goa2")) {
       return "object-cover object-[center_78%]";
     }
+    if (src.includes("kashmir/Cover")) {
+      return "object-cover object-[center_42%]";
+    }
     return "object-cover object-center";
   };
 

@@ -8,11 +8,16 @@ interface TripCardProps {
 
 export function TripCard({ trip }: TripCardProps) {
   const status = getTripStatus(trip);
+  const isValentine = trip.batchTag?.includes("Valentine") || trip.id === "trip-kashmir-valentines";
 
   return (
     <NextLink
       href={`/trips/${trip.slug}`}
-      className="group flex flex-col h-full w-full max-w-full min-w-0 bg-white border border-[#e6ded1] rounded-sm overflow-hidden transition-all duration-300 hover:border-[#1c1917] hover:shadow-md font-sans"
+      className={`group flex flex-col h-full w-full max-w-full min-w-0 bg-white rounded-sm overflow-hidden transition-all duration-300 font-sans ${
+        isValentine
+          ? "border-2 border-[#1c1917] hover:border-[#8c4a2f] shadow-sm hover:shadow-lg relative"
+          : "border border-[#e6ded1] hover:border-[#1c1917] hover:shadow-md"
+      }`}
     >
       {/* Editorial Cover Image */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#faf7f2] shrink-0">
@@ -33,6 +38,13 @@ export function TripCard({ trip }: TripCardProps) {
               }}
             />
           </>
+        ) : trip.heroImage.includes("kashmir") ? (
+          <div
+            className="absolute inset-0 bg-cover bg-[position:center_42%] transition-transform duration-700 group-hover:scale-105"
+            style={{
+              backgroundImage: `url('${trip.heroImage}')`,
+            }}
+          />
         ) : (
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -49,7 +61,7 @@ export function TripCard({ trip }: TripCardProps) {
             PRIVATE TRIP
           </div>
         ) : trip.batchTag ? (
-          <div className="absolute top-3 right-3 px-2.5 py-1 bg-[#FACC15] text-[#1c1917] text-[11px] font-extrabold tracking-tight rounded-xs shadow-md">
+          <div className={`absolute top-3 right-3 px-2.5 py-1 bg-[#FACC15] text-[#1c1917] text-[11px] font-extrabold tracking-tight rounded-xs shadow-md ${isValentine ? "border border-[#1c1917]/20" : ""}`}>
             ⚡ {trip.batchTag}
           </div>
         ) : status === "sold-out" ? (
@@ -82,7 +94,7 @@ export function TripCard({ trip }: TripCardProps) {
             <p className="text-xs text-[#8c4a2f] font-extrabold">
               ✨ Custom Dates for Your Group
             </p>
-          ) : trip.departureDates && trip.departureDates.length > 1 ? (
+          ) : trip.departureDates && trip.departureDates.length > 0 ? (
             <div className="space-y-1 text-xs text-[#4e473e]">
               {trip.departureDates.map((b, i) => (
                 <p key={i} className="font-semibold flex items-center gap-1.5">
@@ -147,7 +159,11 @@ export function TripCard({ trip }: TripCardProps) {
             )}
           </div>
 
-          <span className="inline-flex items-center px-3 py-1.5 bg-[#1c1917] text-[#FAF7F2] text-xs font-extrabold rounded-xs group-hover:bg-[#8c4a2f] transition-colors shrink-0">
+          <span className={`inline-flex items-center px-3 py-1.5 text-xs font-extrabold rounded-xs transition-colors shrink-0 ${
+            isValentine
+              ? "bg-[#1c1917] text-[#FACC15] group-hover:bg-[#8c4a2f] group-hover:text-white"
+              : "bg-[#1c1917] text-[#FAF7F2] group-hover:bg-[#8c4a2f]"
+          }`}>
             {trip.tripType === "private" ? "Plan This Trip" : status === "sold-out" ? "Join Waitlist" : "Explore trip"}
           </span>
         </div>

@@ -350,4 +350,94 @@ Light breathable cotton wear, sunglasses, sun hat, comfortable walking shoes, li
       },
     ],
   },
+  {
+    id: "dest-kashmir",
+    name: "Kashmir & Srinagar Circuit",
+    slug: "kashmir",
+    heroImage: "/images/kashmir/kashmir-dal-lake.jpg",
+    description:
+      "The ultimate paradise on earth — from Srinagar's historic Mughal gardens, Shankaracharya Temple, and Dal Lake shikara rides to Sonmarg's Thajiwas glacier, Gulmarg's snow meadows & Gondola ride, and Pahalgam's scenic Aru & Betaab valleys.",
+    emotionalHook:
+      "Floating on Dal Lake in a wooden shikara, fresh snowfall across Gulmarg pine forests, and dramatic mountain river valleys in Pahalgam.",
+    bestTime: "Year-Round (Feb Snow & Spring/Summer Bloom)",
+    duration: "6 days",
+    difficulty: "Easy",
+    idealFor: ["Couples & Valentine escapes", "Friends groups", "Solo travellers", "Snow lovers"],
+    startingPoint: "Jammu (Railway Station / Airport)",
+    guideContent: `## When to Visit Month by Month
+
+December to February: Peak winter wonderland! Snowfall blanket across Gulmarg, frozen Thajiwas glacier trails in Sonmarg, cozy traditional houseboat stays, and Valentine's week mountain escapes.
+
+March to May: Spring blooming season! Vibrant colors across Mughal Gardens (Nishat & Shalimar Bagh), Chashme Shahi springs, and pleasant valley weather.
+
+June to November: Lush green mountain meadows, clear Sindh River views in Sonmarg, and pleasant climate across Pahalgam's Aru & Betaab valleys.
+
+## What to Pack
+
+Heavy winter jackets, thermal innerwear (2-3 sets), fleece hoodies, waterproof snow gloves, woollen beanie/caps, snow boots or sturdy shoes with good grip, sunglasses for snow glare, and cold cream/lip balm.
+
+## Essential Kashmir Travel Tips
+
+1. Dress in layers: Temperatures drop significantly after sunset, especially on houseboats and in Gulmarg.
+2. Gondola Booking: Book Gulmarg Gondola Phase 1 & 2 tickets well in advance online as slots fill up quickly during peak season.
+3. Carry valid Govt Photo ID: Aadhar Card, Driving License, Voter ID, or Passport required for hotel and houseboat check-in. PAN cards are not accepted.`,
+    faqs: [
+      {
+        question: "Is Kashmir suitable for solo travellers and couples?",
+        answer:
+          "Yes! Our Kashmir trips offer a safe, warm, and highly curated community experience with 3-star deluxe hotels, a traditional houseboat stay on Dal Lake, and full on-ground trip coordination from Jammu pickup to drop.",
+      },
+      {
+        question: "What is included in the Kashmir tour package?",
+        answer:
+          "5 nights accommodation in 3-star deluxe hotels and a traditional houseboat, daily breakfast and dinner (MAP plan), dedicated Tempo Traveller transport, Jammu station/airport pickup and drop, and a 1-hour Shikara ride on Dal Lake.",
+      },
+    ],
+    images: [
+      "/images/kashmir/Cover.jpg",
+      "/images/kashmir/kashmir-dal-lake.jpg",
+      "/images/kashmir/kashmir-group-snow.jpg",
+      "/images/kashmir/kashmir-gulmarg-gondola.jpg",
+      "/images/kashmir/kashmir-betaab-valley.jpg",
+      "/images/kashmir/kashmir-sonamarg.jpg",
+    ],
+    galleryMeta: [
+      {
+        src: "/images/kashmir/Cover.jpg",
+        type: "brand",
+        source: "Bucketlist Official Kashmir Valentine Poster",
+        alt: "Valentine's Week Kashmir trip poster with Shikara on Dal Lake",
+      },
+      {
+        src: "/images/kashmir/kashmir-dal-lake.jpg",
+        type: "brand",
+        source: "Bucketlist Official Kashmir Itinerary",
+        alt: "Shikara boats floating on Dal Lake with snow-capped mountains",
+      },
+      {
+        src: "/images/kashmir/kashmir-group-snow.jpg",
+        type: "brand",
+        source: "Bucketlist Official Kashmir Trip Photo",
+        alt: "Bucketlist traveller group posing joyfully in snow-covered valley",
+      },
+      {
+        src: "/images/kashmir/kashmir-gulmarg-gondola.jpg",
+        type: "brand",
+        source: "Bucketlist Official Kashmir Itinerary",
+        alt: "Gulmarg Gondola cable car gliding over snow-covered pine forests",
+      },
+      {
+        src: "/images/kashmir/kashmir-betaab-valley.jpg",
+        type: "brand",
+        source: "Bucketlist Official Kashmir Itinerary",
+        alt: "Betaab and Aru Valley lush meadows and majestic peaks",
+      },
+      {
+        src: "/images/kashmir/kashmir-sonamarg.jpg",
+        type: "brand",
+        source: "Bucketlist Official Kashmir Itinerary",
+        alt: "Sonamarg Meadow of Gold snow bridge and valley",
+      },
+    ],
+  },
 ];

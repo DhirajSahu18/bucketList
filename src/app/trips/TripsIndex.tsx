@@ -197,6 +197,7 @@ export function TripsIndex() {
                             <span className="text-xl font-extrabold text-[#1c1917] font-mono">
                               {formatPrice(featuredTrip.price)}
                             </span>
+                            <span className="text-xs text-[#4e473e] font-medium"> / head</span>
                           </div>
                         )}
                         {featuredTrip.priceNote && (

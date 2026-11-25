@@ -7,9 +7,9 @@ import { EditorialMarker } from "@/components/ui/EditorialMarker";
 import { trips } from "@/data/trips";
 
 export const metadata: Metadata = {
-  title: "Destinations — Himachal, Goa, Gokarna, Kerala & Rajasthan | Bucketlist",
+  title: "Destinations — Himachal, Kashmir, Goa, Gokarna, Kerala & Rajasthan | Bucketlist",
   description:
-    "Explore our community travel destinations across India — Himachal, Goa, Gokarna, Kerala, and Rajasthan. Well-planned trips with zero on-ground hassle.",
+    "Explore our community travel destinations across India — Himachal, Kashmir, Goa, Gokarna, Kerala, and Rajasthan. Well-planned trips with zero on-ground hassle.",
 };
 
 export default function DestinationsPage() {
